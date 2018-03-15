@@ -1,0 +1,9 @@
+
+
+page-projects {
+  @include linear-gradient($background-md-color, 10%);
+  ion-card-header {
+    background-color: #fff;
+    height: 100%;
+  }
+}

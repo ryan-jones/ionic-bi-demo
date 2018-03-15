@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button menuToggle ion-button icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Projects</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="md-share"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header no-padding>
+      <ion-list no-lines>
+        <ion-item>
+          <h2>Projects Breakdown</h2>
+          <p>Swipe for more charts</p>
+          <ion-icon name="star-outline" item-end></ion-icon>
+        </ion-item>
+      </ion-list>
+    </ion-card-header>
+    <ion-card-content padding>
+      <ion-slides pager>
+        <ion-slide>
+          <chart *ngIf="echartsData" [data]="echartsData" height="'150px'"></chart>
+        </ion-slide>
+        <ion-slide>
+          <chart *ngIf="echarts2Data" [data]="echarts2Data" height="'150px'"></chart>
+        </ion-slide>
+      </ion-slides>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
