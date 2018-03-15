@@ -12,8 +12,7 @@ export class ProjectsPage implements OnInit {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
-  ionViewDidLoad() {
-  }
+  ionViewDidLoad() {}
 
   ngOnInit() {
     // this.echartsData = {
@@ -43,119 +42,68 @@ export class ProjectsPage implements OnInit {
     //   }
     // };
     this.echartsData = {
-      angleAxis: {},
-      radiusAxis: {
-        type: 'category',
-        data: ['Jan', 'Feb', 'Mar', 'Apr'],
-        z: 10
+      title: {
+        text: 'Active Projects by Location',
+        x: 'center',
+        top: 10,
+        padding: 0
       },
-      polar: {},
+      tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b} : {c} ({d}%)'
+      },
       series: [
         {
-          type: 'bar',
-          data: [1, 2, 3, 4],
-          coordinateSystem: 'polar',
-          name: 'Crude',
-          stack: 'a'
-        },
-        {
-          type: 'bar',
-          data: [2, 4, 6, 8],
-          coordinateSystem: 'polar',
-          name: 'LNG',
-          stack: 'a'
-        },
-        {
-          type: 'bar',
-          data: [1, 2, 3, 4],
-          coordinateSystem: 'polar',
-          name: 'Petroleum',
-          stack: 'a'
+          name: 'Projects',
+          type: 'pie',
+          radius: '55%',
+          center: ['50%', '60%'],
+          data: [
+            { value: 2, name: `Asab 2` },
+            { value: 4, name: 'Ruwais 4' },
+            { value: 5, name: 'Poelines 5' },
+            { value: 3, name: 'Hasab 3' },
+            { value: 1, name: 'Yassir 1' }
+          ],
+          itemStyle: {
+            emphasis: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          }
         }
-      ],
-      legend: {
-        show: true,
-        data: ['A', 'B', 'C']
-      }
+      ]
     };
 
     this.echarts2Data = {
+      title: {
+        text: 'Active Projects by Project Type',
+        x: 'center',
+        top: 10
+      },
       tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-          type: 'cross',
-          label: {
-            backgroundColor: '#6a7985'
-          }
-        }
+        trigger: 'item',
+        formatter: '{a} <br/>{b} : {c} ({d}%)'
       },
-      legend: {
-        data: ['Petroleum', 'LNG', '视频广告', 'Plastics', 'Refined']
-      },
-      toolbox: {
-        feature: {
-          saveAsImage: {}
-        }
-      },
-      grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        containLabel: true
-      },
-      xAxis: [
-        {
-          type: 'category',
-          boundaryGap: false,
-          data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']
-        }
-      ],
-      yAxis: [
-        {
-          type: 'value'
-        }
-      ],
       series: [
         {
-          name: 'Petroleum',
-          type: 'line',
-          stack: '总量',
-          areaStyle: { normal: {} },
-          data: [120, 132, 101, 134, 90, 230, 210]
-        },
-        {
-          name: 'LNG',
-          type: 'line',
-          stack: '总量',
-          areaStyle: { normal: {} },
-          data: [220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-          name: 'Crude',
-          type: 'line',
-          stack: '总量',
-          areaStyle: { normal: {} },
-          data: [150, 232, 201, 154, 190, 330, 410]
-        },
-        {
-          name: 'Plastics',
-          type: 'line',
-          stack: '总量',
-          areaStyle: { normal: {} },
-          data: [320, 332, 301, 334, 390, 330, 320]
-        },
-        {
-          name: 'Refined',
-          type: 'line',
-          stack: '总量',
-          label: {
-            normal: {
-              show: true,
-              position: 'top'
+          name: 'Projects',
+          type: 'pie',
+          radius: '55%',
+          center: ['50%', '60%'],
+          data: [
+            { value: 6, name: 'Pipeline 6' },
+            { value: 3, name: 'Exploration 3' },
+            { value: 1, name: 'Other' }
+          ],
+          itemStyle: {
+            emphasis: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
             }
-          },
-          areaStyle: { normal: {} },
-          data: [820, 932, 901, 934, 1290, 1330, 1320]
+          }
         }
       ]
     };
