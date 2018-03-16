@@ -9,4 +9,6 @@ export interface CardList {
   title: string;
   reportDate: string;
   kpis: CardKpi[];
+  image?: string;
+  managerImg?: string;
 }

@@ -10,7 +10,7 @@ export class DrilldownPage {
   project: any;
 
   constructor(public navParams: NavParams, private viewCtrl: ViewController) {
-    this.project= this.navParams.data;
+    this.project = this.navParams.data;
   }
 
   onDismiss() {

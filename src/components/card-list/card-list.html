@@ -1,6 +1,10 @@
 <ion-card-header no-padding>
+  <img *ngIf="card.image" [src]="card.image"/>
   <ion-list no-lines>
     <ion-item>
+      <ion-avatar *ngIf="card.managerImg" item-start>
+        <img [src]="card.managerImg">
+      </ion-avatar>
       <h2>{{ card.title }}</h2>
       <p>Last reported: {{ card.reportDate }}</p>
       <ion-icon name="star-outline" item-end></ion-icon>

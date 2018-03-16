@@ -1,13 +1,13 @@
-<ion-header (swipe)="onDimiss()" (tap)="onDismiss()">
-  <ion-navbar>
-    <ion-title>{{ project.name }}</ion-title>
-  </ion-navbar>
-</ion-header>
-<ion-content padding (swipe)="onDimiss()" (tap)="onDismiss()">
-  <ion-card>
-    <card-list *ngIf="project" [card]="project.summary"></card-list>
-  </ion-card>
-  <ion-card>
-    <card-list *ngIf="project" [card]="project.hse"></card-list>
-  </ion-card>
-</ion-content>
+  <ion-header (swipe)="onDismiss()" (tap)="onDismiss()">
+    <ion-navbar>
+      <ion-title>{{ project.name }}</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content (swipe)="onDismiss()" (tap)="onDismiss()">
+    <ion-card>
+      <card-list *ngIf="project" [card]="project.summary"></card-list>
+    </ion-card>
+    <ion-card>
+      <card-list *ngIf="project" [card]="project.hse"></card-list>
+    </ion-card>
+  </ion-content>

@@ -1,5 +1,3 @@
-
-
 export const echartsData = {
   title: {
     text: 'Active Projects by Location',
@@ -34,7 +32,6 @@ export const echartsData = {
     }
   ]
 };
-
 
 export const echartsData2 = {
   title: {
@@ -91,7 +88,7 @@ export const PROJECTSSUMMARY = {
       breakdown: '305.73m/482.74'
     }
   ]
-}
+};
 
 export const PROJECTSHSE = {
   title: 'Major Projects HSE',
@@ -120,61 +117,66 @@ export const PROJECTSHSE = {
       measurables: 'Accumulated by All Active Projects',
       value: '0',
       breakdown: ''
-    },
+    }
   ]
-}
+};
+
+export const setImages = (plant: string) => ({
+  image: `../../assets/imgs/projects/${plant}/${plant}-refinery.jpg`,
+  managerImg: `../../assets/imgs/projects/${plant}/${plant}.jpg`
+});
 
 export const CURRENTPROJECTS = [
   {
     name: 'Ruwais 4',
-    summary: PROJECTSSUMMARY,
+    summary: setImages('ruwais'),
     hse: PROJECTSHSE
   },
   {
     name: 'Poelines 5',
-    summary: PROJECTSSUMMARY,
+    summary: setImages('poeline'),
     hse: PROJECTSHSE
   },
   {
     name: 'Hasab 3',
-    summary: PROJECTSSUMMARY,
+    summary: setImages('hasab'),
     hse: PROJECTSHSE
   },
   {
     name: 'Yassir 1',
-    summary: PROJECTSSUMMARY,
+    summary: setImages('yassir'),
     hse: PROJECTSHSE
   },
   {
     name: 'Asab 2',
-    summary: PROJECTSSUMMARY,
+    summary: setImages('asab'),
     hse: PROJECTSHSE
-  },
+  }
 ];
 
 export const ECHARTSGLOPTS = {
-    backgroundColor: '#000',
-    globe: {
-      baseTexture: '../../assets/imgs/world.topo.bathy.200401.jpg',
-      heightTexture: '../../assets/imgs/world.topo.bathy.200401.jpg',
-      displacementScale: 0.04,
-      shading: 'realistic',
-      environment: '../../assets/imgs/starfield.jpg',
-      realisticMaterial: {
-        roughness: 0.9
+  backgroundColor: '#000',
+  globe: {
+    baseTexture: '../../assets/imgs/world.topo.bathy.200401.jpg',
+    heightTexture: '../../assets/imgs/world.topo.bathy.200401.jpg',
+    displacementScale: 0.04,
+    shading: 'realistic',
+    environment: '../../assets/imgs/starfield.jpg',
+    realisticMaterial: {
+      roughness: 0.9
+    },
+    postEffect: {
+      enable: true
+    },
+    light: {
+      main: {
+        intensity: 5,
+        shadow: true
       },
-      postEffect: {
-        enable: true
-      },
-      light: {
-        main: {
-          intensity: 5,
-          shadow: true
-        },
-        ambientCubemap: {
-          texture: '../../assets/pisa.hdr',
-          diffuseIntensity: 0.2
-        }
+      ambientCubemap: {
+        texture: '../../assets/pisa.hdr',
+        diffuseIntensity: 0.2
       }
     }
-  };
+  }
+};
