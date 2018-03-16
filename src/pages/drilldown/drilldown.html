@@ -4,10 +4,10 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding (swipe)="onDimiss()" (tap)="onDismiss()">
-    <ion-card>
-      <card-list *ngIf="project" [card]="project.summary"></card-list>
-    </ion-card>
-    <ion-card>
-      <card-list *ngIf="project" [card]="project.hse"></card-list>
-    </ion-card>
+  <ion-card>
+    <card-list *ngIf="project" [card]="project.summary"></card-list>
+  </ion-card>
+  <ion-card>
+    <card-list *ngIf="project" [card]="project.hse"></card-list>
+  </ion-card>
 </ion-content>
