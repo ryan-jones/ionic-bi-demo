@@ -129,27 +129,27 @@ export const setImages = (plant: string) => ({
 export const CURRENTPROJECTS = [
   {
     name: 'Ruwais 4',
-    summary: setImages('ruwais'),
+    summary: Object.assign({...PROJECTSSUMMARY}, setImages('ruwais')),
     hse: PROJECTSHSE
   },
   {
     name: 'Poelines 5',
-    summary: setImages('poeline'),
+    summary: Object.assign({...PROJECTSSUMMARY}, setImages('poeline')),
     hse: PROJECTSHSE
   },
   {
     name: 'Hasab 3',
-    summary: setImages('hasab'),
+    summary: Object.assign({...PROJECTSSUMMARY}, setImages('hasab')),
     hse: PROJECTSHSE
   },
   {
     name: 'Yassir 1',
-    summary: setImages('yassir'),
+    summary: Object.assign({...PROJECTSSUMMARY}, setImages('yassir')),
     hse: PROJECTSHSE
   },
   {
     name: 'Asab 2',
-    summary: setImages('asab'),
+    summary: Object.assign({...PROJECTSSUMMARY}, setImages('asab')),
     hse: PROJECTSHSE
   }
 ];
