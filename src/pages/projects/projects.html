@@ -18,7 +18,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <ion-card>
     <ion-card-header no-padding>
       <ion-list no-lines>
@@ -32,12 +32,18 @@
     <ion-card-content>
       <ion-slides pager>
         <ion-slide>
-          <chart *ngIf="echartsData" [data]="echartsData" height="'150px'"></chart>
+          <chart *ngIf="echartsData" (chartClickEmit)="activateDrilldown($event)" [data]="echartsData" height="'150px'"></chart>
         </ion-slide>
         <ion-slide>
           <chart *ngIf="echarts2Data" [data]="echarts2Data" height="'150px'"></chart>
         </ion-slide>
       </ion-slides>
     </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <card-list *ngIf="projectsSummary" [card]="projectsSummary"></card-list>
+  </ion-card>
+  <ion-card>
+    <card-list *ngIf="projectsHse" [card]="projectsHse"></card-list>
   </ion-card>
 </ion-content>
