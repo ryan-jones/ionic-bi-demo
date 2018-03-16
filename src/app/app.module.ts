@@ -17,6 +17,7 @@ import { PmcPage } from '../pages/pmc/pmc';
 import { FinancePage } from '../pages/finance/finance';
 import { ProjectsPage } from '../pages/projects/projects';
 import { ComponentsModule } from '../components/components.module';
+import { DrilldownPage } from '../pages/drilldown/drilldown';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ComponentsModule } from '../components/components.module';
     ProjectsPage,
     FinancePage,
     TabsPage,
+    DrilldownPage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ import { ComponentsModule } from '../components/components.module';
     ProjectsPage,
     FinancePage,
     PmcPage,
-    TabsPage
+    TabsPage,
+    DrilldownPage
   ],
   providers: [
     StatusBar,
