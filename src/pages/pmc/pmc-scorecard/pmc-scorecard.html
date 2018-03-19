@@ -7,7 +7,7 @@
 </ion-header>
 
 
-<ion-content (swipe)="onDismiss()" (tap)="onDismiss()">
+<ion-content (swipe)="onDismiss()">
   <ion-card>
     <ion-card-header>
       <scorecard-header [kpiHeaders]="scorecard.headers"></scorecard-header>
@@ -16,17 +16,17 @@
       <chart [data]="scorecard.chartData" height="'120px'"></chart>
     </ion-card-content>
   </ion-card>
-  <ion-card>
+  <ion-card *ngIf="scorecard.tableData">
     <ion-card-header>
-      <h3>Safety Breakdown Details</h3>
+      {{ scorecard.name }} Breakdown Details
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content text-center no-padding>
       <table>
-        <tr>
-          <th>Element</th>
-          <th>YTD A...</th>
-          <th>YTD Ta...</th>
-          <th>Annual...</th>
+        <tr class="headers">
+          <th *ngFor="let header of scorecardHeaders">{{ header }}</th>
+        </tr>
+        <tr *ngFor="let element of scorecard.tableData" class="element">
+          <td *ngFor="let header of scorecardHeaders">{{ element[header] }}</td>
         </tr>
       </table>
     </ion-card-content>

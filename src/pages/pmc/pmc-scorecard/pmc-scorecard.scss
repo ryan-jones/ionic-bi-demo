@@ -1,3 +1,18 @@
 page-pmc-scorecard {
+  td,
+  th {
+    padding: 5px;
+    border: 1px solid #ccc;
+  }
+  table {
+    background-color: #fff;
+    width: 100%;
+  }
 
+  .element {
+    border-bottom: 1px solid #ccc;
+    th {
+      border-left: 10px solid green;
+    }
+  }
 }
