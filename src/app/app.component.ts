@@ -15,7 +15,7 @@ import { ProjectsPage } from '../pages/projects/projects';
 })
 export class MyApp {
   @ViewChild('nav') navEl: NavController;
-  private rootPage:any = TabsPage;
+  private rootPage: any = TabsPage;
   private productionPage = ProductionPage;
   private pmcPage = PmcPage;
   private organizationPage = OrganizationPage;

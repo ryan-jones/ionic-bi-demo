@@ -9,4 +9,14 @@ card-list {
   .card-content-ios {
     padding: 0;
   }
+
+  .inline {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .padding {
+    padding-left: 0.5rem;
+  }
 }

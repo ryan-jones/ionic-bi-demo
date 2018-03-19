@@ -42,7 +42,9 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #ccc
+  dark:       #ccc,
+  green: green,
+  red: red
 );
 $app-background: linear-gradient(0deg, color($colors, light) 0%, color($colors, light) 100%);
 $card-ios-background-color: linear-gradient(135deg, color($colors, light) 0%, color($colors, dark) 50%);

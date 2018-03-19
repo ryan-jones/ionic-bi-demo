@@ -22,7 +22,7 @@ export class ProjectsPage implements OnInit {
   ionViewDidLoad() {}
 
   ngOnInit() {
-    this.echartsData = echartsData
+    this.echartsData = echartsData;
     this.echarts2Data = echartsData2;
     this.setProjects();
   }
@@ -33,9 +33,8 @@ export class ProjectsPage implements OnInit {
     this.currentProjects = CURRENTPROJECTS;
   }
 
-  activateDrilldown(event: any) {
-    this.loadProjectByName(event.data.name);
-    console.log('selectedProject', this.selectedProject);
+  activateDrilldown({ data }) {
+    this.loadProjectByName(data.name);
     const modal = this.modalCtrl.create(DrilldownPage, this.selectedProject);
     modal.present();
   }
