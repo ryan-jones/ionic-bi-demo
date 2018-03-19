@@ -122,8 +122,8 @@ export const PROJECTSHSE = {
 };
 
 export const setImages = (plant: string) => ({
-  image: `../../assets/imgs/projects/${plant}/${plant}-refinery.jpg`,
-  managerImg: `../../assets/imgs/projects/${plant}/${plant}.jpg`
+  image: `assets/imgs/projects/${plant}/${plant}-refinery.jpg`,
+  managerImg: `assets/imgs/projects/${plant}/${plant}.jpg`
 });
 
 export const CURRENTPROJECTS = [
@@ -157,11 +157,11 @@ export const CURRENTPROJECTS = [
 export const ECHARTSGLOPTS = {
   backgroundColor: '#000',
   globe: {
-    baseTexture: '../../assets/imgs/world.topo.bathy.200401.jpg',
-    heightTexture: '../../assets/imgs/world.topo.bathy.200401.jpg',
+    baseTexture: 'assets/imgs/world.topo.bathy.200401.jpg',
+    heightTexture: 'assets/imgs/world.topo.bathy.200401.jpg',
     displacementScale: 0.04,
     shading: 'realistic',
-    environment: '../../assets/imgs/starfield.jpg',
+    environment: 'assets/imgs/starfield.jpg',
     realisticMaterial: {
       roughness: 0.9
     },
@@ -174,7 +174,7 @@ export const ECHARTSGLOPTS = {
         shadow: true
       },
       ambientCubemap: {
-        texture: '../../assets/pisa.hdr',
+        texture: 'assets/pisa.hdr',
         diffuseIntensity: 0.2
       }
     }

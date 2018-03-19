@@ -127,7 +127,7 @@ export const TRENDSDRILLDOWN: PMCTrendDrilldown[] = [
         comments:
           'Downturn in demand due to shipping postponements over Chinese New Year',
         commentor: 'Muhammad Ali',
-        commentorImage: '../../assets/imgs/projects/asab/asab.jpg'
+        commentorImage: 'assets/imgs/projects/asab/asab.jpg'
       },
       {
         date: 'Feb',
@@ -135,21 +135,21 @@ export const TRENDSDRILLDOWN: PMCTrendDrilldown[] = [
         comments:
           'Increasing demand due to winter spell in Europe offset losses in SE Asia',
         commentor: 'Muhammad Ali',
-        commentorImage: '../../assets/imgs/projects/asab/asab.jpg'
+        commentorImage: 'assets/imgs/projects/asab/asab.jpg'
       },
       {
         date: 'Mar',
         value: 101,
         comments: 'Fire in Ruwais shut down production for seven days',
         commentor: 'Muhammad Ali',
-        commentorImage: '../../assets/imgs/projects/asab/asab.jpg'
+        commentorImage: 'assets/imgs/projects/asab/asab.jpg'
       },
       {
         date: 'Apr',
         value: 134,
         comments: 'Ruwais back to operating capacity',
         commentor: 'Muhammad Ali',
-        commentorImage: '../../assets/imgs/projects/asab/asab.jpg'
+        commentorImage: 'assets/imgs/projects/asab/asab.jpg'
       },
       {
         date: 'May',
@@ -157,7 +157,7 @@ export const TRENDSDRILLDOWN: PMCTrendDrilldown[] = [
         comments:
           'US announces further investment in fracking projects in North Dakota',
         commentor: 'Yassir Nasra',
-        commentorImage: '../../assets/imgs/projects/yassir/yassir.jpg'
+        commentorImage: 'assets/imgs/projects/yassir/yassir.jpg'
       },
       {
         date: 'Jun',
@@ -165,14 +165,14 @@ export const TRENDSDRILLDOWN: PMCTrendDrilldown[] = [
         comments:
           'Sanctions announced against Russian Federation. Japanese demand increased',
         commentor: 'Muhammad Ali',
-        commentorImage: '../../assets/imgs/projects/asab/asab.jpg'
+        commentorImage: 'assets/imgs/projects/asab/asab.jpg'
       },
       {
         date: 'Jul',
         value: 210,
         comments: 'Sustained output. Hasah partially closed for maintenance',
         commentor: 'Muhammad Ali',
-        commentorImage: '../../assets/imgs/projects/asab/asab.jpg'
+        commentorImage: 'assets/imgs/projects/asab/asab.jpg'
       }
     ]
   }
