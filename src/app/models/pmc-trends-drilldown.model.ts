@@ -8,5 +8,5 @@ export interface DrilldownData {
 
 export interface PMCTrendDrilldown  {
   name: string;
-  data: DrilldownData[]
+  data: DrilldownData[];
 }

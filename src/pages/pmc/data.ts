@@ -1,6 +1,10 @@
-import { CardList } from "../../app/models/card-list.model";
-import { PMCTrendDrilldown } from "../../app/models/pmc-trends-drilldown.model";
-import { SAFETYBARCHARTDATA, PROFITABILITYBARCHARTDATA, GASSCOREPIECHARTDATA } from "./chart-data";
+import { CardList } from '../../app/models/card-list.model';
+import { PMCTrendDrilldown } from '../../app/models/pmc-trends-drilldown.model';
+import {
+  SAFETYBARCHARTDATA,
+  PROFITABILITYBARCHARTDATA,
+  GASSCOREPIECHARTDATA
+} from './chart-data';
 
 export const ABCGASTRENDS = {
   title: {
@@ -120,14 +124,16 @@ export const TRENDSDRILLDOWN: PMCTrendDrilldown[] = [
       {
         date: 'Jan',
         value: 120,
-        comments: 'Downturn in demand due to shipping postponements over Chinese New Year',
+        comments:
+          'Downturn in demand due to shipping postponements over Chinese New Year',
         commentor: 'Muhammad Ali',
         commentorImage: '../../assets/imgs/projects/asab/asab.jpg'
       },
       {
         date: 'Feb',
         value: 132,
-        comments: 'Increasing demand due to winter spell in Europe offset losses in SE Asia',
+        comments:
+          'Increasing demand due to winter spell in Europe offset losses in SE Asia',
         commentor: 'Muhammad Ali',
         commentorImage: '../../assets/imgs/projects/asab/asab.jpg'
       },
@@ -148,14 +154,16 @@ export const TRENDSDRILLDOWN: PMCTrendDrilldown[] = [
       {
         date: 'May',
         value: 90,
-        comments: 'US announces further investment in fracking projects in North Dakota',
+        comments:
+          'US announces further investment in fracking projects in North Dakota',
         commentor: 'Yassir Nasra',
         commentorImage: '../../assets/imgs/projects/yassir/yassir.jpg'
       },
       {
         date: 'Jun',
         value: 230,
-        comments: 'Sanctions announced against Russian Federation. Japanese demand increased',
+        comments:
+          'Sanctions announced against Russian Federation. Japanese demand increased',
         commentor: 'Muhammad Ali',
         commentorImage: '../../assets/imgs/projects/asab/asab.jpg'
       },
@@ -217,7 +225,7 @@ export const PMCSCORECARDS = {
         color: 'red',
         direction: 'down'
       }
-    },
+    }
   ]
 };
 
@@ -243,28 +251,28 @@ export const PMCSCORECARDDRILLDOWNDATA = [
     ],
     tableData: [
       {
-        'Element': 'LTIF',
+        Element: 'LTIF',
         'YTD Avg': 0.5,
         'MTD Total': 3,
-        'Annual': 4
+        Annual: 4
       },
       {
-        'Element': 'TRIR',
+        Element: 'TRIR',
         'YTD Avg': 1.9,
         'MTD Total': 1,
-        'Annual': 1
+        Annual: 1
       },
       {
-        'Element': 'Fatalities',
+        Element: 'Fatalities',
         'YTD Avg': 0.2,
         'MTD Total': 0,
-        'Annual': 0
+        Annual: 0
       },
       {
-        'Element': 'LOPC',
+        Element: 'LOPC',
         'YTD Avg': 0.5,
         'MTD Total': 3,
-        'Annual': 4
+        Annual: 4
       }
     ],
     chartData: GASSCOREPIECHARTDATA
@@ -290,28 +298,28 @@ export const PMCSCORECARDDRILLDOWNDATA = [
     ],
     tableData: [
       {
-        'Element': 'LTIF',
+        Element: 'LTIF',
         'YTD Avg': 0.5,
         'MTD Total': 3,
-        'Annual': 4
+        Annual: 4
       },
       {
-        'Element': 'TRIR',
+        Element: 'TRIR',
         'YTD Avg': 1.9,
         'MTD Total': 1,
-        'Annual': 1
+        Annual: 1
       },
       {
-        'Element': 'Fatalities',
+        Element: 'Fatalities',
         'YTD Avg': 0.2,
         'MTD Total': 0,
-        'Annual': 0
+        Annual: 0
       },
       {
-        'Element': 'LOPC',
+        Element: 'LOPC',
         'YTD Avg': 0.5,
         'MTD Total': 3,
-        'Annual': 4
+        Annual: 4
       }
     ],
     chartData: SAFETYBARCHARTDATA
@@ -338,30 +346,30 @@ export const PMCSCORECARDDRILLDOWNDATA = [
     chartData: PROFITABILITYBARCHARTDATA,
     tableData: [
       {
-        'Element': 'Sales Rev',
+        Element: 'Sales Rev',
         'YTD Avg': '453m',
         'MTD Total': '54m',
-        'Annual': '237m'
+        Annual: '237m'
       },
       {
-        'Element': 'Unit Cost',
+        Element: 'Unit Cost',
         'YTD Avg': 0.53,
         'MTD Total': 0.59,
-        'Annual': 0.52
+        Annual: 0.52
       },
       {
-        'Element': 'OPEX Variance',
+        Element: 'OPEX Variance',
         'YTD Avg': 5,
         'MTD Total': 5,
-        'Annual': '0 < 5'
+        Annual: '0 < 5'
       },
       {
-        'Element': 'Capex Variance',
+        Element: 'Capex Variance',
         'YTD Avg': 37.39,
         'MTD Total': 75.45,
-        'Annual': '0 < 5'
+        Annual: '0 < 5'
       }
-    ],
+    ]
   },
   {
     name: 'Operations',
@@ -382,5 +390,5 @@ export const PMCSCORECARDDRILLDOWNDATA = [
         metric: 'Site Visits'
       }
     ]
-  },
-]
+  }
+];

@@ -22,7 +22,7 @@ export class ProjectsPage implements OnInit {
   ionViewDidLoad() {}
 
   ngOnInit() {
-    this.echartsData = echartsData
+    this.echartsData = echartsData;
     this.echarts2Data = echartsData2;
     this.setProjects();
   }

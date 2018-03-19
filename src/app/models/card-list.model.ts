@@ -7,7 +7,7 @@ export interface CardKpi {
     value: string;
     color: string;
     direction: string;
-  }
+  };
 }
 
 export interface CardList {

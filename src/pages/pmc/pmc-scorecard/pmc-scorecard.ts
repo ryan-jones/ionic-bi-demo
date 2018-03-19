@@ -7,7 +7,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
   templateUrl: 'pmc-scorecard.html',
 })
 export class PmcScorecardPage implements AfterViewInit, OnInit {
-  private scorecard: any
+  private scorecard: any;
   private scorecardHeaders: any[];
   constructor(public navParams: NavParams, private viewCtrl: ViewController, private cdr: ChangeDetectorRef) {
   }
