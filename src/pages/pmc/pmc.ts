@@ -39,8 +39,8 @@ export class PmcPage implements OnInit {
 
   setPmcScorecards = () => this.pmcScorecards = PMCSCORECARDS;
 
-  activateDrilldown(event: any) {
-    const drilldownData = Object.assign(this.loadScore(event.seriesName, event.name), { name: event.seriesName });
+  activateDrilldown({ seriesName, name }) {
+    const drilldownData = { ...this.loadScore(seriesName, name),  name: seriesName };
     const popover = this.modalCtr.create(PMCDrilldownPage, drilldownData);
     popover.present();
   }
