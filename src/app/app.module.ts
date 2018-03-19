@@ -21,6 +21,8 @@ import { DrilldownPage } from '../pages/drilldown/drilldown';
 import { PMCDrilldownPage } from '../pages/pmc/pmc-drilldown/pmc-drilldown';
 import { PmcScorecardPage } from '../pages/pmc/pmc-scorecard/pmc-scorecard';
 import { CardListService } from '../services/card-list.service';
+import { CallNumber } from '@ionic-native/call-number';
+import { EmailComposer } from '@ionic-native/email-composer';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { CardListService } from '../services/card-list.service';
     PmcScorecardPage
   ],
   providers: [
+    CallNumber,
+    EmailComposer,
     StatusBar,
     SplashScreen,
     CardListService,
