@@ -25,7 +25,7 @@
             <ion-col text-right class="inline">
               <div *ngIf="kpi.change" class="inline">
                 <ion-icon [name]="setArrowDirection(kpi.change.direction)" [color]="kpi.change.color"></ion-icon>
-                <p class="padding" [style.color]="kpi.change.color">{{ kpi.change.value }}</p>
+                <p [style.color]="kpi.change.color" class="padding" >{{ kpi.change.value }}</p>
               </div>
               <div>
                 <h4>{{ kpi.value }}</h4>
