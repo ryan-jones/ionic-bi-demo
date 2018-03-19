@@ -18,6 +18,9 @@ import { FinancePage } from '../pages/finance/finance';
 import { ProjectsPage } from '../pages/projects/projects';
 import { ComponentsModule } from '../components/components.module';
 import { DrilldownPage } from '../pages/drilldown/drilldown';
+import { PMCDrilldownPage } from '../pages/pmc/pmc-drilldown/pmc-drilldown';
+import { PmcScorecardPage } from '../pages/pmc/pmc-scorecard/pmc-scorecard';
+import { CardListService } from '../services/card-list.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { DrilldownPage } from '../pages/drilldown/drilldown';
     ProjectsPage,
     FinancePage,
     TabsPage,
-    DrilldownPage
+    DrilldownPage,
+    PMCDrilldownPage,
+    PmcScorecardPage
   ],
   imports: [
     BrowserModule,
@@ -50,11 +55,14 @@ import { DrilldownPage } from '../pages/drilldown/drilldown';
     FinancePage,
     PmcPage,
     TabsPage,
-    DrilldownPage
+    DrilldownPage,
+    PMCDrilldownPage,
+    PmcScorecardPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    CardListService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

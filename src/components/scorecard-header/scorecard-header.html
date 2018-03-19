@@ -1,0 +1,9 @@
+<ion-grid>
+  <ion-row>
+    <ion-col *ngFor="let kpi of kpiHeaders">
+      <p>{{ kpi.title }}</p>
+      <h3>{{ kpi.value }}</h3>
+      <p>{{ kpi.metric }}</p>
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -1,23 +1,16 @@
 <ion-header>
   <ion-navbar>
     <ion-buttons start>
-      <button
-        menuToggle
-        ion-button
-        icon-only>
+      <button menuToggle ion-button icon-only>
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
     <ion-title>PMC</ion-title>
     <ion-buttons end>
-      <button
-        ion-button
-        icon-only>
+      <button ion-button icon-only>
         <ion-icon name="md-share"></ion-icon>
       </button>
-      <button
-        ion-button
-        icon-only>
+      <button ion-button icon-only>
         <ion-icon name="notifications"></ion-icon>
       </button>
     </ion-buttons>
@@ -26,6 +19,32 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <ion-card>
+    <ion-card-header no-padding>
+      <ion-list no-lines>
+        <ion-item>
+          <h2>PMC Scorecard Trends</h2>
+          <p>Swipe for more trends</p>
+          <ion-icon name="star-outline" item-end></ion-icon>
+        </ion-item>
+      </ion-list>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-slides pager>
+        <ion-slide>
+          <chart *ngIf="abcGasScoreTrends" (chartClickEmit)="activateDrilldown($event)" [data]="abcGasScoreTrends" height="'120px'"></chart>
+        </ion-slide>
+        <ion-slide>
+          <chart *ngIf="safetyScoreTrends" (chartClickEmit)="activateDrilldown($event)" [data]="safetyScoreTrends" height="'120px'"></chart>
+        </ion-slide>
+        <ion-slide>
+          <chart *ngIf="profitabilityScoreTrends"  (chartClickEmit)="activateDrilldown($event)" [data]="profitabilityScoreTrends" height="'120px'"></chart>
+        </ion-slide>
+      </ion-slides>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <card-list *ngIf="pmcScorecards" [card]="pmcScorecards"></card-list>
+  </ion-card>
 </ion-content>

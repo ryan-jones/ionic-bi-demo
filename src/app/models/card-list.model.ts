@@ -3,6 +3,11 @@ export interface CardKpi {
   measurables: string;
   value: string;
   breakdown: string;
+  change?: {
+    value: string;
+    color: string;
+    direction: string;
+  }
 }
 
 export interface CardList {
