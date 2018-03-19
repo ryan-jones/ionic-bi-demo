@@ -33,8 +33,8 @@ export class ProjectsPage implements OnInit {
     this.currentProjects = CURRENTPROJECTS;
   }
 
-  activateDrilldown(event: any) {
-    this.loadProjectByName(event.data.name);
+  activateDrilldown({ data }) {
+    this.loadProjectByName(data.name);
     const modal = this.modalCtrl.create(DrilldownPage, this.selectedProject);
     modal.present();
   }
