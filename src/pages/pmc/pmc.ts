@@ -39,13 +39,13 @@ export class PmcPage implements OnInit {
 
   setPmcScorecards = () => this.pmcScorecards = PMCSCORECARDS;
 
-  activateDrilldown({ seriesName, name }) {
-    const drilldownData = { ...this.loadScore(seriesName, name),  name: seriesName };
+  activateDrilldown(name: string) {
+    const drilldownData = { ...this.loadScore(name), name };
     const popover = this.modalCtr.create(PMCDrilldownPage, drilldownData);
     popover.present();
   }
 
-  loadScore(seriesName: string, specifiedDate: string) {
+  loadScore(seriesName: string) {
     const exp = new RegExp(seriesName, 'i');
     return TRENDSDRILLDOWN.find(kpi => exp.test(kpi.name));
   }
