@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>News Feed</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngFor="let article of articles">
+    <img *ngIf="article.urlToImage" [src]="article.urlToImage" />
+    <ion-card-header no-padding>
+      <ion-list no-lines>
+        <ion-item>
+          <h2>{{ article.title }}</h2>
+          <p>{{ article.author }}</p>
+        </ion-item>
+      </ion-list>
+    </ion-card-header>
+    <ion-card-content padding>
+      <p>{{ article.description }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

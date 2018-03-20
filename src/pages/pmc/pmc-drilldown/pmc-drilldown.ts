@@ -4,7 +4,8 @@ import {
   NavParams,
   ViewController,
   ActionSheetController,
-  AlertController
+  AlertController,
+  NavController,
 } from 'ionic-angular';
 import {
   PMCTrendDrilldown,
@@ -12,6 +13,9 @@ import {
 } from '../../../app/models/pmc-trends-drilldown.model';
 import { CallNumber } from '@ionic-native/call-number';
 import { EmailComposer } from '@ionic-native/email-composer';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { NewsApiService } from '../../../services/news-api.service';
+import { NewsfeedPage } from '../../newsfeed/newsfeed';
 
 @IonicPage()
 @Component({
@@ -19,15 +23,19 @@ import { EmailComposer } from '@ionic-native/email-composer';
   templateUrl: 'pmc-drilldown.html'
 })
 export class PMCDrilldownPage {
-  drilldownData: PMCTrendDrilldown;
+  private drilldownData: PMCTrendDrilldown;
+  private newsFeedPage = NewsfeedPage;
 
   constructor(
+    public navCtrl: NavController,
     public navParams: NavParams,
     private viewCtrl: ViewController,
     private actionCtrl: ActionSheetController,
     private callNumber: CallNumber,
     private alertCtrl: AlertController,
-    private emailComposer: EmailComposer
+    private emailComposer: EmailComposer,
+    private socialSharing: SocialSharing,
+    private newsApi: NewsApiService,
   ) {
     this.drilldownData = this.navParams.data;
   }
@@ -49,6 +57,10 @@ export class PMCDrilldownPage {
           handler: () => this.callPhoneNumber(data)
         },
         {
+          text: `Whatsapp ${data.commentor}`,
+          handler: () => this.activateWhatsapp(data)
+        },
+        {
           text: 'Cancel',
           role: 'cancel'
         }
@@ -58,7 +70,8 @@ export class PMCDrilldownPage {
   }
 
   callPhoneNumber(data: DrilldownData) {
-    this.callNumber.callNumber(data.commentorPhoneNumber, true)
+    this.callNumber
+      .callNumber(data.commentorPhoneNumber, true)
       .then(res => console.log('Launched dialer', res))
       .catch(err => this.callFailed('The call was unable to be completed'));
   }
@@ -92,5 +105,19 @@ export class PMCDrilldownPage {
       buttons: ['OK']
     });
     alert.present();
+  }
+
+  activateWhatsapp(data: DrilldownData) {
+    this.socialSharing
+      .shareViaWhatsAppToReceiver(data.commentorPhoneNumber, 'test message')
+      .then(res => console.log('whatsapp res', res));
+  }
+
+  openNewsFeed(date: string) {
+    this.newsApi.getNews('2018-03-10', '2018-03-19').subscribe((res: any) => {
+      this.navCtrl.push(this.newsFeedPage, {
+        articles: res.articles.slice(0, 20)
+      });
+    });
   }
 }

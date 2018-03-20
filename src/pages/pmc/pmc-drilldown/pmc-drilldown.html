@@ -11,9 +11,9 @@
           <ion-avatar *ngIf="data.commentorImage" (click)="onSelectComment(data)" item-start>
             <img [src]="data.commentorImage">
           </ion-avatar>
-          <h2>{{ data.date }}</h2>
-          <h3>{{ data.commentor }}</h3>
-          <p text-wrap>{{ data.comments }}</p>
+            <h2>{{ data.date }}</h2>
+            <h3>{{ data.commentor }}</h3>
+            <p (click)="openNewsFeed(date)" text-wrap>{{ data.comments }}</p>
           <ion-icon name="star-outline" item-end></ion-icon>
         </ion-item>
       </ion-list>
