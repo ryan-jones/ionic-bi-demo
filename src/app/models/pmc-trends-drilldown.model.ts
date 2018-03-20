@@ -3,6 +3,8 @@ export interface DrilldownData {
     value: number;
     comments: string;
     commentor: string;
+    commentorEmail: string;
+    commentorPhoneNumber: string;
     commentorImage: string;
 }
 

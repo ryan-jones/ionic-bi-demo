@@ -17,12 +17,12 @@ import { PmcPage } from '../pages/pmc/pmc';
 import { FinancePage } from '../pages/finance/finance';
 import { ProjectsPage } from '../pages/projects/projects';
 import { ComponentsModule } from '../components/components.module';
-import { DrilldownPage } from '../pages/drilldown/drilldown';
 import { PMCDrilldownPage } from '../pages/pmc/pmc-drilldown/pmc-drilldown';
 import { PmcScorecardPage } from '../pages/pmc/pmc-scorecard/pmc-scorecard';
 import { CardListService } from '../services/card-list.service';
 import { CallNumber } from '@ionic-native/call-number';
 import { EmailComposer } from '@ionic-native/email-composer';
+import { DrilldownPage } from '../pages/projects/drilldown/drilldown';
 
 @NgModule({
   declarations: [

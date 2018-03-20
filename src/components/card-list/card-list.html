@@ -2,10 +2,11 @@
   <img *ngIf="card.image" [src]="card.image" />
   <ion-list no-lines>
     <ion-item>
-      <ion-avatar *ngIf="card.managerImg" item-start>
+      <ion-avatar *ngIf="card.managerImg" (click)="onSelectManagerImage()" item-start>
         <img [src]="card.managerImg">
       </ion-avatar>
       <h2>{{ card.title }}</h2>
+      <h3 *ngIf="card.managerName">Manager: {{ card.managerName }}</h3>
       <p>Last reported: {{ card.reportDate }}</p>
       <ion-icon name="star-outline" item-end></ion-icon>
     </ion-item>

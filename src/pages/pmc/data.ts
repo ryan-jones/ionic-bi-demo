@@ -122,56 +122,70 @@ export const TRENDSDRILLDOWN: PMCTrendDrilldown[] = [
     name: 'gas score',
     data: [
       {
-        date: 'Jan',
+        date: `Jan '18`,
         value: 120,
         comments:
           'Downturn in demand due to shipping postponements over Chinese New Year',
         commentor: 'Muhammad Ali',
+        commentorEmail: 'muhammad.ali@abcgas.com',
+        commentorPhoneNumber: '123456789',
         commentorImage: 'assets/imgs/projects/asab/asab.jpg'
       },
       {
-        date: 'Feb',
+        date: `Feb '18`,
         value: 132,
         comments:
           'Increasing demand due to winter spell in Europe offset losses in SE Asia',
         commentor: 'Muhammad Ali',
+        commentorEmail: 'muhammad.ali@abcgas.com',
+        commentorPhoneNumber: '123456789',
         commentorImage: 'assets/imgs/projects/asab/asab.jpg'
       },
       {
-        date: 'Mar',
+        date: `Mar '18`,
         value: 101,
         comments: 'Fire in Ruwais shut down production for seven days',
         commentor: 'Muhammad Ali',
+        commentorEmail: 'muhammad.ali@abcgas.com',
+        commentorPhoneNumber: '123456789',
         commentorImage: 'assets/imgs/projects/asab/asab.jpg'
       },
       {
-        date: 'Apr',
+        date: `Apr '18`,
         value: 134,
         comments: 'Ruwais back to operating capacity',
         commentor: 'Muhammad Ali',
+        commentorEmail: 'muhammad.ali@abcgas.com',
+        commentorPhoneNumber: '123456789',
         commentorImage: 'assets/imgs/projects/asab/asab.jpg'
       },
       {
-        date: 'May',
+        date: `May '18`,
         value: 90,
         comments:
           'US announces further investment in fracking projects in North Dakota',
         commentor: 'Yassir Nasra',
+        commentorEmail: 'yassir.nasra@abcgas.com',
+        commentorPhoneNumber: '123456789',
         commentorImage: 'assets/imgs/projects/yassir/yassir.jpg'
       },
       {
-        date: 'Jun',
+        date: `Jun '18`,
         value: 230,
         comments:
           'Sanctions announced against Russian Federation. Japanese demand increased',
         commentor: 'Muhammad Ali',
+        commentorEmail: 'muhammad.ali@abcgas.com',
+        commentorPhoneNumber: '123456789',
         commentorImage: 'assets/imgs/projects/asab/asab.jpg'
       },
       {
-        date: 'Jul',
+        date: `Jul '18`,
         value: 210,
         comments: 'Sustained output. Hasah partially closed for maintenance',
         commentor: 'Muhammad Ali',
+        commentorEmail: 'muhammad.ali@abcgas.com',
+        commentorPhoneNumber: '123456789',
         commentorImage: 'assets/imgs/projects/asab/asab.jpg'
       }
     ]
@@ -180,7 +194,7 @@ export const TRENDSDRILLDOWN: PMCTrendDrilldown[] = [
 
 export const PMCSCORECARDS = {
   title: 'PMC Scorecard',
-  reportDate: 'Feb 2017',
+  reportDate: 'Feb 2018',
   kpis: [
     {
       name: 'ABC Gas Score',

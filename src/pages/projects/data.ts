@@ -129,27 +129,42 @@ export const setImages = (plant: string) => ({
 export const CURRENTPROJECTS = [
   {
     name: 'Ruwais 4',
-    summary: Object.assign({...PROJECTSSUMMARY}, setImages('ruwais')),
+    summary: Object.assign(
+      {...PROJECTSSUMMARY},
+      setImages('ruwais'),
+      { managerName: 'Muhammad Ali', managerEmail: 'muhammad.ali@abcgas.com', managerPhoneNumber: '123456789'}),
     hse: PROJECTSHSE
   },
   {
     name: 'Poelines 5',
-    summary: Object.assign({...PROJECTSSUMMARY}, setImages('poeline')),
+    summary: Object.assign(
+      {...PROJECTSSUMMARY},
+      setImages('poeline'),
+      { managerName: 'Ben Nassar', managerEmail: 'ben.nassar@abcgas.com', managerPhoneNumber: '123456789'}),
     hse: PROJECTSHSE
   },
   {
     name: 'Hasab 3',
-    summary: Object.assign({...PROJECTSSUMMARY}, setImages('hasab')),
+    summary: Object.assign(
+      {...PROJECTSSUMMARY},
+      setImages('hasab'),
+      { managerName: 'Ahmed Al-masri', managerEmail: 'ahmed.almasri@abcgas.com', managerPhoneNumber: '123456789'}),
     hse: PROJECTSHSE
   },
   {
     name: 'Yassir 1',
-    summary: Object.assign({...PROJECTSSUMMARY}, setImages('yassir')),
+    summary: Object.assign(
+      {...PROJECTSSUMMARY},
+      setImages('yassir'),
+      { managerName: 'Ahmed Al-masri', managerEmail: 'ahmed.almasri@abcgas.com', managerPhoneNumber: '123456789'}),
     hse: PROJECTSHSE
   },
   {
     name: 'Asab 2',
-    summary: Object.assign({...PROJECTSSUMMARY}, setImages('asab')),
+    summary: Object.assign(
+      {...PROJECTSSUMMARY},
+      setImages('asab'),
+      { managerName: 'Ahmed Al-masri', managerEmail: 'ahmed.almasri@abcgas.com', managerPhoneNumber: '123456789'}),
     hse: PROJECTSHSE
   }
 ];
