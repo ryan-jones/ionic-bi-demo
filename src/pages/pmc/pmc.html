@@ -31,7 +31,7 @@
       </ion-list>
     </ion-card-header>
     <ion-card-content>
-      <ion-slides pager>
+      <ion-slides pager padding>
         <ion-slide (click)="activateDrilldown('gas score')">
           <chart *ngIf="abcGasScoreTrends" [data]="abcGasScoreTrends" height="'120px'"></chart>
         </ion-slide>

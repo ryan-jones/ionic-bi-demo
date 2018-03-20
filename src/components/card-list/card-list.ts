@@ -9,6 +9,7 @@ import { PmcScorecardPage } from '../../pages/pmc/pmc-scorecard/pmc-scorecard';
 import { CardListService } from '../../services/card-list.service';
 import { CallNumber } from '@ionic-native/call-number';
 import { EmailComposer } from '@ionic-native/email-composer';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @Component({
   selector: 'card-list',
@@ -23,7 +24,8 @@ export class CardListComponent {
     private actionCtrl: ActionSheetController,
     private callNumber: CallNumber,
     private alertCtrl: AlertController,
-    private emailComposer: EmailComposer
+    private emailComposer: EmailComposer,
+    private socialSharing: SocialSharing
   ) {}
 
   setArrowDirection = (direction: string) => direction === 'down' ? 'md-arrow-dropdown' : 'md-arrow-dropup';
@@ -45,6 +47,10 @@ export class CardListComponent {
         {
           text: `Call ${this.card.managerName}`,
           handler: () => this.callPhoneNumber()
+        },
+        {
+          text: `Whatsapp ${this.card.managerName}`,
+          handler: () => this.activateWhatsapp()
         },
         {
           text: 'Cancel',
@@ -90,5 +96,11 @@ export class CardListComponent {
       buttons: ['OK']
     });
     alert.present();
+  }
+
+  activateWhatsapp() {
+    this.socialSharing
+      .shareViaWhatsAppToReceiver(this.card.managerPhoneNumber, 'test message')
+      .then(res => console.log('whatsapp res', res));
   }
 }
