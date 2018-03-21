@@ -16,4 +16,7 @@ export interface CardList {
   kpis: CardKpi[];
   image?: string;
   managerImg?: string;
+  managerName?: string;
+  managerEmail?: string;
+  managerPhoneNumber?: string;
 }

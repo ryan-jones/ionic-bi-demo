@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-navbar [color]="getBackground()">
+    <ion-title>Alerts</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="ios-share-outline" md="md-share"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+  <notifications [alerts]="alerts"></notifications>
+</ion-content>

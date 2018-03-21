@@ -1,5 +1,4 @@
 // http://ionicframework.com/docs/theming/
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -19,10 +18,14 @@ ion-content {
 }
 
 .menu {
-  background-image: url('https://forskning.no/sites/default/files/styles/full_width/public/293496_oljerigg_krtnt_None.jpg?itok=xXmO743f');
+  background-image: url('../assets/imgs/Sheikh-Zayed-Mosque.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 60% center;
+  background-position:  10% center;
+
+  button {
+    color: #fff;
+  }
 }
 
 .transparent {
@@ -32,4 +35,8 @@ ion-content {
 ion-card-header {
   background-color: #fff;
   height: 100%;
+}
+
+ion-icon {
+  padding-top: 5px;
 }

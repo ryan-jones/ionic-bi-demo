@@ -1,22 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Alert } from '../../app/models/alerts.model';
 
-/**
- * Generated class for the NotificationsComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
   selector: 'notifications',
   templateUrl: 'notifications.html'
 })
 export class NotificationsComponent {
+  @Input() alerts: Alert[];
 
-  text: string;
-
-  constructor() {
-    console.log('Hello NotificationsComponent Component');
-    this.text = 'Hello World';
-  }
+  constructor() {}
 
 }

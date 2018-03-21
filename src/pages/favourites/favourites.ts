@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the FavouritesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage } from 'ionic-angular';
+import { AlertsPage } from '../alerts/alerts';
+import { SettingsService } from '../../services/settings.service';
 
 @IonicPage()
 @Component({
@@ -14,12 +9,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'favourites.html',
 })
 export class FavouritesPage {
+  private alertsPage = AlertsPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(private settingsService: SettingsService) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FavouritesPage');
-  }
+  getBackground = () => this.settingsService.getBackground();
 
+  getTextColor = () => this.settingsService.isAltBackground() ? 'dark' : 'light';
 }

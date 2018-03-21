@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar [color]="getBackground()">
+    <ion-buttons start>
+      <button menuToggle ion-button icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>News Feed</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="ios-share-outline" md="md-share"></ion-icon>
+      </button>
+      <button ion-button icon-only [navPush]="alertsPage">
+        <ion-icon name="notifications-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card *ngFor="let article of articles">
+    <img *ngIf="article.urlToImage" [src]="article.urlToImage" />
+    <ion-card-header no-padding>
+      <ion-list no-lines>
+        <ion-item>
+          <h2>{{ article.title }}</h2>
+          <p>{{ article.author }}</p>
+        </ion-item>
+      </ion-list>
+    </ion-card-header>
+    <ion-card-content padding>
+      <p text-wrap>{{ article.description }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

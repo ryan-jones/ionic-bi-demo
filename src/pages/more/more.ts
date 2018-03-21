@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 import { FinancePage } from '../finance/finance';
 import { ProjectsPage } from '../projects/projects';
+import { SettingsPage } from '../settings/settings';
+import { SettingsService } from '../../services/settings.service';
 
 @IonicPage()
 @Component({
@@ -12,12 +14,10 @@ export class MorePage {
 
   private financePage = FinancePage;
   private projectsPage = ProjectsPage;
+  private settingsPage = SettingsPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(private settingsService: SettingsService) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MorePage');
-  }
-
+  getBackground = () => this.settingsService.getBackground();
+  getTextColor = () => this.settingsService.getTextColor();
 }

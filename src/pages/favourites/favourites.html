@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar [color]="getBackground()">
     <ion-buttons start>
       <button
         menuToggle
@@ -8,17 +8,18 @@
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>Favourites</ion-title>
-    <ion-buttons end>
+    <ion-title [color]="getTextColor()">Favourites</ion-title>
+    <ion-buttons [color]="getTextColor()" end>
       <button
         ion-button
         icon-only>
-        <ion-icon name="md-share"></ion-icon>
+        <ion-icon name="ios-share-outline" md="md-share"></ion-icon>
       </button>
       <button
         ion-button
-        icon-only>
-        <ion-icon name="notifications"></ion-icon>
+        icon-only
+        [navPush]="alertsPage">
+        <ion-icon name="notifications-outline"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>

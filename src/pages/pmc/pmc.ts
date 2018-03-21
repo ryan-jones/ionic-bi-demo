@@ -9,6 +9,8 @@ import {
 } from './data';
 import { PMCDrilldownPage } from './pmc-drilldown/pmc-drilldown';
 import { CardList } from '../../app/models/card-list.model';
+import { AlertsPage } from '../alerts/alerts';
+import { SettingsService } from '../../services/settings.service';
 
 @IonicPage()
 @Component({
@@ -20,9 +22,12 @@ export class PmcPage implements OnInit {
   private safetyScoreTrends: any;
   private profitabilityScoreTrends: any;
   private pmcScorecards: CardList;
+  private alertsPage = AlertsPage;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtr: ModalController) {}
+  constructor(
+    private modalCtr: ModalController,
+    private settingsService: SettingsService) {}
 
   ngOnInit() {
     this.setAbcGasScoreTrends();
@@ -49,4 +54,7 @@ export class PmcPage implements OnInit {
     const exp = new RegExp(seriesName, 'i');
     return TRENDSDRILLDOWN.find(kpi => exp.test(kpi.name));
   }
+
+  getBackground = () => this.settingsService.getBackground();
+  getTextColor = () => this.settingsService.getTextColor();
 }

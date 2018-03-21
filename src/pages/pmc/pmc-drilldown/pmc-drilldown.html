@@ -1,19 +1,19 @@
 <ion-header (swipe)="onDismiss()" (tap)="onDismiss()">
-  <ion-navbar>
-    <ion-title>{{ drilldownData.name }}</ion-title>
+  <ion-navbar [color]="getBackground()">
+    <ion-title>{{ drilldownData.name | uppercase }}</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content (swipe)="onDismiss()" (tap)="onDismiss()">
+<ion-content (swipe)="onDismiss()">
   <ion-card *ngFor="let data of drilldownData.data">
     <ion-card-header no-padding>
       <ion-list no-lines>
         <ion-item>
-          <ion-avatar *ngIf="data.commentorImage" item-start>
+          <ion-avatar *ngIf="data.commentorImage" (click)="onSelectComment(data)" item-start>
             <img [src]="data.commentorImage">
           </ion-avatar>
-          <h2>{{ data.date }}</h2>
-          <h3>{{ data.commentor }}</h3>
-          <p text-wrap>{{ data.comments }}</p>
+            <h2>Score: {{ data.value }} ({{ data.date }})</h2>
+            <h3>{{ data.commentor }}</h3>
+            <p (click)="openNewsFeed(date)" text-wrap>{{ data.comments }}</p>
           <ion-icon name="star-outline" item-end></ion-icon>
         </ion-item>
       </ion-list>

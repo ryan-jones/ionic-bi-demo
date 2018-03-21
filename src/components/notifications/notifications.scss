@@ -1,3 +1,10 @@
 notifications {
+  ion-col {
+    display: flex;
+    flex-direction: row;
+  }
 
+  ion-card-content {
+    background: #fff;
+  }
 }

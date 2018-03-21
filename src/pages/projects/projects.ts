@@ -3,7 +3,7 @@ import { IonicPage, ModalController } from 'ionic-angular';
 import { echartsData, echartsData2, PROJECTSSUMMARY, PROJECTSHSE, CURRENTPROJECTS } from './data';
 import { CardList } from '../../app/models/card-list.model';
 import { Project } from '../../app/models/project.model';
-import { DrilldownPage } from '../drilldown/drilldown';
+import { DrilldownPage } from './drilldown/drilldown';
 @IonicPage()
 @Component({
   selector: 'page-projects',
