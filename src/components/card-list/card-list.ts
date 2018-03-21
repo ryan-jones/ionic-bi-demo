@@ -1,4 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { CallNumber } from '@ionic-native/call-number';
+import { EmailComposer } from '@ionic-native/email-composer';
+import { SocialSharing } from '@ionic-native/social-sharing';
 import {
   ModalController,
   ActionSheetController,
@@ -7,9 +10,6 @@ import {
 import { CardList, CardKpi } from '../../app/models/card-list.model';
 import { PmcScorecardPage } from '../../pages/pmc/pmc-scorecard/pmc-scorecard';
 import { CardListService } from '../../services/card-list.service';
-import { CallNumber } from '@ionic-native/call-number';
-import { EmailComposer } from '@ionic-native/email-composer';
-import { SocialSharing } from '@ionic-native/social-sharing';
 
 @Component({
   selector: 'card-list',

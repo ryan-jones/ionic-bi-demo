@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { CallNumber } from '@ionic-native/call-number';
+import { EmailComposer } from '@ionic-native/email-composer';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { NewsfeedPage } from '../../newsfeed/newsfeed';
 import {
   IonicPage,
   NavParams,
@@ -12,11 +16,7 @@ import {
   PMCTrendDrilldown,
   DrilldownData
 } from '../../../app/models/pmc-trends-drilldown.model';
-import { CallNumber } from '@ionic-native/call-number';
-import { EmailComposer } from '@ionic-native/email-composer';
-import { SocialSharing } from '@ionic-native/social-sharing';
 import { NewsApiService } from '../../../services/news-api.service';
-import { NewsfeedPage } from '../../newsfeed/newsfeed';
 import { SettingsService } from '../../../services/settings.service';
 
 @IonicPage()
