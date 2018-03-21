@@ -4,10 +4,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentsModule } from '../components/components.module';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { CallNumber } from '@ionic-native/call-number';
+import { EmailComposer } from '@ionic-native/email-composer';
+import { SocialSharing } from '@ionic-native/social-sharing';
+
 import { MyApp } from './app.component';
 
 import { CardListService } from '../services/card-list.service';
 import { NewsApiService } from '../services/news-api.service';
+import { SettingsService } from '../services/settings.service';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { GasHomePage } from '../pages/gas-home/gas-home';
@@ -21,15 +28,8 @@ import { ProjectsPage } from '../pages/projects/projects';
 import { PMCDrilldownPage } from '../pages/pmc/pmc-drilldown/pmc-drilldown';
 import { PmcScorecardPage } from '../pages/pmc/pmc-scorecard/pmc-scorecard';
 import { DrilldownPage } from '../pages/projects/drilldown/drilldown';
-
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { CallNumber } from '@ionic-native/call-number';
-import { EmailComposer } from '@ionic-native/email-composer';
-import { SocialSharing } from '@ionic-native/social-sharing';
 import { NewsfeedPage } from '../pages/newsfeed/newsfeed';
 import { AlertsPage } from '../pages/alerts/alerts';
-import { SettingsService } from '../services/settings.service';
 import { SettingsPage } from '../pages/settings/settings';
 
 @NgModule({

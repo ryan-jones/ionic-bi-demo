@@ -13,8 +13,5 @@ export class DrilldownPage {
     this.project = this.navParams.data;
   }
 
-  onDismiss() {
-    this.viewCtrl.dismiss();
-  }
-
+  onDismiss = () => this.viewCtrl.dismiss();
 }

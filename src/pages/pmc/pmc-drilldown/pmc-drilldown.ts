@@ -77,7 +77,7 @@ export class PMCDrilldownPage {
     this.callNumber
       .callNumber(data.commentorPhoneNumber, true)
       .then(res => console.log('Launched dialer', res))
-      .catch(err => this.callFailed('The call was unable to be completed'));
+      .catch(_ => this.callFailed('The call was unable to be completed'));
   }
 
   callFailed(reason: string) {
@@ -99,7 +99,7 @@ export class PMCDrilldownPage {
         };
         this.emailComposer.open(email);
       })
-      .catch(err => this.emailFailed(`Doesn't have permission`));
+      .catch(_ => this.emailFailed(`Doesn't have permission`));
   }
 
   emailFailed(titleText: string) {
