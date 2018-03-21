@@ -1,3 +1,24 @@
 page-settings {
 
+    ion-title {
+      .toolbar-title {
+        &.blueFont {
+          color: #317199;
+          $toolbar-md-title-text-color: #317199;
+          $toolbar-ios-title-text-color: #317199;
+          $toolbar-md-text-color: #317199;
+          $toolbar-text-color: #317199;
+          $text-color: #317199;
+        }
+
+        &.white-font {
+          color: #f4f4f4;
+          $toolbar-md-title-text-color: #f4f4f4;
+          $toolbar-ios-title-text-color: #f4f4f4;
+          $toolbar-md-text-color: #f4f4f4;
+          $toolbar-text-color: #f4f4f4;
+          $text-color: #f4f4f4;
+        }
+      }
+    }
 }

@@ -19,4 +19,10 @@ card-list {
   .padding {
     padding-left: 0.5rem;
   }
+
+  ion-col {
+    ion-icon {
+      padding-top: 0;
+    }
+  }
 }

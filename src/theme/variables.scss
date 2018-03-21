@@ -57,7 +57,11 @@ $colors: (
   whiteFont: #f4f4f4,
   blueFont: #317199,
   toolbarBackground: rgb(47, 111, 155),
-  altToolbarBackground: #fff
+  altToolbarBackground: #fff,
+  green: #91c675,
+  red: #f94646,
+  tabsBackground: $tabs-background,
+  altTabsBackground: #b1d9dc
 );
 $app-background: linear-gradient(0deg, color($colors, light) 0%, color($colors, light) 100%);
 $card-ios-background-color: linear-gradient(135deg, color($colors, light) 0%, color($colors, dark) 50%);

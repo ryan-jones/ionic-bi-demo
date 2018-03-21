@@ -35,6 +35,11 @@ export const ABCGASTRENDS = {
   yAxis: {
     type: 'value'
   },
+  dataZoom: [
+    {
+      type: 'inside',
+    }
+  ],
   series: [
     {
       name: 'Gas Score',

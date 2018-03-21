@@ -9,6 +9,7 @@ import { PmcPage } from '../pages/pmc/pmc';
 import { OrganizationPage } from '../pages/organization/organization';
 import { FinancePage } from '../pages/finance/finance';
 import { ProjectsPage } from '../pages/projects/projects';
+import { SettingsPage } from '../pages/settings/settings';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,9 +22,14 @@ export class MyApp {
   private organizationPage = OrganizationPage;
   private financePage = FinancePage;
   private projectsPage = ProjectsPage;
+  private settingsPage = SettingsPage;
 
-
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menuCtrl: MenuController) {
+  constructor(
+    platform: Platform,
+    statusBar: StatusBar,
+    splashScreen: SplashScreen,
+    private menuCtrl: MenuController,
+  ) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
