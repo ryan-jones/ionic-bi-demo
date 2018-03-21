@@ -6,6 +6,7 @@ import {
   ActionSheetController,
   AlertController,
   NavController,
+  LoadingController,
 } from 'ionic-angular';
 import {
   PMCTrendDrilldown,
@@ -16,6 +17,7 @@ import { EmailComposer } from '@ionic-native/email-composer';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { NewsApiService } from '../../../services/news-api.service';
 import { NewsfeedPage } from '../../newsfeed/newsfeed';
+import { SettingsService } from '../../../services/settings.service';
 
 @IonicPage()
 @Component({
@@ -36,6 +38,8 @@ export class PMCDrilldownPage {
     private emailComposer: EmailComposer,
     private socialSharing: SocialSharing,
     private newsApi: NewsApiService,
+    private loaderCtrl: LoadingController,
+    private settingsService: SettingsService
   ) {
     this.drilldownData = this.navParams.data;
   }
@@ -114,10 +118,18 @@ export class PMCDrilldownPage {
   }
 
   openNewsFeed(date: string) {
+    const loader = this.loaderCtrl.create({
+      content: 'Loading Newsfeed'
+    });
+    loader.present();
     this.newsApi.getNews('2018-03-10', '2018-03-19').subscribe((res: any) => {
+      loader.dismiss();
       this.navCtrl.push(this.newsFeedPage, {
         articles: res.articles.slice(0, 20)
       });
     });
   }
+
+  getBackground = () => this.settingsService.getBackground();
+  getTextColor = () => this.settingsService.getTextColor();
 }

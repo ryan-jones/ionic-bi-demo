@@ -1,6 +1,6 @@
 <ion-header (swipe)="onDismiss()" (tap)="onDismiss()">
-  <ion-navbar>
-    <ion-title>{{ drilldownData.name }}</ion-title>
+  <ion-navbar [color]="getBackground()">
+    <ion-title>{{ drilldownData.name | uppercase }}</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content (swipe)="onDismiss()">

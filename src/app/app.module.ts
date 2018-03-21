@@ -28,6 +28,9 @@ import { CallNumber } from '@ionic-native/call-number';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { NewsfeedPage } from '../pages/newsfeed/newsfeed';
+import { AlertsPage } from '../pages/alerts/alerts';
+import { SettingsService } from '../services/settings.service';
+import { SettingsPage } from '../pages/settings/settings';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,9 @@ import { NewsfeedPage } from '../pages/newsfeed/newsfeed';
     DrilldownPage,
     PMCDrilldownPage,
     PmcScorecardPage,
-    NewsfeedPage
+    NewsfeedPage,
+    AlertsPage,
+    SettingsPage
   ],
   imports: [
     BrowserModule,
@@ -67,7 +72,9 @@ import { NewsfeedPage } from '../pages/newsfeed/newsfeed';
     DrilldownPage,
     PMCDrilldownPage,
     PmcScorecardPage,
-    NewsfeedPage
+    NewsfeedPage,
+    AlertsPage,
+    SettingsPage
   ],
   providers: [
     CallNumber,
@@ -77,6 +84,7 @@ import { NewsfeedPage } from '../pages/newsfeed/newsfeed';
     SplashScreen,
     CardListService,
     NewsApiService,
+    SettingsService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

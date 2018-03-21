@@ -4,17 +4,14 @@
 
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
-$font-path: "../assets/fonts";
-
+$font-path: '../assets/fonts';
 
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
 
-
-@import "ionic.globals";
-
+@import 'ionic.globals';
 
 // Shared Variables
 // --------------------------------------------------
@@ -23,11 +20,25 @@ $app-direction: ltr;
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
+// $toolbar-background: #fff;
+// $toolbar-ios-title-text-color: #317199;
+// $toolbar-ios-button-color: $toolbar-ios-title-text-color;
+// $tabs-background: #b1d9dc;
+// $tabs-ios-tab-text-color: #fff;
+// $tabs-ios-tab-icon-color: $tabs-ios-tab-text-color;
+// $tabs-ios-tab-color-active: #317199;
+// $background-color: transparent;
+
 $toolbar-background: rgb(47, 111, 155);
 $toolbar-ios-title-text-color: #f4f4f4;
 $tabs-background: $toolbar-background;
 $tabs-ios-tab-text-color: $toolbar-ios-title-text-color;
 $tabs-ios-tab-icon-color: $toolbar-ios-title-text-color;
+$tabs-ios-tab-color-active: #00b8b5;
+$menu-md-background: #00b8b5;
+$menu-ios-background: $menu-md-background;
+$menu-wp-background: $menu-md-background;
+
 $background-color: transparent;
 // Named Color Variables
 // --------------------------------------------------
@@ -38,13 +49,15 @@ $background-color: transparent;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    rgb(176, 218, 220),
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #ccc,
-  green: green,
-  red: red
+  primary: rgb(176, 218, 220),
+  secondary: #32db64,
+  danger: #f53d3d,
+  light: #f4f4f4,
+  dark: #ccc,
+  whiteFont: #f4f4f4,
+  blueFont: #317199,
+  toolbarBackground: rgb(47, 111, 155),
+  altToolbarBackground: #fff
 );
 $app-background: linear-gradient(0deg, color($colors, light) 0%, color($colors, light) 100%);
 $card-ios-background-color: linear-gradient(135deg, color($colors, light) 0%, color($colors, dark) 50%);
@@ -52,22 +65,13 @@ $card-ios-background-color: linear-gradient(135deg, color($colors, light) 0%, co
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
-
-
-
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-
-
-
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
-
-
-
 
 // App Theme
 // --------------------------------------------------
@@ -76,19 +80,17 @@ $card-ios-background-color: linear-gradient(135deg, color($colors, light) 0%, co
 // so that the above variables are used and Ionic's
 // default are overridden.
 
-@import "ionic.theme.default";
-
+@import 'ionic.theme.default';
 
 // Ionicons
 // --------------------------------------------------
 // The premium icon font for Ionic. For more info, please see:
 // http://ionicframework.com/docs/ionicons/
 
-@import "ionic.ionicons";
-
+@import 'ionic.ionicons';
 
 // Fonts
 // --------------------------------------------------
 
-@import "roboto";
-@import "noto-sans";
+@import 'roboto';
+@import 'noto-sans';

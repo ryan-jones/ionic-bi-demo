@@ -20,8 +20,8 @@
         <ion-grid>
           <ion-row>
             <ion-col>
-              <h3>{{ kpi.name }}</h3>
-              <p>{{ kpi.measurables }}</p>
+              <h3 text-wrap>{{ kpi.name }}</h3>
+              <p text-wrap>{{ kpi.measurables }}</p>
             </ion-col>
             <ion-col text-right class="inline">
               <div *ngIf="kpi.change" class="inline">
@@ -30,7 +30,7 @@
               </div>
               <div>
                 <h4>{{ kpi.value }}</h4>
-                <p>{{ kpi.breakdown }}</p>
+                <p text-wrap>{{ kpi.breakdown }}</p>
               </div>
             </ion-col>
           </ion-row>

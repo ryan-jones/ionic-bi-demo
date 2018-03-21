@@ -4,6 +4,7 @@ import { PmcPage } from '../pmc/pmc';
 import { ProductionPage } from '../production/production';
 import { OrganizationPage } from '../organization/organization';
 import { MorePage } from '../more/more';
+import { SettingsService } from '../../services/settings.service';
 
 
 
@@ -18,7 +19,9 @@ export class TabsPage {
   tab4Root = OrganizationPage;
   tab5Root = MorePage;
 
-  constructor() {
+  constructor(private settingsService: SettingsService) {}
 
-  }
+  getBackground = () => this.settingsService.getBackground();
+
+  getTextColor = () => this.settingsService.isAltBackground() ? 'dark' : 'light';
 }

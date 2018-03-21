@@ -15,6 +15,14 @@ export const echartsData = {
       type: 'pie',
       radius: '55%',
       center: ['50%', '60%'],
+      label: {
+        show: true,
+        position: 'outside'
+      },
+      labelLine: {
+        length: 5,
+        length2: 5
+      },
       data: [
         { value: 2, name: `Asab 2` },
         { value: 4, name: 'Ruwais 4' },
@@ -35,7 +43,7 @@ export const echartsData = {
 
 export const echartsData2 = {
   title: {
-    text: 'Active Projects by Project Type',
+    text: 'Active Projects by Type',
     x: 'center',
     top: 10
   },
@@ -46,9 +54,18 @@ export const echartsData2 = {
   series: [
     {
       name: 'Projects',
+      startAngle: 180,
       type: 'pie',
       radius: '55%',
       center: ['50%', '60%'],
+      label: {
+        show: true,
+        position: 'outside'
+      },
+      labelLine: {
+        length: 5,
+        length2: 5
+      },
       data: [
         { value: 6, name: 'Pipeline 6' },
         { value: 3, name: 'Exploration 3' },
@@ -79,13 +96,13 @@ export const PROJECTSSUMMARY = {
       name: 'Milestone Completion %',
       measurables: 'Milestones due/ achieved',
       value: '59%',
-      breakdown: '423/812'
+      breakdown: '423 / 812'
     },
     {
       name: 'Budget Compliance %',
       measurables: 'Budget/Actuals',
       value: '63%',
-      breakdown: '305.73m/482.74'
+      breakdown: '305.73/482.74'
     }
   ]
 };

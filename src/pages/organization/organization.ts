@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the OrganizationPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage } from 'ionic-angular';
+import { SettingsService } from '../../services/settings.service';
 
 @IonicPage()
 @Component({
@@ -15,11 +9,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class OrganizationPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private settingsService: SettingsService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OrganizationPage');
-  }
-
+  getBackground = () => this.settingsService.getBackground();
+  getTextColor = () => this.settingsService.getTextColor();
 }

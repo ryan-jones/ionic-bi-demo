@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { SettingsService } from '../../../services/settings.service';
 
 @IonicPage()
 @Component({
@@ -9,7 +10,11 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 export class PmcScorecardPage implements AfterViewInit, OnInit {
   private scorecard: any;
   private scorecardHeaders: any[];
-  constructor(public navParams: NavParams, private viewCtrl: ViewController, private cdr: ChangeDetectorRef) {
+  constructor(
+    public navParams: NavParams,
+    private viewCtrl: ViewController,
+    private cdr: ChangeDetectorRef,
+    private settingsService: SettingsService) {
   }
 
   ngOnInit() {
@@ -27,11 +32,11 @@ export class PmcScorecardPage implements AfterViewInit, OnInit {
   setColor(element: any, header: string) {
     if (header !== 'Element') {
       const number = Math.random();
-      return number > 0.5 ? 'green' : 'red';
+      return number > 0.5 ? '#91c675' : 'f94646';
     }
   }
 
-  onDismiss() {
-    this.viewCtrl.dismiss();
-  }
+  onDismiss = () => this.viewCtrl.dismiss();
+  getBackground = () => this.settingsService.getBackground();
+  getTextColor = () => this.settingsService.getTextColor();
 }

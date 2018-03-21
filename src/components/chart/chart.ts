@@ -17,7 +17,7 @@ import 'echarts-gl';
            [loading]="chartLoading"
            (chartInit)="onChartInit($event)"
            (chartClick)="onChartClick($event)"
-           [ngStyle]="{ 'height': height, 'width': '100%'}">
+           [ngStyle]="{ 'height': height, 'max-width': '100%'}">
       </div>
     </div>
   `,

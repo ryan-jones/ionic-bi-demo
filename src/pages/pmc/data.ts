@@ -24,6 +24,9 @@ export const ABCGASTRENDS = {
       saveAsImage: {}
     }
   },
+  lineStyle: {
+    color: '#317199'
+  },
   xAxis: {
     type: 'category',
     boundaryGap: false,
@@ -59,6 +62,9 @@ export const SAFETYSCORETRENDS = {
     feature: {
       saveAsImage: {}
     }
+  },
+  lineStyle: {
+    color: '#317199'
   },
   xAxis: {
     type: 'category',
@@ -98,6 +104,9 @@ export const PROFITABILITYSCORETRENDS = {
     feature: {
       saveAsImage: {}
     }
+  },
+  lineStyle: {
+    color: '#317199'
   },
   xAxis: {
     type: 'category',
