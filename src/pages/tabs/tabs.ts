@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FavouritesPage } from '../favourites/favourites';
+import { FavoritesPage } from '../favorites/favorites';
 import { PmcPage } from '../pmc/pmc';
 import { ProductionPage } from '../production/production';
 import { OrganizationPage } from '../organization/organization';
@@ -13,7 +13,7 @@ import { SettingsService } from '../../services/settings.service';
 })
 export class TabsPage {
 
-  tab1Root = FavouritesPage;
+  tab1Root = FavoritesPage;
   tab2Root = PmcPage;
   tab3Root = ProductionPage;
   tab4Root = OrganizationPage;

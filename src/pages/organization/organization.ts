@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 import { SettingsService } from '../../services/settings.service';
+import { AlertsPage } from '../alerts/alerts';
 
 @IonicPage()
 @Component({
@@ -9,6 +10,7 @@ import { SettingsService } from '../../services/settings.service';
 })
 export class OrganizationPage {
 
+  private alertsPage = AlertsPage;
   constructor(private settingsService: SettingsService) {
   }
 

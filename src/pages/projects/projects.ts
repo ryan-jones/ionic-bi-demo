@@ -4,6 +4,7 @@ import { echartsData, echartsData2, PROJECTSSUMMARY, PROJECTSHSE, CURRENTPROJECT
 import { CardList } from '../../app/models/card-list.model';
 import { Project } from '../../app/models/project.model';
 import { DrilldownPage } from './drilldown/drilldown';
+import { AlertsPage } from '../alerts/alerts';
 @IonicPage()
 @Component({
   selector: 'page-projects',
@@ -16,6 +17,7 @@ export class ProjectsPage implements OnInit {
   private projectsHse: CardList;
   private selectedProject: Project;
   private currentProjects: Project[];
+  private alertsPage = AlertsPage;
 
   constructor(private modalCtrl: ModalController) {}
 

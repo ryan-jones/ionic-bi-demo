@@ -18,7 +18,6 @@ import { SettingsService } from '../services/settings.service';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { GasHomePage } from '../pages/gas-home/gas-home';
-import { FavouritesPage } from '../pages/favourites/favourites';
 import { MorePage } from '../pages/more/more';
 import { OrganizationPage } from '../pages/organization/organization';
 import { ProductionPage } from '../pages/production/production';
@@ -31,12 +30,15 @@ import { DrilldownPage } from '../pages/projects/drilldown/drilldown';
 import { NewsfeedPage } from '../pages/newsfeed/newsfeed';
 import { AlertsPage } from '../pages/alerts/alerts';
 import { SettingsPage } from '../pages/settings/settings';
+import { NativeService } from '../services/native.service';
+import { FavoritesService } from '../services/favorites.service';
+import { FavoritesPage } from '../pages/favorites/favorites';
 
 @NgModule({
   declarations: [
     MyApp,
     GasHomePage,
-    FavouritesPage,
+    FavoritesPage,
     MorePage,
     OrganizationPage,
     ProductionPage,
@@ -61,7 +63,7 @@ import { SettingsPage } from '../pages/settings/settings';
   entryComponents: [
     MyApp,
     GasHomePage,
-    FavouritesPage,
+    FavoritesPage,
     MorePage,
     OrganizationPage,
     ProductionPage,
@@ -85,6 +87,8 @@ import { SettingsPage } from '../pages/settings/settings';
     CardListService,
     NewsApiService,
     SettingsService,
+    NativeService,
+    FavoritesService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

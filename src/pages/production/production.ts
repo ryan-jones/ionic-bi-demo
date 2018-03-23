@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 import { SettingsService } from '../../services/settings.service';
+import { AlertsPage } from '../alerts/alerts';
 
 @IonicPage()
 @Component({
@@ -8,6 +9,7 @@ import { SettingsService } from '../../services/settings.service';
   templateUrl: 'production.html',
 })
 export class ProductionPage {
+  private alertsPage = AlertsPage;
 
   constructor(private settingsService: SettingsService) {
   }
