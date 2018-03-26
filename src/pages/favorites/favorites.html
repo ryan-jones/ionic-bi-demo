@@ -27,14 +27,21 @@
           <ion-item>
             <h2>Charts</h2>
             <p>Swipe for more trends</p>
-            <ion-icon (click)="removeFromSliderCharts(sliderChart)" ios="ios-trash-outline" name="md-trash" item-end></ion-icon>
+            <ion-icon
+              (click)="removeFromSliderCharts(sliderChart)"
+              ios="ios-trash-outline"
+              name="md-trash"
+              item-end></ion-icon>
           </ion-item>
         </ion-list>
       </ion-card-header>
       <ion-card-content>
         <ion-slides pager>
           <ion-slide *ngFor="let chart of sliderChart.charts">
-            <chart *ngIf="chart" [data]="chart" height="'100px'"></chart>
+            <chart
+              *ngIf="chart"
+              [data]="chart"
+              height="'100px'"></chart>
           </ion-slide>
         </ion-slides>
       </ion-card-content>
@@ -71,7 +78,11 @@
             <h2>Score: {{ drilldown.data.value }} ({{ drilldown.data.date }})</h2>
             <h3>{{ drilldown.data.commentor }}</h3>
             <p (click)="openNewsFeed(date)" text-wrap>{{ drilldown.data.comments }}</p>
-            <ion-icon (click)="removeFromFavoriteDrilldowns(value, data)" ios="ios-trash-outline" name="md-trash" item-end></ion-icon>
+            <ion-icon
+              (click)="removeFromFavoriteDrilldowns(value, drilldown.data)"
+              ios="ios-trash-outline"
+              name="md-trash"
+              item-end></ion-icon>
           </ion-item>
         </ion-list>
       </ion-card-content>

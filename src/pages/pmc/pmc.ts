@@ -18,8 +18,7 @@ import { FavoritesService, SliderChart } from '../../services/favorites.service'
   selector: 'page-pmc',
   templateUrl: 'pmc.html'
 })
-export class PmcPage implements OnInit, AfterViewInit {
-  @ViewChild(Slides) slides: Slides;
+export class PmcPage implements OnInit {
   private abcGasScoreTrends: any;
   private safetyScoreTrends: any;
   private profitabilityScoreTrends: any;
@@ -45,9 +44,6 @@ export class PmcPage implements OnInit, AfterViewInit {
     this.subscribeToSliderCharts();
   }
 
-  ngAfterViewInit() {
-    this.slides.effect = 'coverflow';
-  }
 
   subscribeToKpis() {
     this.favoritesService.$favKpis.subscribe((kpis: CardKpi[]) => this.pmcScorecards.kpis.forEach(kpi => {

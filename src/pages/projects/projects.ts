@@ -5,6 +5,7 @@ import { CardList } from '../../app/models/card-list.model';
 import { Project } from '../../app/models/project.model';
 import { DrilldownPage } from './drilldown/drilldown';
 import { AlertsPage } from '../alerts/alerts';
+import { FavoritesService, SliderChart } from '../../services/favorites.service';
 @IonicPage()
 @Component({
   selector: 'page-projects',
@@ -18,15 +19,29 @@ export class ProjectsPage implements OnInit {
   private selectedProject: Project;
   private currentProjects: Project[];
   private alertsPage = AlertsPage;
+  private charts: SliderChart;
+  private toggle = false;
+  private scoreCardsFavorited = false;
+  private trendsIcon = 'star-outline';
 
-  constructor(private modalCtrl: ModalController) {}
+
+  constructor(private modalCtrl: ModalController, private favoritesService: FavoritesService) {}
 
   ionViewDidLoad() {}
 
   ngOnInit() {
+    this.subscribeToSliderCharts();
     this.echartsData = echartsData;
     this.echarts2Data = echartsData2;
+    this.charts = { charts: [this.echartsData, this.echarts2Data] };
     this.setProjects();
+  }
+
+  subscribeToSliderCharts() {
+    this.favoritesService.$favSliderCharts.subscribe((sliderCharts: SliderChart[]) => {
+      this.scoreCardsFavorited = sliderCharts.indexOf(this.charts) > -1 ? true : false;
+      this.setTrendsIcon();
+    });
   }
 
   setProjects() {
@@ -45,4 +60,23 @@ export class ProjectsPage implements OnInit {
     const exp = new RegExp(name, 'i');
     this.selectedProject = this.currentProjects.find(project => exp.test(project.name));
   }
+
+  toggleTrendsIcon() {
+    this.toggle = !this.toggle;
+    this.toggle ? this.addToFavorites() : this.removeFromFavorites();
+  }
+
+  addToFavorites() {
+    this.favoritesService.addToSliderCharts(this.charts);
+    this.scoreCardsFavorited = true;
+    this.setTrendsIcon();
+  }
+
+  removeFromFavorites() {
+    this.favoritesService.removeFromSliderCharts(this.charts);
+    this.scoreCardsFavorited = false;
+    this.setTrendsIcon();
+  }
+  setTrendsIcon = () => this.trendsIcon = this.scoreCardsFavorited ? 'star' : 'star-outline';
+
 }

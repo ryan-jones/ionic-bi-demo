@@ -45,7 +45,7 @@ export class FavoritesService {
   }
 
   removeFromFavoriteDrilldowns(value: { name: string, data: DrilldownData }) {
-    this.drillDownData = this.drillDownData.filter(x => x !== value);
+    this.drillDownData = this.drillDownData.filter(x => x.data !== value.data);
     this.$favDrilldowns.next(this.drillDownData);
   }
 

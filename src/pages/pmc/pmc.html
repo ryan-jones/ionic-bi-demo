@@ -25,20 +25,33 @@
         <ion-item>
           <h2>PMC Scorecard Trends</h2>
           <p>Swipe for more trends</p>
-          <ion-icon [name]="trendsIcon" (click)="toggleTrendsIcon()" item-end></ion-icon>
+          <ion-icon
+            [name]="trendsIcon"
+            (click)="toggleTrendsIcon()"
+            color="blueFont"
+            item-end></ion-icon>
         </ion-item>
       </ion-list>
     </ion-card-header>
     <ion-card-content>
       <ion-slides pager>
         <ion-slide (press)="activateDrilldown('gas score')">
-          <chart *ngIf="abcGasScoreTrends" [data]="abcGasScoreTrends" height="'120px'"></chart>
+          <chart
+            *ngIf="abcGasScoreTrends"
+            [data]="abcGasScoreTrends"
+            height="'120px'"></chart>
         </ion-slide>
         <ion-slide>
-          <chart *ngIf="safetyScoreTrends" [data]="safetyScoreTrends" height="'120px'"></chart>
+          <chart
+            *ngIf="safetyScoreTrends"
+            [data]="safetyScoreTrends"
+            height="'120px'"></chart>
         </ion-slide>
         <ion-slide>
-          <chart *ngIf="profitabilityScoreTrends" [data]="profitabilityScoreTrends" height="'120px'"></chart>
+          <chart
+            *ngIf="profitabilityScoreTrends"
+            [data]="profitabilityScoreTrends"
+            height="'120px'"></chart>
         </ion-slide>
       </ion-slides>
     </ion-card-content>
