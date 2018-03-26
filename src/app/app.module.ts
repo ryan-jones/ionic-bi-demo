@@ -34,6 +34,7 @@ import { NativeService } from '../services/native.service';
 import { FavoritesService } from '../services/favorites.service';
 import { FavoritesPage } from '../pages/favorites/favorites';
 
+
 @NgModule({
   declarations: [
     MyApp,

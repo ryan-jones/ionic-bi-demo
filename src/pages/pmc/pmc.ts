@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { IonicPage, NavController, NavParams, ModalController, Slides } from 'ionic-angular';
 import {
   SAFETYSCORETRENDS,
   PROFITABILITYSCORETRENDS,
@@ -18,7 +18,8 @@ import { FavoritesService, SliderChart } from '../../services/favorites.service'
   selector: 'page-pmc',
   templateUrl: 'pmc.html'
 })
-export class PmcPage implements OnInit {
+export class PmcPage implements OnInit, AfterViewInit {
+  @ViewChild(Slides) slides: Slides;
   private abcGasScoreTrends: any;
   private safetyScoreTrends: any;
   private profitabilityScoreTrends: any;
@@ -42,6 +43,10 @@ export class PmcPage implements OnInit {
     this.setCharts();
     this.subscribeToKpis();
     this.subscribeToSliderCharts();
+  }
+
+  ngAfterViewInit() {
+    this.slides.effect = 'coverflow';
   }
 
   subscribeToKpis() {

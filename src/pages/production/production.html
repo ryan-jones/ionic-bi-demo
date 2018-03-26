@@ -1,24 +1,16 @@
 <ion-header>
   <ion-navbar [color]="getBackground()">
     <ion-buttons start>
-      <button
-        menuToggle
-        ion-button
-        icon-only>
+      <button menuToggle ion-button icon-only>
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
     <ion-title>Production</ion-title>
     <ion-buttons end>
-      <button
-        ion-button
-        icon-only>
+      <button ion-button icon-only>
         <ion-icon name="ios-share-outline" md="md-share"></ion-icon>
       </button>
-      <button
-        [navPush]="alertsPage"
-        ion-button
-        icon-only>
+      <button [navPush]="alertsPage" ion-button icon-only>
         <ion-icon name="notifications-outline"></ion-icon>
       </button>
     </ion-buttons>
@@ -28,5 +20,16 @@
 
 
 <ion-content padding>
-
+  <ion-slides
+    loop="true">
+    <ion-slide
+      *ngFor="let slide of slideCards">
+      <ion-card>
+        <ion-card-header>{{ slide.title }}</ion-card-header>
+        <ion-card-content>
+          <chart [data]="slide.chartData" height="'100px'"></chart>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
 </ion-content>

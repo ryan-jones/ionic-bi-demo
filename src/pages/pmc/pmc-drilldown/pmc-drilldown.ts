@@ -46,7 +46,6 @@ export class PMCDrilldownPage implements OnInit {
     private favoritesService: FavoritesService
   ) {
     this.drilldownData = this.navParams.data;
-    console.log('drilldown', this.drilldownData);
   }
 
   ngOnInit() {
@@ -79,7 +78,6 @@ export class PMCDrilldownPage implements OnInit {
   }
 
   onToggleDrilldown(name: string, data: DrilldownData) {
-    console.log('data', data);
     data.clicked = !data.clicked;
     data.clicked ? this.addToFavorites(name, data) : this.removeFromFavorites(name, data);
   }
