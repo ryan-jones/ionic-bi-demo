@@ -37,46 +37,45 @@ export class ProjectsPage implements OnInit {
     this.setProjects();
   }
 
-  subscribeToSliderCharts() {
+  private subscribeToSliderCharts(): void {
     this.favoritesService.$favSliderCharts.subscribe((sliderCharts: SliderChart[]) => {
       this.scoreCardsFavorited = sliderCharts.indexOf(this.charts) > -1 ? true : false;
       this.setTrendsIcon();
     });
   }
 
-  setProjects() {
+  private setProjects() {
     this.projectsSummary = PROJECTSSUMMARY;
     this.projectsHse = PROJECTSHSE;
     this.currentProjects = CURRENTPROJECTS;
   }
 
-  activateDrilldown({ data }) {
+  private activateDrilldown({ data }): void {
     this.loadProjectByName(data.name);
     const modal = this.modalCtrl.create(DrilldownPage, this.selectedProject);
     modal.present();
   }
 
-  loadProjectByName(name: string) {
+  private loadProjectByName(name: string): void {
     const exp = new RegExp(name, 'i');
     this.selectedProject = this.currentProjects.find(project => exp.test(project.name));
   }
 
-  toggleTrendsIcon() {
+  private toggleTrendsIcon(): void {
     this.toggle = !this.toggle;
     this.toggle ? this.addToFavorites() : this.removeFromFavorites();
   }
 
-  addToFavorites() {
+  private addToFavorites(): void {
     this.favoritesService.addToSliderCharts(this.charts);
     this.scoreCardsFavorited = true;
     this.setTrendsIcon();
   }
 
-  removeFromFavorites() {
+  private removeFromFavorites(): void {
     this.favoritesService.removeFromSliderCharts(this.charts);
     this.scoreCardsFavorited = false;
     this.setTrendsIcon();
   }
-  setTrendsIcon = () => this.trendsIcon = this.scoreCardsFavorited ? 'star' : 'star-outline';
-
+  private setTrendsIcon = (): string => this.trendsIcon = this.scoreCardsFavorited ? 'star' : 'star-outline';
 }

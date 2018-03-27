@@ -1,4 +1,4 @@
-import { ActionSheetController, AlertController } from 'ionic-angular';
+import { ActionSheetController, AlertController, ActionSheet } from 'ionic-angular';
 import { Injectable } from '@angular/core';
 import { DrilldownData } from '../app/models/pmc-trends-drilldown.model';
 import { EmailComposer } from '@ionic-native/email-composer';
@@ -15,7 +15,7 @@ export class NativeService {
     private socialSharing: SocialSharing
   ) {}
 
-  createActionSheet(person: string, phoneNumber: string, email: string) {
+  public createActionSheet(person: string, phoneNumber: string, email: string): ActionSheet {
     return this.actionCtrl.create({
       title: 'Contact',
       buttons: [
@@ -39,14 +39,14 @@ export class NativeService {
     });
   }
 
-  callPhoneNumber(phoneNumber: string) {
+  public callPhoneNumber(phoneNumber: string): void {
     this.callNumber
       .callNumber(phoneNumber, true)
       .then(res => console.log('Launched dialer', res))
       .catch(_ => this.callFailed('The call was unable to be completed'));
   }
 
-  callFailed(reason: string) {
+  public callFailed(reason: string): void {
     const alert = this.alertCtrl.create({
       title: 'Call failed!',
       subTitle: reason,
@@ -55,7 +55,7 @@ export class NativeService {
     alert.present();
   }
 
-  composeEmail(email: string) {
+  public composeEmail(email: string): void {
     this.emailComposer
       .hasPermission()
       .then(res => {
@@ -68,7 +68,7 @@ export class NativeService {
       .catch(_ => this.emailFailed(`Doesn't have permission`));
   }
 
-  emailFailed(titleText: string) {
+  public emailFailed(titleText: string): void {
     const alert = this.alertCtrl.create({
       title: titleText,
       subTitle: 'This device does not support email feature',
@@ -77,7 +77,7 @@ export class NativeService {
     alert.present();
   }
 
-  activateWhatsapp(phoneNumber: string) {
+  public activateWhatsapp(phoneNumber: string): void {
     this.socialSharing
       .shareViaWhatsAppToReceiver(phoneNumber, 'test message')
       .then(res => console.log('whatsapp res', res));

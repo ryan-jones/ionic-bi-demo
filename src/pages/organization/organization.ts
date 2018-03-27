@@ -14,6 +14,6 @@ export class OrganizationPage {
   constructor(private settingsService: SettingsService) {
   }
 
-  getBackground = () => this.settingsService.getBackground();
-  getTextColor = () => this.settingsService.getTextColor();
+  private getBackground = (): string => this.settingsService.getBackground();
+  private getTextColor = (): string => this.settingsService.getTextColor();
 }

@@ -54,17 +54,17 @@ export class PMCDrilldownPage implements OnInit {
     }));
   }
 
-  onDismiss() {
+  private onDismiss(): void {
     this.viewCtrl.dismiss();
   }
 
-  onSelectCommentor(data: DrilldownData) {
+  private onSelectCommentor(data: DrilldownData): void {
     const { commentor, commentorPhoneNumber, commentorEmail } = data;
     const actionSheet = this.nativeService.createActionSheet(commentor, commentorPhoneNumber, commentorEmail);
     actionSheet.present();
   }
 
-  openNewsFeed(date: string) {
+  private openNewsFeed(date: string): void {
     const loader = this.loaderCtrl.create({
       content: 'Loading Newsfeed'
     });
@@ -77,20 +77,15 @@ export class PMCDrilldownPage implements OnInit {
     });
   }
 
-  onToggleDrilldown(name: string, data: DrilldownData) {
+  private onToggleDrilldown(name: string, data: DrilldownData): void {
     data.clicked = !data.clicked;
     data.clicked ? this.addToFavorites(name, data) : this.removeFromFavorites(name, data);
   }
 
-  addToFavorites(name: string, data: DrilldownData) {
-    this.favoritesService.addToDrilldownDataList(name, data);
-  }
-
-  removeFromFavorites(name: string, data: DrilldownData) {
-    this.favoritesService.removeFromFavoriteDrilldowns({ name, data });
-  }
-
-  setDrilldownIcon = (drilldown: any) =>  drilldown.clicked ? 'star' : 'star-outline';
-  getBackground = () => this.settingsService.getBackground();
-  getTextColor = () => this.settingsService.getTextColor();
+  private addToFavorites = (name: string, data: DrilldownData): void => this.favoritesService.addToDrilldownDataList(name, data);
+  // tslint:disable-next-line:max-line-length
+  private removeFromFavorites = (name: string, data: DrilldownData): void => this.favoritesService.removeFromFavoriteDrilldowns({ name, data });
+  private setDrilldownIcon = (drilldown: any): string =>  drilldown.clicked ? 'star' : 'star-outline';
+  private getBackground = (): string => this.settingsService.getBackground();
+  private getTextColor = (): string => this.settingsService.getTextColor();
 }

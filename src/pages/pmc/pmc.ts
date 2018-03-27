@@ -45,58 +45,58 @@ export class PmcPage implements OnInit {
   }
 
 
-  subscribeToKpis() {
+  private subscribeToKpis(): void {
     this.favoritesService.$favKpis.subscribe((kpis: CardKpi[]) => this.pmcScorecards.kpis.forEach(kpi => {
       kpi.clicked = kpis.indexOf(kpi) > -1 ? true : false;
     }));
   }
 
-  subscribeToSliderCharts() {
+  private subscribeToSliderCharts(): void {
     this.favoritesService.$favSliderCharts.subscribe((sliderCharts: SliderChart[]) => {
       this.scoreCardsFavorited = sliderCharts.indexOf(this.charts) > -1 ? true : false;
       this.setTrendsIcon();
     });
   }
 
-  setAbcGasScoreTrends = () => this.abcGasScoreTrends = ABCGASTRENDS;
+  private setAbcGasScoreTrends = (): any => this.abcGasScoreTrends = ABCGASTRENDS;
 
-  setSafetyScoreTrends = () => this.safetyScoreTrends = SAFETYSCORETRENDS;
+  private setSafetyScoreTrends = (): any => this.safetyScoreTrends = SAFETYSCORETRENDS;
 
-  setProfitabilityScoreTrends = () => this.profitabilityScoreTrends = PROFITABILITYSCORETRENDS;
+  private setProfitabilityScoreTrends = (): any => this.profitabilityScoreTrends = PROFITABILITYSCORETRENDS;
 
-  setPmcScorecards = () => this.pmcScorecards = PMCSCORECARDS;
+  private setPmcScorecards = (): CardList => this.pmcScorecards = PMCSCORECARDS;
 
-  setCharts = () => this.charts = { charts: [this.abcGasScoreTrends, this.safetyScoreTrends, this.profitabilityScoreTrends] };
+  private setCharts = (): any => this.charts = { charts: [this.abcGasScoreTrends, this.safetyScoreTrends, this.profitabilityScoreTrends] };
 
-  activateDrilldown(name: string) {
+  private activateDrilldown(name: string): void {
     const drilldownData = { ...this.loadScore(name), name };
     const popover = this.modalCtr.create(PMCDrilldownPage, drilldownData);
     popover.present();
   }
 
-  loadScore(seriesName: string) {
+  private loadScore(seriesName: string): any {
     const exp = new RegExp(seriesName, 'i');
     return TRENDSDRILLDOWN.find(kpi => exp.test(kpi.name));
   }
 
-  toggleTrendsIcon() {
+  private toggleTrendsIcon(): any {
     this.toggle = !this.toggle;
     this.toggle ? this.addToFavorites() : this.removeFromFavorites();
   }
 
-  addToFavorites() {
+  private addToFavorites(): void {
     this.favoritesService.addToSliderCharts(this.charts);
     this.scoreCardsFavorited = true;
     this.setTrendsIcon();
   }
 
-  removeFromFavorites() {
+  private removeFromFavorites(): void {
     this.favoritesService.removeFromSliderCharts(this.charts);
     this.scoreCardsFavorited = false;
     this.setTrendsIcon();
   }
 
-  setTrendsIcon = () => this.trendsIcon = this.scoreCardsFavorited ? 'star' : 'star-outline';
-  getBackground = () => this.settingsService.getBackground();
-  getTextColor = () => this.settingsService.getTextColor();
+  private setTrendsIcon = (): string => this.trendsIcon = this.scoreCardsFavorited ? 'star' : 'star-outline';
+  private getBackground = (): string => this.settingsService.getBackground();
+  private getTextColor = (): string => this.settingsService.getTextColor();
 }

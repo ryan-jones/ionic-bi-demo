@@ -11,8 +11,11 @@ import { SLIDECHARTS } from './data';
 })
 export class ProductionPage {
   @ViewChild(Slides) slides: Slides;
+  @ViewChild('chart') chartEl: any;
   private alertsPage = AlertsPage;
   private slideCards: any[];
+  private selectedSlide: any;
+  private chartRerendering: number;
 
   constructor(private settingsService: SettingsService) {
     this.slideCards = SLIDECHARTS;
@@ -25,16 +28,20 @@ export class ProductionPage {
     this.slides.direction = 'vertical';
     this.slides.effect = 'coverflow';
     this.slides.slidesPerView = 3;
-    this.slides.spaceBetween = -100;
     this.slides.coverflow = {
       rotate: 0,
-      stretch: 0,
-      depth: 50,
+      stretch: 10,
+      depth: 100,
       modifier: 1,
       slideShadows: false,
     };
   }
 
+  change(event) {
+    if (this.slides.clickedIndex) {
+      this.selectedSlide = this.slides.clickedSlide.innerText;
+    }
+  }
   getBackground = () => this.settingsService.getBackground();
   getTextColor = () => this.settingsService.getTextColor();
 }

@@ -22,7 +22,7 @@ export class CardListComponent implements OnChanges {
   @Input() favorited = false;
   @Input() partOfKpiFavoritesList = false;
   @Output() removedCard: EventEmitter<CardList[]> = new EventEmitter<CardList[]>();
-  @Output() removedKpi: EventEmitter<any> = new EventEmitter<any>();
+  @Output() removedKpi: EventEmitter<CardKpi[]> = new EventEmitter<CardKpi[]>();
 
   private cardIconName: string;
   private kpiIconName = 'star-outline';
@@ -52,37 +52,37 @@ export class CardListComponent implements OnChanges {
     this.subscribeToFavCardLists();
   }
 
-  subscribeToFavCardLists() {
+  private subscribeToFavCardLists(): void {
     this.favoritesService.$favCardLists.subscribe((cardLists: CardList[]) => {
       this.wholeCardFavorited = cardLists.indexOf(this.card) > -1 ? true : false;
       this.setCardIcon();
     });
   }
 
-  loadCardOverview(kpi: CardKpi) {
+  private loadCardOverview(kpi: CardKpi): void {
     const data = this.cardList.getKpiScoreCardData(kpi);
     const modal = this.modalCtrl.create(PmcScorecardPage, data);
     modal.present();
   }
 
-  onSelectManagerImage() {
+  private onSelectManagerImage(): void {
     const { managerName, managerPhoneNumber, managerEmail } = this.card;
     const actionSheet = this.nativeService.createActionSheet(managerName, managerPhoneNumber, managerEmail);
     actionSheet.present();
   }
 
-  onToggleCardIcon = (card) => {
+  private onToggleCardIcon(card: CardList): void {
     this.toggle = !this.toggle;
     this.toggle ? this.addToCardList(card) : this.removeFromCardList(card);
   }
 
-  addToCardList = (card: CardList) => {
+  private addToCardList(card: CardList): void {
     this.favoritesService.addToCardLists(card);
     this.wholeCardFavorited = true;
     this.setCardIcon();
   }
 
-  removeFromCardList = (card: CardList) => {
+  private removeFromCardList(card: CardList): void {
     if (card.title === 'Kpis') {
       this.card.kpis.forEach(kpi => this.favoritesService.removeFromKpiList(kpi));
       this.getAndEmitKpis();
@@ -95,26 +95,27 @@ export class CardListComponent implements OnChanges {
     this.setCardIcon();
   }
 
-  onToggleKpi = (kpi) => {
+  private onToggleKpi(kpi: CardKpi): void {
     kpi.clicked = !kpi.clicked;
     kpi.clicked ? this.addKpiToFavorites(kpi) : this.removeKpiFromFavorites(kpi);
   }
 
-  addKpiToFavorites = (kpi: CardKpi) => {
+  private addKpiToFavorites (kpi: CardKpi): void {
     this.favoritesService.addToKpiList(kpi);
   }
 
-  removeKpiFromFavorites(kpi) {
+  private removeKpiFromFavorites(kpi: CardKpi): void {
     this.favoritesService.removeFromKpiList(kpi);
     this.getAndEmitKpis();
   }
 
-  getAndEmitKpis() {
+  private getAndEmitKpis(): void {
     const kpis = this.favoritesService.getKpis();
     this.removedKpi.emit(kpis);
   }
 
-  setCardIcon = () => this.cardIconName = this.wholeCardFavorited ? 'star' : 'star-outline';
-  setKpiIcon = (kpi) =>  kpi.clicked ? 'star' : 'star-outline';
-  setArrowDirection = (direction: string) => direction === 'down' ? 'md-arrow-dropdown' : 'md-arrow-dropup';
+  private setCardIcon = (): string => this.cardIconName = this.setIcon(this.wholeCardFavorited);
+  private setKpiIcon = (kpi: CardKpi): string =>  this.setIcon(kpi.clicked);
+  private setIcon = (metric: any): string => metric ? 'star' : 'star-outline';
+  private setArrowDirection = (direction: string): string => direction === 'down' ? 'md-arrow-dropdown' : 'md-arrow-dropup';
 }

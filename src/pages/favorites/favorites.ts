@@ -29,53 +29,53 @@ export class FavoritesPage {
     this.getFavoriteCardLists();
   }
 
-  getFavoriteKpis = () => {
+  private getFavoriteKpis(): void {
     this.favoriteKpis = {
       title: 'Kpis',
       kpis: this.favoritesService.getKpis()
     };
   }
-  getFavoriteCardLists = () => this.cardLists = this.favoritesService.getCardLists();
-  getSliderCharts = () => this.sliderCharts = this.favoritesService.getSliderCharts();
+  private getFavoriteCardLists = (): CardList[] => this.cardLists = this.favoritesService.getCardLists();
+  private getSliderCharts = (): SliderChart[] => this.sliderCharts = this.favoritesService.getSliderCharts();
 
-  getFavoriteDrilldownData() {
+  private getFavoriteDrilldownData(): void {
     this.favoriteDrilldownData = this.favoritesService.getDrilldownDataList();
     this.drilldownValues = sortedUniq(this.favoriteDrilldownData.map(x => x.name));
   }
 
-  removeFromFavoriteDrilldowns = (name: string, data: DrilldownData) => {
+  private removeFromFavoriteDrilldowns(name: string, data: DrilldownData): void {
     this.favoritesService.removeFromFavoriteDrilldowns({name, data});
     this.getFavoriteDrilldownData();
   }
 
-  removeCategoryFromFavoriteDrilldowns = (name: string) => {
+  private removeCategoryFromFavoriteDrilldowns(name: string): void {
     this.favoritesService.removeCategoryFromFavoriteDrilldowns(name);
     this.getFavoriteDrilldownData();
   }
 
-  removeFromKpis(kpi: CardKpi) {
+  private removeFromKpis(kpi: CardKpi): void {
     this.favoritesService.removeFromKpiList(kpi);
     this.getFavoriteKpis();
   }
 
-  removeFromSliderCharts(chart: SliderChart) {
+  private removeFromSliderCharts(chart: SliderChart): void {
     this.favoritesService.removeFromSliderCharts(chart);
     this.getSliderCharts();
   }
 
-  removeFromCardLists(card: CardList) {
+  private removeFromCardLists(card: CardList): void {
     this.favoritesService.removeFromCardLists(card);
     this.getFavoriteCardLists();
   }
 
-  onDeletedCard = (cardList: CardList[]) => this.cardLists = cardList;
+  private onDeletedCard = (cardList: CardList[]): CardList[] => this.cardLists = cardList;
 
-  onDeleteKpi = (kpis: CardKpi[]) => this.favoriteKpis.kpis = kpis;
+  private onDeleteKpi = (kpis: CardKpi[]): CardKpi[] => this.favoriteKpis.kpis = kpis;
 
-  getBackground = () => this.settingsService.getBackground();
+  private getBackground = (): string => this.settingsService.getBackground();
 
-  getTextColor = () => this.settingsService.isAltBackground() ? 'dark' : 'light';
+  private getTextColor = (): string => this.settingsService.isAltBackground() ? 'dark' : 'light';
 
-  setArrowDirection = (direction: string) => direction === 'down' ? 'md-arrow-dropdown' : 'md-arrow-dropup';
+  private setArrowDirection = (direction: string): string => direction === 'down' ? 'md-arrow-dropdown' : 'md-arrow-dropup';
 
 }

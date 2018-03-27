@@ -16,40 +16,40 @@ export class FavoritesService {
   public $favSliderCharts: Subject<SliderChart[]> = new Subject<SliderChart[]>();
   public $favDrilldowns: Subject<any> = new Subject<any>();
 
-  getSliderCharts = () => this.favoriteSliderCharts;
-  getCardLists = () => this.favoriteCardLists;
-  getKpis = () => this.favoriteKpis;
-  getDrilldownDataList = () => this.drillDownData;
+  public getSliderCharts = (): SliderChart[] => this.favoriteSliderCharts;
+  public getCardLists = (): CardList[] => this.favoriteCardLists;
+  public getKpis = (): CardKpi[] => this.favoriteKpis;
+  public getDrilldownDataList = (): any => this.drillDownData;
 
-  addToSliderCharts = (charts: SliderChart) => this.favoriteSliderCharts.push(charts);
-  addToCardLists = (card: CardList) => this.favoriteCardLists.push(card);
-  addToKpiList = (kpi: CardKpi) => this.favoriteKpis.push(kpi);
-  addToDrilldownDataList = (name: string, data: DrilldownData) => {
+  public addToSliderCharts = (charts: SliderChart): number => this.favoriteSliderCharts.push(charts);
+  public addToCardLists = (card: CardList): number => this.favoriteCardLists.push(card);
+  public addToKpiList = (kpi: CardKpi): number => this.favoriteKpis.push(kpi);
+  public addToDrilldownDataList = (name: string, data: DrilldownData): void => {
     const dataValue = { name, data };
     this.drillDownData.push(dataValue);
   }
 
-  removeFromSliderCharts(charts: SliderChart) {
+  public removeFromSliderCharts(charts: SliderChart): void {
     this.favoriteSliderCharts = this.favoriteSliderCharts.filter(x => x !== charts);
     this.$favSliderCharts.next(this.favoriteSliderCharts);
   }
 
-  removeFromCardLists(card: CardList) {
+  public removeFromCardLists(card: CardList): void {
     this.favoriteCardLists = this.favoriteCardLists.filter(x => x !== card);
     this.$favCardLists.next(this.favoriteCardLists);
   }
 
-  removeFromKpiList(kpi: CardKpi) {
+  public removeFromKpiList(kpi: CardKpi): void {
     this.favoriteKpis = this.favoriteKpis.filter(x => x !== kpi);
     this.$favKpis.next(this.favoriteKpis);
   }
 
-  removeFromFavoriteDrilldowns(value: { name: string, data: DrilldownData }) {
+  public removeFromFavoriteDrilldowns(value: { name: string, data: DrilldownData }): void {
     this.drillDownData = this.drillDownData.filter(x => x.data !== value.data);
     this.$favDrilldowns.next(this.drillDownData);
   }
 
-  removeCategoryFromFavoriteDrilldowns(category: string) {
+  public removeCategoryFromFavoriteDrilldowns(category: string): void {
     this.drillDownData = this.drillDownData.filter(data => data.name !== category);
     this.$favDrilldowns.next(this.drillDownData);
   }
