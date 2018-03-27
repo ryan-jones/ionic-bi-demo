@@ -6,6 +6,7 @@ export interface DrilldownData {
     commentorEmail: string;
     commentorPhoneNumber: string;
     commentorImage: string;
+    clicked?: boolean;
 }
 
 export interface PMCTrendDrilldown  {

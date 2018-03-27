@@ -4,11 +4,11 @@ import { Injectable } from '@angular/core';
 export class SettingsService {
   private altBackground = false;
 
-  setBackground = (isAlt: boolean) => (this.altBackground = isAlt);
+  public setBackground = (isAlt: boolean): boolean => (this.altBackground = isAlt);
 
-  isAltBackground = () => this.altBackground;
+  public isAltBackground = (): boolean => this.altBackground;
 
-  getBackground = () => this.altBackground ? 'altToolbarBackground' : 'toolbarBackground';
+  public getBackground = (): string => this.altBackground ? 'altToolbarBackground' : 'toolbarBackground';
 
-  getTextColor = () => this.altBackground ? 'blueFont' : 'whiteFont';
+  public getTextColor = (): string => this.altBackground ? 'blueFont' : 'whiteFont';
 }

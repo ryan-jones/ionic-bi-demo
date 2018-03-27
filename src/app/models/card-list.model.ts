@@ -3,6 +3,7 @@ export interface CardKpi {
   measurables: string;
   value: string;
   breakdown: string;
+  clicked?: boolean;
   change?: {
     value: string;
     color: string;
@@ -12,7 +13,7 @@ export interface CardKpi {
 
 export interface CardList {
   title: string;
-  reportDate: string;
+  reportDate?: string;
   kpis: CardKpi[];
   image?: string;
   managerImg?: string;

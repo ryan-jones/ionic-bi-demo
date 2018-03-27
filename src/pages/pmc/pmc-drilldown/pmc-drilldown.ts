@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CallNumber } from '@ionic-native/call-number';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { SocialSharing } from '@ionic-native/social-sharing';
@@ -18,13 +18,15 @@ import {
 } from '../../../app/models/pmc-trends-drilldown.model';
 import { NewsApiService } from '../../../services/news-api.service';
 import { SettingsService } from '../../../services/settings.service';
+import { NativeService } from '../../../services/native.service';
+import { FavoritesService } from '../../../services/favorites.service';
 
 @IonicPage()
 @Component({
   selector: 'page-pmc-drilldown',
   templateUrl: 'pmc-drilldown.html'
 })
-export class PMCDrilldownPage {
+export class PMCDrilldownPage implements OnInit {
   private drilldownData: PMCTrendDrilldown;
   private newsFeedPage = NewsfeedPage;
 
@@ -39,85 +41,30 @@ export class PMCDrilldownPage {
     private socialSharing: SocialSharing,
     private newsApi: NewsApiService,
     private loaderCtrl: LoadingController,
-    private settingsService: SettingsService
+    private settingsService: SettingsService,
+    private nativeService: NativeService,
+    private favoritesService: FavoritesService
   ) {
     this.drilldownData = this.navParams.data;
   }
 
-  onDismiss() {
+  ngOnInit() {
+    this.favoritesService.$favDrilldowns.subscribe(drilldowns => this.drilldownData.data.forEach(kpi => {
+      kpi.clicked = drilldowns.indexOf(kpi) > -1 ? true : false;
+    }));
+  }
+
+  private onDismiss(): void {
     this.viewCtrl.dismiss();
   }
 
-  onSelectComment(data: DrilldownData) {
-    const actionSheet = this.actionCtrl.create({
-      title: 'Contact',
-      buttons: [
-        {
-          text: `Email ${data.commentor}`,
-          handler: () => this.composeEmail(data)
-        },
-        {
-          text: `Call ${data.commentor}`,
-          handler: () => this.callPhoneNumber(data)
-        },
-        {
-          text: `Whatsapp ${data.commentor}`,
-          handler: () => this.activateWhatsapp(data)
-        },
-        {
-          text: 'Cancel',
-          role: 'cancel'
-        }
-      ]
-    });
+  private onSelectCommentor(data: DrilldownData): void {
+    const { commentor, commentorPhoneNumber, commentorEmail } = data;
+    const actionSheet = this.nativeService.createActionSheet(commentor, commentorPhoneNumber, commentorEmail);
     actionSheet.present();
   }
 
-  callPhoneNumber(data: DrilldownData) {
-    this.callNumber
-      .callNumber(data.commentorPhoneNumber, true)
-      .then(res => console.log('Launched dialer', res))
-      .catch(_ => this.callFailed('The call was unable to be completed'));
-  }
-
-  callFailed(reason: string) {
-    const alert = this.alertCtrl.create({
-      title: 'Call failed!',
-      subTitle: reason,
-      buttons: ['OK']
-    });
-    alert.present();
-  }
-
-  composeEmail(data) {
-    this.emailComposer
-      .hasPermission()
-      .then(res => {
-        const email = {
-          to: data.commentorEmail,
-          isHtml: true
-        };
-        this.emailComposer.open(email);
-      })
-      .catch(_ => this.emailFailed(`Doesn't have permission`));
-  }
-
-  emailFailed(titleText: string) {
-    const alert = this.alertCtrl.create({
-      title: titleText,
-      subTitle: 'This phone does not support email feature',
-      buttons: ['OK']
-    });
-    alert.present();
-  }
-
-  activateWhatsapp(data: DrilldownData) {
-    this.socialSharing
-      .shareViaWhatsAppToReceiver(data.commentorPhoneNumber, 'test message')
-      .then(res => console.log('whatsapp res', res));
-  }
-
-  openNewsFeed(date: string) {
+  private openNewsFeed(date: string): void {
     const loader = this.loaderCtrl.create({
       content: 'Loading Newsfeed'
     });
@@ -130,6 +77,15 @@ export class PMCDrilldownPage {
     });
   }
 
-  getBackground = () => this.settingsService.getBackground();
-  getTextColor = () => this.settingsService.getTextColor();
+  private onToggleDrilldown(name: string, data: DrilldownData): void {
+    data.clicked = !data.clicked;
+    data.clicked ? this.addToFavorites(name, data) : this.removeFromFavorites(name, data);
+  }
+
+  private addToFavorites = (name: string, data: DrilldownData): void => this.favoritesService.addToDrilldownDataList(name, data);
+  // tslint:disable-next-line:max-line-length
+  private removeFromFavorites = (name: string, data: DrilldownData): void => this.favoritesService.removeFromFavoriteDrilldowns({ name, data });
+  private setDrilldownIcon = (drilldown: any): string =>  drilldown.clicked ? 'star' : 'star-outline';
+  private getBackground = (): string => this.settingsService.getBackground();
+  private getTextColor = (): string => this.settingsService.getTextColor();
 }

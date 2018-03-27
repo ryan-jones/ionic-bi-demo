@@ -1,25 +1,14 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the FinancePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage } from 'ionic-angular';
+import { AlertsPage } from '../alerts/alerts';
 
 @IonicPage()
 @Component({
   selector: 'page-finance',
-  templateUrl: 'finance.html',
+  templateUrl: 'finance.html'
 })
 export class FinancePage {
+  private alertsPage = AlertsPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FinancePage');
-  }
-
+  constructor() {}
 }

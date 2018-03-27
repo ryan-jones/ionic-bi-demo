@@ -1,3 +1,15 @@
 page-production {
+  ion-slides {
+    height: 65%;
 
+    // ion-card {
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   right: 0;
+    // }
+  }
+  ion-card-content {
+    min-height: 100px;
+  }
 }

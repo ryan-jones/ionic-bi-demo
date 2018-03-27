@@ -7,16 +7,32 @@
       </ion-avatar>
       <h2>{{ card.title }}</h2>
       <h3 *ngIf="card.managerName">Manager: {{ card.managerName }}</h3>
-      <p>Last reported: {{ card.reportDate }}</p>
-      <ion-icon name="star-outline" item-end></ion-icon>
+      <p *ngIf="card.reportDate">Last reported: {{ card.reportDate }}</p>
+      <ion-icon
+        *ngIf="!favorited"
+        (click)="onToggleCardIcon(card)"
+        [name]="cardIconName"
+        color="blueFont"
+        item-end></ion-icon>
+      <ion-icon
+        *ngIf="favorited"
+        (click)="removeFromCardList(card)"
+        name="ios-trash-outline"
+        color="blueFont"
+        item-end></ion-icon>
     </ion-item>
   </ion-list>
 </ion-card-header>
 <ion-card-content>
   <ion-grid no-padding>
     <ion-list *ngFor="let kpi of card.kpis" no-padding>
-      <ion-item (click)="loadCardOverview(kpi)">
-        <ion-icon name="star-outline" item-left></ion-icon>
+      <ion-item (press)="loadCardOverview(kpi)">
+        <ion-icon
+          *ngIf="kpiIconName"
+          (click)="onToggleKpi(kpi)"
+          [name]="setKpiIcon(kpi)"
+          color="blueFont"
+          item-left></ion-icon>
         <ion-grid>
           <ion-row>
             <ion-col>

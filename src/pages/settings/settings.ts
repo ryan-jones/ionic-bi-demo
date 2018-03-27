@@ -10,11 +10,11 @@ import { SettingsService } from '../../services/settings.service';
 export class SettingsPage {
   constructor(private settingsService: SettingsService) {}
 
-  onToggle = (toggle: Toggle) => this.settingsService.setBackground(toggle.checked);
+  private onToggle = (toggle: Toggle): boolean => this.settingsService.setBackground(toggle.checked);
 
-  checkAltBackground = () => this.settingsService.isAltBackground();
+  private checkAltBackground = (): boolean => this.settingsService.isAltBackground();
 
-  getBackground = () => this.settingsService.getBackground();
+  private getBackground = (): string => this.settingsService.getBackground();
 
-  getTextColor = () => this.settingsService.getTextColor();
+  private getTextColor = (): string => this.settingsService.getTextColor();
 }

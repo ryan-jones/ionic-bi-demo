@@ -3,7 +3,7 @@ import { PMCSCORECARDDRILLDOWNDATA } from '../pages/pmc/data';
 
 export class CardListService {
 
-  getKpiScoreCardData(kpi: CardKpi) {
+  public getKpiScoreCardData(kpi: CardKpi): any {
     const exp = new RegExp(kpi.name, 'i');
     return PMCSCORECARDDRILLDOWNDATA.find(scorecard => exp.test(scorecard.name));
   }

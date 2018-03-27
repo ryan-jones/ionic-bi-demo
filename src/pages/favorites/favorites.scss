@@ -1,0 +1,13 @@
+page-favorites {
+  .inline {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  ion-col {
+    ion-icon {
+      padding-top: 0;
+    }
+  }
+}

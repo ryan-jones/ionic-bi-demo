@@ -18,6 +18,6 @@ export class AlertsPage {
    this.alerts = ALERTDATA;
  }
 
- getBackground = () => this.settingsService.getBackground();
- getTextColor = () => this.settingsService.getTextColor();
+ private getBackground = (): string => this.settingsService.getBackground();
+ private getTextColor = (): string => this.settingsService.getTextColor();
 }

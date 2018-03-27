@@ -9,7 +9,7 @@ import { SettingsService } from '../../../services/settings.service';
 })
 export class PmcScorecardPage implements AfterViewInit, OnInit {
   private scorecard: any;
-  private scorecardHeaders: any[];
+  private scorecardHeaders: string[];
   constructor(
     public navParams: NavParams,
     private viewCtrl: ViewController,
@@ -19,7 +19,6 @@ export class PmcScorecardPage implements AfterViewInit, OnInit {
 
   ngOnInit() {
     this.scorecard = this.navParams.data;
-
   }
 
   ngAfterViewInit() {
@@ -29,14 +28,14 @@ export class PmcScorecardPage implements AfterViewInit, OnInit {
     this.cdr.detectChanges();
   }
 
-  setColor(element: any, header: string) {
+  setColor(element: any, header: string): string {
     if (header !== 'Element') {
       const number = Math.random();
       return number > 0.5 ? '#91c675' : 'f94646';
     }
   }
 
-  onDismiss = () => this.viewCtrl.dismiss();
-  getBackground = () => this.settingsService.getBackground();
-  getTextColor = () => this.settingsService.getTextColor();
+  private onDismiss = (): Promise<any> => this.viewCtrl.dismiss();
+  private getBackground = (): string => this.settingsService.getBackground();
+  private getTextColor = (): string => this.settingsService.getTextColor();
 }

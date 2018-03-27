@@ -3,7 +3,8 @@ import {
   EventEmitter,
   Input,
   OnChanges,
-  Output
+  Output,
+  SimpleChanges
 } from '@angular/core';
 import {NgxEchartsService} from 'ngx-echarts';
 import 'echarts-gl';
@@ -33,7 +34,7 @@ export class ChartComponent implements OnChanges {
 
   constructor(private es: NgxEchartsService) {}
 
-  ngOnChanges(): void {
+  ngOnChanges(changes: SimpleChanges): void {
     if (this.echartsInstance && this.data) {
       this.echartsInstance.resize();
       this.echartsInstance.setOption(this.data);
