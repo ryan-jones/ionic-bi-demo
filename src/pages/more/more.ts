@@ -5,6 +5,7 @@ import { ProjectsPage } from '../projects/projects';
 import { SettingsPage } from '../settings/settings';
 import { SettingsService } from '../../services/settings.service';
 import { AlertsPage } from '../alerts/alerts';
+import { OrganizationPage } from '../organization/organization';
 
 @IonicPage()
 @Component({
@@ -14,7 +15,7 @@ import { AlertsPage } from '../alerts/alerts';
 export class MorePage {
 
   private financePage = FinancePage;
-  private projectsPage = ProjectsPage;
+  private organizationPage = OrganizationPage;
   private settingsPage = SettingsPage;
   private alertsPage = AlertsPage;
 

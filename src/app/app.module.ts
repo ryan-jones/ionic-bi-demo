@@ -34,6 +34,7 @@ import { SettingsPage } from '../pages/settings/settings';
 import { NativeService } from '../services/native.service';
 import { FavoritesService } from '../services/favorites.service';
 import { FavoritesPage } from '../pages/favorites/favorites';
+import { ProductionDrilldownPage } from '../pages/production/production-drilldown/production-drilldown';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { FavoritesPage } from '../pages/favorites/favorites';
     MorePage,
     OrganizationPage,
     ProductionPage,
+    ProductionDrilldownPage,
     PmcPage,
     ProjectsPage,
     FinancePage,
@@ -70,6 +72,7 @@ import { FavoritesPage } from '../pages/favorites/favorites';
     MorePage,
     OrganizationPage,
     ProductionPage,
+    ProductionDrilldownPage,
     ProjectsPage,
     FinancePage,
     PmcPage,

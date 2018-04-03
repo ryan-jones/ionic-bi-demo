@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, Slides } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, Slides, AlertController } from 'ionic-angular';
 import {
   SAFETYSCORETRENDS,
   PROFITABILITYSCORETRENDS,

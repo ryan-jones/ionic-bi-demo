@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { FavoritesPage } from '../favorites/favorites';
 import { PmcPage } from '../pmc/pmc';
 import { ProductionPage } from '../production/production';
-import { OrganizationPage } from '../organization/organization';
 import { MorePage } from '../more/more';
 import { SettingsService } from '../../services/settings.service';
+import { ProjectsPage } from '../projects/projects';
 
 
 
@@ -13,15 +13,15 @@ import { SettingsService } from '../../services/settings.service';
 })
 export class TabsPage {
 
-  tab1Root = FavoritesPage;
-  tab2Root = PmcPage;
+  tab1Root = PmcPage;
+  tab2Root = ProjectsPage;
   tab3Root = ProductionPage;
-  tab4Root = OrganizationPage;
+  tab4Root = FavoritesPage;
   tab5Root = MorePage;
 
   constructor(private settingsService: SettingsService) {}
 
-  getBackground = () => this.settingsService.getBackground();
+  private getBackground = (): string => this.settingsService.getBackground();
 
-  getTextColor = () => this.settingsService.isAltBackground() ? 'dark' : 'light';
+  private getTextColor = (): string => this.settingsService.isAltBackground() ? 'dark' : 'light';
 }

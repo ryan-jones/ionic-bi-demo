@@ -15,16 +15,15 @@
       </button>
     </ion-buttons>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding>
   <ion-slides
-    loop="true">
+    loop="true"
+    [ngStyle]="{ 'height': getHeight()}">
     <ion-slide
       *ngFor="let slide of slideCards">
-      <ion-card>
+      <ion-card (press)="activateModal(slide)" [ngStyle]="{ 'margin-top': getMargin() }">
         <ion-card-header>{{ slide.title }}</ion-card-header>
         <ion-card-content>
           <chart [data]="slide.chartData" height="'50px'"></chart>
