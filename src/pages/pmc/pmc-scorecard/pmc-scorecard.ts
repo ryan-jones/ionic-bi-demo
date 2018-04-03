@@ -28,7 +28,7 @@ export class PmcScorecardPage implements AfterViewInit, OnInit {
     this.cdr.detectChanges();
   }
 
-  setColor(element: any, header: string): string {
+  private setColor(element: any, header: string): string {
     if (header !== 'Element') {
       const number = Math.random();
       return number > 0.5 ? '#91c675' : 'f94646';

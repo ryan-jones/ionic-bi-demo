@@ -1,0 +1,17 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ slide.title }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+  <ion-card>
+    <ion-card-content>
+      <chart [data]="slide.chartData" height="'120px'"></chart>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

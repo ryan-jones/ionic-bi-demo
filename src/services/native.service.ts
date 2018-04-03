@@ -12,7 +12,7 @@ export class NativeService {
     private emailComposer: EmailComposer,
     private callNumber: CallNumber,
     private alertCtrl: AlertController,
-    private socialSharing: SocialSharing
+    private socialSharing: SocialSharing,
   ) {}
 
   public createActionSheet(person: string, phoneNumber: string, email: string): ActionSheet {

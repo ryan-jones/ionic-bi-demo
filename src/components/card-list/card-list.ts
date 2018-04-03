@@ -61,8 +61,10 @@ export class CardListComponent implements OnChanges {
 
   private loadCardOverview(kpi: CardKpi): void {
     const data = this.cardList.getKpiScoreCardData(kpi);
-    const modal = this.modalCtrl.create(PmcScorecardPage, data);
-    modal.present();
+    if (data) {
+      const modal = this.modalCtrl.create(PmcScorecardPage, data);
+      modal.present();
+    }
   }
 
   private onSelectManagerImage(): void {

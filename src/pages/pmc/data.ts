@@ -8,6 +8,7 @@ import {
 
 export const ABCGASTRENDS = {
   title: {
+    top: 10,
     text: 'ABS Gas Score Trends'
   },
   tooltip: {
@@ -20,6 +21,7 @@ export const ABCGASTRENDS = {
     containLabel: true
   },
   toolbox: {
+    top: 10,
     feature: {
       saveAsImage: {}
     }
@@ -52,6 +54,7 @@ export const ABCGASTRENDS = {
 
 export const SAFETYSCORETRENDS = {
   title: {
+    top: 10,
     text: 'Safety PMC Score Trend'
   },
   tooltip: {
@@ -64,6 +67,7 @@ export const SAFETYSCORETRENDS = {
     containLabel: true
   },
   toolbox: {
+    top: 10,
     feature: {
       saveAsImage: {}
     }
@@ -91,6 +95,7 @@ export const SAFETYSCORETRENDS = {
 
 export const PROFITABILITYSCORETRENDS = {
   title: {
+    top: 10,
     text: 'Profitability PMC Score Trend'
   },
   tooltip: {
@@ -106,6 +111,7 @@ export const PROFITABILITYSCORETRENDS = {
     containLabel: true
   },
   toolbox: {
+    top: 10,
     feature: {
       saveAsImage: {}
     }
