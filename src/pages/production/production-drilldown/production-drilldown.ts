@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 
 @IonicPage()
@@ -10,7 +10,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class ProductionDrilldownPage {
 
   private slide: any;
-  constructor(public navParams: NavParams) {
+
+  constructor(public navParams: NavParams, private viewCtrl: ViewController) {
     this.slide = this.navParams.data;
+  }
+
+  private onDismiss(): void {
+    this.viewCtrl.dismiss();
   }
 }

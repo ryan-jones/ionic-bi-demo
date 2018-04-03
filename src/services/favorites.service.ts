@@ -1,10 +1,14 @@
 import { CardList, CardKpi } from '../app/models/card-list.model';
 import { DrilldownData } from '../app/models/pmc-trends-drilldown.model';
 import { Subject } from 'rxjs/Subject';
+import { ToastController } from 'ionic-angular';
+import { Injectable } from '@angular/core';
 
 export interface SliderChart {
   charts: any[];
 }
+
+@Injectable()
 export class FavoritesService {
   public favoriteCardLists: CardList[] = [];
   public favoriteSliderCharts: SliderChart[] = [];
@@ -15,6 +19,8 @@ export class FavoritesService {
   public $favCardLists: Subject<CardList[]> = new Subject<CardList[]>();
   public $favSliderCharts: Subject<SliderChart[]> = new Subject<SliderChart[]>();
   public $favDrilldowns: Subject<any> = new Subject<any>();
+
+  constructor(private toastCtrl: ToastController) {}
 
   public getSliderCharts = (): SliderChart[] => this.favoriteSliderCharts;
   public getCardLists = (): CardList[] => this.favoriteCardLists;
@@ -52,5 +58,14 @@ export class FavoritesService {
   public removeCategoryFromFavoriteDrilldowns(category: string): void {
     this.drillDownData = this.drillDownData.filter(data => data.name !== category);
     this.$favDrilldowns.next(this.drillDownData);
+  }
+
+  public showToast() {
+    const toast = this.toastCtrl.create({
+      message: 'Added to favorites!',
+      duration: 1000,
+      position: 'top'
+    });
+    toast.present();
   }
 }

@@ -70,6 +70,7 @@ export class ProjectsPage implements OnInit {
     this.favoritesService.addToSliderCharts(this.charts);
     this.scoreCardsFavorited = true;
     this.setTrendsIcon();
+    this.favoritesService.showToast();
   }
 
   private removeFromFavorites(): void {

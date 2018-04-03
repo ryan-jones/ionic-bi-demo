@@ -37,23 +37,24 @@
     </ion-card-header>
     <ion-card-content>
       <ion-slides pager>
-        <ion-slide (press)="activateDrilldown('gas score')">
+        <ion-slide>
           <chart
             *ngIf="abcGasScoreTrends"
+            (press)="activateDrilldown('gas score')"
             [data]="abcGasScoreTrends"
-            height="'120px'"></chart>
+            height="'100px'"></chart>
         </ion-slide>
         <ion-slide>
           <chart
             *ngIf="safetyScoreTrends"
             [data]="safetyScoreTrends"
-            height="'120px'"></chart>
+            height="'100px'"></chart>
         </ion-slide>
         <ion-slide>
           <chart
             *ngIf="profitabilityScoreTrends"
             [data]="profitabilityScoreTrends"
-            height="'120px'"></chart>
+            height="'100px'"></chart>
         </ion-slide>
       </ion-slides>
     </ion-card-content>

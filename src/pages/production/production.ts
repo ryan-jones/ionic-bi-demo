@@ -27,7 +27,8 @@ export class ProductionPage {
   ngAfterViewInit() {
     this.slides.freeMode = true;
     this.slides.effect = 'coverflow';
-    this.width < 768 ? this.setForMobileView() : this.setForIpadView();
+    this.setForIpadView();
+    // this.width < 768 ? this.setForMobileView() : this.setForIpadView();
   }
 
   private setForMobileView(): void {

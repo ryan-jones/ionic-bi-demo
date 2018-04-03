@@ -1,9 +1,14 @@
-<ion-header (swipe)="onDismiss()" (tap)="onDismiss()">
+<ion-header>
   <ion-navbar [color]="getBackground()">
     <ion-title>{{ drilldownData.name | uppercase }}</ion-title>
+    <ion-buttons (tap)="onDismiss()" end>
+      <button ion-button icon-only>
+        <ion-icon name="ios-close-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content *ngIf="drilldownData.data && drilldownData.data.length" (swipe)="onDismiss()">
+<ion-content *ngIf="drilldownData.data && drilldownData.data.length">
   <ion-card *ngFor="let data of drilldownData.data">
     <ion-card-header no-padding>
       <ion-list no-lines>

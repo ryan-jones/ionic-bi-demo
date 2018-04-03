@@ -1,6 +1,11 @@
-<ion-header (swipe)="onDismiss()" (tap)="onDismiss()">
+<ion-header>
   <ion-navbar [color]="getBackground()">
     <ion-title>{{ scorecard.name }}</ion-title>
+    <ion-buttons (tap)="onDismiss()" end>
+      <button ion-button icon-only>
+        <ion-icon name="ios-close-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 

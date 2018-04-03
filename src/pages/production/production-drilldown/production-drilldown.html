@@ -1,14 +1,19 @@
 
-<ion-header>
+<ion-header (swipe)="onDismiss()">
 
   <ion-navbar>
     <ion-title>{{ slide.title }}</ion-title>
+    <ion-buttons (tap)="onDismiss()" end>
+      <button ion-button icon-only>
+        <ion-icon name="ios-close-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content no-padding>
+<ion-content (swipe)="onDismiss()" no-padding>
   <ion-card>
     <ion-card-content>
       <chart [data]="slide.chartData" height="'120px'"></chart>

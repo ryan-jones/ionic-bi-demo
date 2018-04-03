@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, Slides, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, Slides, AlertController, ToastController } from 'ionic-angular';
 import {
   SAFETYSCORETRENDS,
   PROFITABILITYSCORETRENDS,
@@ -32,7 +32,8 @@ export class PmcPage implements OnInit {
   constructor(
     private modalCtr: ModalController,
     private settingsService: SettingsService,
-    private favoritesService: FavoritesService) {}
+    private favoritesService: FavoritesService,
+    private toastCtrl: ToastController) {}
 
   ngOnInit() {
     this.setAbcGasScoreTrends();
@@ -88,6 +89,7 @@ export class PmcPage implements OnInit {
     this.favoritesService.addToSliderCharts(this.charts);
     this.scoreCardsFavorited = true;
     this.setTrendsIcon();
+   this.favoritesService.showToast();
   }
 
   private removeFromFavorites(): void {
