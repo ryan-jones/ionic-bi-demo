@@ -75,5 +75,8 @@
     "platforms": [
       "ios"
     ]
+  },
+  "config": {
+    "ionic_copy": "./copy.config.js"
   }
 }

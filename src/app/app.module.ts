@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentsModule } from '../components/components.module';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -58,6 +59,7 @@ import { FavoritesPage } from '../pages/favorites/favorites';
     BrowserModule,
     ComponentsModule,
     HttpClientModule,
+    NgxEchartsModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
