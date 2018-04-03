@@ -1,0 +1,28 @@
+
+
+@mixin linear-gradient($color, $percentage) {
+  background: linear-gradient(lighten($color, $percentage), $color);
+}
+
+@mixin radial-gradient($color, $percentage) {
+  background: radial-gradient(lighten($color, $percentage), $color);
+}
+
+@mixin tilt-gradient($direction, $start-color, $end-color) {
+  background: linear-gradient(135deg, $start-color, $end-color);
+}
+
+@mixin btn-tilt-gradient($direction, $start-color, $end-color) {
+  background-image: linear-gradient(135deg, $start-color, $end-color);
+}
+
+@mixin bevel($color) {
+  background: linear-gradient(225deg, transparent 25px, $color 0) top right;
+}
+
+@mixin transition($property: all, $duration: .3s, $ease: linear){
+  -webkit-transition: $property $duration $ease;
+  -moz-transition: $property $duration $ease;
+  -o-transition: $property $duration $ease;
+  transition: $property $duration $ease;
+}

@@ -1,0 +1,32 @@
+card-list {
+  margin: 0;
+  padding: 0;
+
+  ion-grid {
+    margin: 0;
+  }
+
+  .card-content-ios {
+    padding: 0;
+  }
+
+  .inline {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .padding {
+    padding-left: 0.5rem;
+  }
+
+  ion-col {
+    ion-icon {
+      padding-top: 0;
+    }
+  }
+
+  img {
+    max-height: 200px;
+  }
+}

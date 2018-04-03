@@ -1,0 +1,30 @@
+<ion-card *ngFor="let alert of alerts">
+  <ion-card-header no-padding>
+    <ion-list>
+      <ion-item>
+        <ion-icon [name]="alert.alertIcon" item-start></ion-icon>
+        <h2>{{ alert.alertType }}</h2>
+        <p text-wrap>{{ alert.alertMessage }}</p>
+        <ion-icon name="star" item-end></ion-icon>
+      </ion-item>
+    </ion-list>
+  </ion-card-header>
+  <ion-card-content no-padding>
+    <ion-list>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col text-left>
+              <ion-icon name="clock" padding-right></ion-icon>
+              <p>{{ alert.date }}</p>
+            </ion-col>
+            <ion-col text-right>
+              <ion-icon name="pin" padding-left padding-right></ion-icon>
+              <p>{{ alert.location }}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>

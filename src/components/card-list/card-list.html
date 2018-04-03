@@ -1,0 +1,57 @@
+<ion-card-header no-padding>
+  <img *ngIf="card.image" [src]="card.image" />
+  <ion-list no-lines>
+    <ion-item>
+      <ion-avatar *ngIf="card.managerImg" (click)="onSelectManagerImage()" item-start>
+        <img [src]="card.managerImg">
+      </ion-avatar>
+      <h2>{{ card.title }}</h2>
+      <h3 *ngIf="card.managerName">Manager: {{ card.managerName }}</h3>
+      <p *ngIf="card.reportDate">Last reported: {{ card.reportDate }}</p>
+      <ion-icon
+        *ngIf="!favorited"
+        (click)="onToggleCardIcon(card)"
+        [name]="cardIconName"
+        color="blueFont"
+        item-end></ion-icon>
+      <ion-icon
+        *ngIf="favorited"
+        (click)="removeFromCardList(card)"
+        name="ios-trash-outline"
+        color="blueFont"
+        item-end></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-card-header>
+<ion-card-content>
+  <ion-grid no-padding>
+    <ion-list *ngFor="let kpi of card.kpis" no-padding>
+      <ion-item (press)="loadCardOverview(kpi)">
+        <ion-icon
+          *ngIf="kpiIconName"
+          (click)="onToggleKpi(kpi)"
+          [name]="setKpiIcon(kpi)"
+          color="blueFont"
+          item-left></ion-icon>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <h3 text-wrap>{{ kpi.name }}</h3>
+              <p text-wrap>{{ kpi.measurables }}</p>
+            </ion-col>
+            <ion-col text-right class="inline">
+              <div *ngIf="kpi.change" class="inline">
+                <ion-icon [name]="setArrowDirection(kpi.change.direction)" [color]="kpi.change.color"></ion-icon>
+                <p [style.color]="kpi.change.color" class="padding" >{{ kpi.change.value }}</p>
+              </div>
+              <div>
+                <h4>{{ kpi.value }}</h4>
+                <p text-wrap>{{ kpi.breakdown }}</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
+</ion-card-content>

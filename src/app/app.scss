@@ -1,6 +1,4 @@
 // http://ionicframework.com/docs/theming/
-
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,3 +12,31 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+ion-content {
+  background: $app-background;
+}
+
+.menu {
+  background-image: url('../assets/imgs/Sheikh-Zayed-Mosque.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:  10% center;
+
+  button {
+    color: #fff;
+  }
+}
+
+.transparent {
+  background-color: transparent !important;
+}
+
+ion-card-header {
+  background-color: #fff;
+  height: 100%;
+}
+
+ion-icon {
+  padding-top: 5px;
+}

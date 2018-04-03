@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar [color]="getBackground()">
+    <ion-buttons start>
+      <button
+        menuToggle
+        ion-button
+        icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>More</ion-title>
+    <ion-buttons end>
+      <button
+        ion-button
+        icon-only>
+        <ion-icon name="ios-share-outline" md="md-share"></ion-icon>
+      </button>
+      <button
+        [navPush]="alertsPage"
+        ion-button
+        icon-only>
+        <ion-icon name="notifications-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+   <button
+    [navPush]="financePage"
+    ion-item
+    icon-left>
+    <ion-icon ios="ios-stats-outline" md="md-stats"></ion-icon>
+     Finance
+   </button>
+   <button
+    [navPush]="projectsPage"
+    ion-item
+    icon-left>
+    <ion-icon name="md-analytics"></ion-icon>
+     Projects
+   </button>
+   <button
+    [navPush]="settingsPage"
+    ion-item
+    icon-left>
+    <ion-icon ios="ios-settings-outline" md="md-outline"></ion-icon>
+     Settings
+   </button>
+  </ion-list>
+</ion-content>

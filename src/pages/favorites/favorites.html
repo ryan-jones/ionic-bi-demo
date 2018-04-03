@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-navbar [color]="getBackground()">
+    <ion-buttons start>
+      <button menuToggle ion-button icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title [color]="getTextColor()">Favorites</ion-title>
+    <ion-buttons [color]="getTextColor()" end>
+      <button ion-button icon-only>
+        <ion-icon name="ios-share-outline" md="md-share"></ion-icon>
+      </button>
+      <button [navPush]="alertsPage" ion-button icon-only>
+        <ion-icon name="notifications-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+  <ng-container *ngIf="sliderCharts && sliderCharts.length">
+    <ion-card *ngFor="let sliderChart of sliderCharts">
+      <ion-card-header no-padding>
+        <ion-list no-lines>
+          <ion-item>
+            <h2>Charts</h2>
+            <p>Swipe for more trends</p>
+            <ion-icon
+              (click)="removeFromSliderCharts(sliderChart)"
+              ios="ios-trash-outline"
+              name="md-trash"
+              item-end></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-slides pager>
+          <ion-slide *ngFor="let chart of sliderChart.charts">
+            <chart
+              *ngIf="chart"
+              [data]="chart"
+              height="'100px'"></chart>
+          </ion-slide>
+        </ion-slides>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+
+  <ng-container *ngIf="cardLists && cardLists.length">
+    <ion-card *ngFor="let card of cardLists">
+      <card-list
+        (removedCard)="onDeletedCard($event)"
+        [card]="card"
+        [favorited]="true"></card-list>
+    </ion-card>
+  </ng-container>
+
+
+  <ion-card *ngIf="favoriteKpis && favoriteKpis.kpis.length">
+   <card-list
+    [card]="favoriteKpis"
+    [favorited]="true"
+    [partOfKpiFavoritesList]="true"
+    (removedKpi)="onDeleteKpi($event)"></card-list>
+  </ion-card>
+
+  <ng-container *ngIf="favoriteDrilldownData && favoriteDrilldownData.length">
+    <ion-card *ngFor="let value of drilldownValues">
+      <ion-card-header>{{ value }} Updates</ion-card-header>
+      <ion-card-content>
+        <ion-list *ngFor="let drilldown of favoriteDrilldownData">
+          <ion-item *ngIf="drilldown.name === value">
+            <ion-avatar *ngIf="drilldown.data.commentorImage" item-start>
+              <img [src]="drilldown.data.commentorImage">
+            </ion-avatar>
+            <h2>Score: {{ drilldown.data.value }} ({{ drilldown.data.date }})</h2>
+            <h3>{{ drilldown.data.commentor }}</h3>
+            <p (click)="openNewsFeed(date)" text-wrap>{{ drilldown.data.comments }}</p>
+            <ion-icon
+              (click)="removeFromFavoriteDrilldowns(value, drilldown.data)"
+              ios="ios-trash-outline"
+              name="md-trash"
+              item-end></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+</ion-content>
