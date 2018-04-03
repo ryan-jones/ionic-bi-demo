@@ -24,46 +24,8 @@ export class ProductionPage {
     this.width = platform.width();
   }
 
-  ngAfterViewInit() {
-    this.slides.freeMode = true;
-    this.slides.effect = 'coverflow';
-    this.setForIpadView();
-    // this.width < 768 ? this.setForMobileView() : this.setForIpadView();
-  }
 
-  private setForMobileView(): void {
-    this.slides.centeredSlides = true;
-    this.slides.slideToClickedSlide = true;
-    this.slides.direction = 'horizontal';
-    this.slides.slidesPerView = 1;
-    this.slides.coverflow = {
-      rotate: 50,
-      stretch: 0,
-      depth: 100,
-      modifier: 1,
-      slideShadows: false,
-    };
-  }
-
-  private setForIpadView(): void {
-    this.slides.centeredSlides = true;
-    this.slides.slideToClickedSlide = true;
-    this.slides.direction = 'vertical';
-    this.slides.slidesPerView = 3;
-    this.slides.coverflow = {
-      rotate: 0,
-      stretch: 10,
-      depth: 100,
-      modifier: 1,
-      slideShadows: false,
-    };
-  }
-
-  private change(event): void {
-    if (this.slides.clickedIndex) {
-      this.selectedSlide = this.slides.clickedSlide.innerText;
-    }
-  }
+  ngAfterViewInit() {}
 
   private activateModal(slide: any) {
     const modal = this.modalCtrl.create(ProductionDrilldownPage, slide);
@@ -73,4 +35,48 @@ export class ProductionPage {
   private getTextColor = (): string => this.settingsService.getTextColor();
   private getHeight = (): string => this.width < 768 ? '80%' : '65%';
   private getMargin = (): string => this.width < 768 ? '100px' : '0';
+
+
+  // Slides saved as a reference for future revisions
+
+  // private setUpSlides(): void {
+  //   this.slides.freeMode = true;
+  //   this.slides.effect = 'coverflow';
+  //   this.setForIpadView();
+  //   this.width < 768 ? this.setForMobileView() : this.setForIpadView();
+  // }
+
+  // private setForMobileView(): void {
+  //   this.slides.centeredSlides = true;
+  //   this.slides.slideToClickedSlide = true;
+  //   this.slides.direction = 'horizontal';
+  //   this.slides.slidesPerView = 1;
+  //   this.slides.coverflow = {
+  //     rotate: 50,
+  //     stretch: 0,
+  //     depth: 100,
+  //     modifier: 1,
+  //     slideShadows: false,
+  //   };
+  // }
+
+  // private setForIpadView(): void {
+  //   this.slides.centeredSlides = true;
+  //   this.slides.slideToClickedSlide = true;
+  //   this.slides.direction = 'vertical';
+  //   this.slides.slidesPerView = 3;
+  //   this.slides.coverflow = {
+  //     rotate: 0,
+  //     stretch: 10,
+  //     depth: 100,
+  //     modifier: 1,
+  //     slideShadows: false,
+  //   };
+  // }
+
+  // private change(event): void {
+  //   if (this.slides.clickedIndex) {
+  //     this.selectedSlide = this.slides.clickedSlide.innerText;
+  //   }
+  // }
 }

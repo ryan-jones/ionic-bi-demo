@@ -17,7 +17,16 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <ion-list>
+    <button *ngFor="let slide of slideCards" (tap)="activateModal(slide)" ion-item>
+      <ion-icon name="ios-build-outline" item-start></ion-icon>
+      {{ slide.title }}
+    </button>
+  </ion-list>
+</ion-content>
+
+<!-- <ion-content padding>
   <ion-slides
     loop="true"
     [ngStyle]="{ 'height': getHeight()}">
@@ -31,4 +40,4 @@
       </ion-card>
     </ion-slide>
   </ion-slides>
-</ion-content>
+</ion-content> -->
