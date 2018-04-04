@@ -82,9 +82,16 @@ export class PMCDrilldownPage implements OnInit {
     data.clicked ? this.addToFavorites(name, data) : this.removeFromFavorites(name, data);
   }
 
-  private addToFavorites = (name: string, data: DrilldownData): void => this.favoritesService.addToDrilldownDataList(name, data);
-  // tslint:disable-next-line:max-line-length
-  private removeFromFavorites = (name: string, data: DrilldownData): void => this.favoritesService.removeFromFavoriteDrilldowns({ name, data });
+  private addToFavorites(name: string, data: DrilldownData): void {
+    this.favoritesService.addToDrilldownDataList(name, data);
+    this.favoritesService.showToast();
+  }
+
+  private removeFromFavorites(name: string, data: DrilldownData): void {
+    this.favoritesService.removeFromFavoriteDrilldowns({ name, data });
+    this.favoritesService.showDeleteToast();
+  }
+
   private setDrilldownIcon = (drilldown: any): string =>  drilldown.clicked ? 'star' : 'star-outline';
   private getBackground = (): string => this.settingsService.getBackground();
   private getTextColor = (): string => this.settingsService.getTextColor();

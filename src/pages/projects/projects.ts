@@ -77,6 +77,7 @@ export class ProjectsPage implements OnInit {
     this.favoritesService.removeFromSliderCharts(this.charts);
     this.scoreCardsFavorited = false;
     this.setTrendsIcon();
+    this.favoritesService.showDeleteToast();
   }
   private setTrendsIcon = (): string => this.trendsIcon = this.scoreCardsFavorited ? 'star' : 'star-outline';
 }

@@ -96,6 +96,7 @@ export class CardListComponent implements OnChanges {
     }
     this.wholeCardFavorited = false;
     this.setCardIcon();
+    this.favoritesService.showDeleteToast();
   }
 
   private onToggleKpi(kpi: CardKpi): void {
@@ -111,6 +112,7 @@ export class CardListComponent implements OnChanges {
   private removeKpiFromFavorites(kpi: CardKpi): void {
     this.favoritesService.removeFromKpiList(kpi);
     this.getAndEmitKpis();
+    this.favoritesService.showDeleteToast();
   }
 
   private getAndEmitKpis(): void {

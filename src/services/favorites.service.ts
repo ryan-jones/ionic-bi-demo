@@ -60,9 +60,18 @@ export class FavoritesService {
     this.$favDrilldowns.next(this.drillDownData);
   }
 
-  public showToast() {
+  public showToast(): void {
     const toast = this.toastCtrl.create({
       message: 'Added to favorites!',
+      duration: 1000,
+      position: 'top'
+    });
+    toast.present();
+  }
+
+  public showDeleteToast(): void {
+    const toast = this.toastCtrl.create({
+      message: 'Removed from favorites!',
       duration: 1000,
       position: 'top'
     });
