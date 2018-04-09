@@ -35,8 +35,12 @@ export class MyApp {
     });
   }
 
-  private onLoad(page: any): void {
-    this.navEl.setRoot(page);
+  private onLoad(index: number, page: any): void {
+    if (page) {
+      this.navEl.setRoot(page);
+    } else {
+      this.navEl.setRoot(this.rootPage, { tabIndex: index });
+    }
     this.menuCtrl.close();
   }
 }

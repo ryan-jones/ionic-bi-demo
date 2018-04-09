@@ -5,8 +5,7 @@ import { ProductionPage } from '../production/production';
 import { MorePage } from '../more/more';
 import { SettingsService } from '../../services/settings.service';
 import { ProjectsPage } from '../projects/projects';
-
-
+import { NavParams } from 'ionic-angular';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -19,7 +18,11 @@ export class TabsPage {
   tab4Root = FavoritesPage;
   tab5Root = MorePage;
 
-  constructor(private settingsService: SettingsService) {}
+  private selectedIndex: number;
+
+  constructor(private settingsService: SettingsService, private navParams: NavParams) {
+    this.selectedIndex = navParams.data.tabIndex || 0;
+  }
 
   private getBackground = (): string => this.settingsService.getBackground();
 

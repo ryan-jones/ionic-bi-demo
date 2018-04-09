@@ -38,65 +38,25 @@
     <ion-card-content>
       <ion-slides pager>
         <ion-slide>
-          <chart
-            *ngIf="abcGasScoreTrends"
-            [data]="abcGasScoreTrends"
-            height="'100px'"></chart>
-            <ion-icon
-              (tap)="slidePrevious()"
-              item-end
-              name="ios-arrow-dropleft-outline"
-              class="expand-icon"></ion-icon>
-            <ion-icon
-              (tap)="activateDrilldown('gas score')"
-              item-end
-              name="ios-arrow-dropup-outline"
-              class="expand-icon"></ion-icon>
-              <ion-icon
-              (tap)="slideNext()"
-              item-end
-              name="ios-arrow-dropright-outline"
-              class="expand-icon"></ion-icon>
+         <pmc-slides
+          [scoreTrends]="abcGasScoreTrends"
+          (clickedSlideNext)="slideNext($event)"
+          (clickedSlidePrev)="slidePrev($event)"
+          (clickedDrilldown)="activateDrilldown('gas score')"></pmc-slides>
         </ion-slide>
         <ion-slide>
-          <chart
-            *ngIf="safetyScoreTrends"
-            [data]="safetyScoreTrends"
-            height="'100px'"></chart>
-            <ion-icon
-            (tap)="slidePrevious()"
-            item-end
-            name="ios-arrow-dropleft-outline"
-            class="expand-icon"></ion-icon>
-          <ion-icon
-            item-end
-            name="ios-arrow-dropup-outline"
-            class="expand-icon"></ion-icon>
-            <ion-icon
-            (tap)="slideNext()"
-            item-end
-            name="ios-arrow-dropright-outline"
-            class="expand-icon"></ion-icon>
+          <pmc-slides
+          [scoreTrends]="abcGasScoreTrends"
+          (clickedSlideNext)="slideNext($event)"
+          (clickedSlidePrev)="slidePrev($event)"
+          ></pmc-slides>
         </ion-slide>
         <ion-slide>
-          <chart
-            *ngIf="profitabilityScoreTrends"
-            [data]="profitabilityScoreTrends"
-            height="'100px'"></chart>
-            <ion-icon
-            (tap)="slidePrevious()"
-            item-end
-            name="ios-arrow-dropleft-outline"
-            class="expand-icon"></ion-icon>
-          <ion-icon
-            item-end
-            name="ios-arrow-dropup-outline"
-            class="expand-icon"></ion-icon>
-            <ion-icon
-            (tap)="slideNext()"
-            item-end
-            name="ios-arrow-dropright-outline"
-            class="expand-icon"></ion-icon>
+          <pmc-slides
+          [scoreTrends]="abcGasScoreTrends"
+          (clickedSlideNext)="slideNext($event)"
+          (clickedSlidePrev)="slidePrev($event)"
+          ></pmc-slides>
         </ion-slide>
       </ion-slides>
     </ion-card-content>

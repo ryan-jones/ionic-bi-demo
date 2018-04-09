@@ -46,7 +46,6 @@ export class PmcPage implements OnInit {
     this.subscribeToSliderCharts();
   }
 
-
   private subscribeToKpis(): void {
     this.favoritesService.$favKpis.subscribe((kpis: CardKpi[]) => this.pmcScorecards.kpis.forEach(kpi => {
       kpi.clicked = kpis.indexOf(kpi) > -1 ? true : false;
@@ -100,7 +99,7 @@ export class PmcPage implements OnInit {
     this.favoritesService.showDeleteToast();
   }
 
-  private slidePrevious = (): any => this.slides.slidePrev();
+  private slidePrev = (): any => this.slides.slidePrev();
   private slideNext = (): any => this.slides.slideNext();
   private setTrendsIcon = (): string => this.trendsIcon = this.scoreCardsFavorited ? 'star' : 'star-outline';
   private getBackground = (): string => this.settingsService.getBackground();
