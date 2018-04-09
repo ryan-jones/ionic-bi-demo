@@ -5,7 +5,6 @@ import { ComponentsModule } from '../components/components.module';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { NgxEchartsModule } from 'ngx-echarts';
 
-import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CallNumber } from '@ionic-native/call-number';
 import { EmailComposer } from '@ionic-native/email-composer';
@@ -88,7 +87,6 @@ import { ProductionDrilldownPage } from '../pages/production/production-drilldow
     CallNumber,
     EmailComposer,
     SocialSharing,
-    StatusBar,
     SplashScreen,
     CardListService,
     NewsApiService,
