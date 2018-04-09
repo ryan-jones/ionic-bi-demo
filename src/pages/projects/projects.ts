@@ -23,6 +23,7 @@ export class ProjectsPage implements OnInit {
   private toggle = false;
   private scoreCardsFavorited = false;
   private trendsIcon = 'star-outline';
+  private counter = 0;
 
 
   constructor(private modalCtrl: ModalController, private favoritesService: FavoritesService) {}
@@ -50,10 +51,19 @@ export class ProjectsPage implements OnInit {
     this.currentProjects = CURRENTPROJECTS;
   }
 
-  private activateDrilldown({ data }): void {
-    this.loadProjectByName(data.name);
-    const modal = this.modalCtrl.create(DrilldownPage, this.selectedProject);
-    modal.present();
+  private prepDrilldown({ data }): void {
+    if (this.selectedProject) {
+      this.selectedProject.name === data.name ? this.counter = 2 : this.counter++;
+      this.loadProjectByName(data.name);
+    } else {
+      this.loadProjectByName(data.name);
+      this.counter++;
+    }
+
+    if (this.counter === 2) {
+      const modal = this.modalCtrl.create(DrilldownPage, this.selectedProject);
+      modal.present();
+    }
   }
 
   private loadProjectByName(name: string): void {

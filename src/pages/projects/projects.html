@@ -38,7 +38,7 @@
         <ion-slide>
           <chart
             *ngIf="echartsData"
-            (chartClickEmit)="activateDrilldown($event)"
+            (chartClickEmit)="prepDrilldown($event)"
             [data]="echartsData"
             height="'150px'"></chart>
         </ion-slide>
