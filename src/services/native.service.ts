@@ -77,9 +77,5 @@ export class NativeService {
     alert.present();
   }
 
-  public activateWhatsapp(phoneNumber: string): void {
-    this.socialSharing
-      .shareViaWhatsAppToReceiver(phoneNumber, 'test message')
-      .then(res => console.log('whatsapp res', res));
-  }
+  public activateWhatsapp = (phoneNumber: string): Promise<any> => this.socialSharing.shareViaWhatsAppToReceiver(phoneNumber, 'test message');
 }

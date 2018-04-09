@@ -9,6 +9,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { CallNumber } from '@ionic-native/call-number';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { Badge } from '@ionic-native/badge';
 
 import { MyApp } from './app.component';
 
@@ -17,7 +18,6 @@ import { NewsApiService } from '../services/news-api.service';
 import { SettingsService } from '../services/settings.service';
 
 import { TabsPage } from '../pages/tabs/tabs';
-import { GasHomePage } from '../pages/gas-home/gas-home';
 import { MorePage } from '../pages/more/more';
 import { OrganizationPage } from '../pages/organization/organization';
 import { ProductionPage } from '../pages/production/production';
@@ -34,12 +34,12 @@ import { NativeService } from '../services/native.service';
 import { FavoritesService } from '../services/favorites.service';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { ProductionDrilldownPage } from '../pages/production/production-drilldown/production-drilldown';
+import { AlertService } from '../services/alert-service';
 
 
 @NgModule({
   declarations: [
     MyApp,
-    GasHomePage,
     FavoritesPage,
     MorePage,
     OrganizationPage,
@@ -66,7 +66,6 @@ import { ProductionDrilldownPage } from '../pages/production/production-drilldow
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    GasHomePage,
     FavoritesPage,
     MorePage,
     OrganizationPage,
@@ -88,11 +87,13 @@ import { ProductionDrilldownPage } from '../pages/production/production-drilldow
     EmailComposer,
     SocialSharing,
     SplashScreen,
+    Badge,
     CardListService,
     NewsApiService,
     SettingsService,
     NativeService,
     FavoritesService,
+    AlertService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

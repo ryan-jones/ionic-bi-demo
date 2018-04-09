@@ -48,11 +48,7 @@ export class ProjectsPage implements OnInit {
   }
 
   private prepDrilldown({ data }): void {
-    if (this.selectedProject) {
-      this.selectedProject.name === data.name ? this.counter++ : this.counter = 1;
-    } else {
-      this.counter++;
-    }
+    !this.selectedProject ? this.counter++ : this.selectedProject.name === data.name ? this.counter++ : this.counter = 1;
     this.loadProjectByName(data.name);
     if (this.counter === 2) {
       const modal = this.modalCtrl.create(DrilldownPage, this.selectedProject);

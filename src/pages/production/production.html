@@ -12,6 +12,7 @@
       </button>
       <button [navPush]="alertsPage" ion-button icon-only>
         <ion-icon name="notifications-outline"></ion-icon>
+        <ion-badge>{{alerts}}</ion-badge>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -25,19 +26,3 @@
     </button>
   </ion-list>
 </ion-content>
-
-<!-- <ion-content padding>
-  <ion-slides
-    loop="true"
-    [ngStyle]="{ 'height': getHeight()}">
-    <ion-slide
-      *ngFor="let slide of slideCards">
-      <ion-card (press)="activateModal(slide)" [ngStyle]="{ 'margin-top': getMargin() }">
-        <ion-card-header>{{ slide.title }}</ion-card-header>
-        <ion-card-content>
-          <chart [data]="slide.chartData" height="'50px'"></chart>
-        </ion-card-content>
-      </ion-card>
-    </ion-slide>
-  </ion-slides>
-</ion-content> -->

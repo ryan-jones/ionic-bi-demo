@@ -101,4 +101,5 @@
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <allow-navigation href="http://169.254.174.63:8101" />
     <engine name="ios" spec="~4.5.4" />
+    <plugin name="cordova-plugin-badge" spec="^0.8.7" />
 </widget>
