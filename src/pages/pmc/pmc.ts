@@ -19,6 +19,7 @@ import { FavoritesService, SliderChart } from '../../services/favorites.service'
   templateUrl: 'pmc.html'
 })
 export class PmcPage implements OnInit {
+  @ViewChild(Slides) slides: Slides;
   private abcGasScoreTrends: any;
   private safetyScoreTrends: any;
   private profitabilityScoreTrends: any;
@@ -99,6 +100,8 @@ export class PmcPage implements OnInit {
     this.favoritesService.showDeleteToast();
   }
 
+  private slidePrevious = (): any => this.slides.slidePrev();
+  private slideNext = (): any => this.slides.slideNext();
   private setTrendsIcon = (): string => this.trendsIcon = this.scoreCardsFavorited ? 'star' : 'star-outline';
   private getBackground = (): string => this.settingsService.getBackground();
   private getTextColor = (): string => this.settingsService.getTextColor();
