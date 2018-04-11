@@ -6,13 +6,16 @@ import { IonicModule } from 'ionic-angular';
 import { CardListComponent } from './card-list/card-list';
 import { ScorecardHeaderComponent } from './scorecard-header/scorecard-header';
 import { PmcSlidesComponent } from './pmc-slides/pmc-slides';
+import { HeaderComponent } from './header/header';
+import { AlertService } from '../services/alert-service';
 @NgModule({
   declarations: [
     NotificationsComponent,
     ChartComponent,
     CardListComponent,
     ScorecardHeaderComponent,
-    PmcSlidesComponent
+    PmcSlidesComponent,
+    HeaderComponent
   ],
   imports: [NgxEchartsModule, IonicModule],
   exports: [
@@ -21,7 +24,8 @@ import { PmcSlidesComponent } from './pmc-slides/pmc-slides';
     NgxEchartsModule,
     CardListComponent,
     ScorecardHeaderComponent,
-    PmcSlidesComponent
-  ]
+    PmcSlidesComponent,
+    HeaderComponent
+  ],
 })
 export class ComponentsModule {}

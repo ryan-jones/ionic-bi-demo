@@ -12,6 +12,7 @@ import { CardList, CardKpi } from '../../app/models/card-list.model';
 import { AlertsPage } from '../alerts/alerts';
 import { SettingsService } from '../../services/settings.service';
 import { FavoritesService, SliderChart } from '../../services/favorites.service';
+import { Badge } from '@ionic-native/badge';
 
 @IonicPage()
 @Component({
@@ -34,7 +35,8 @@ export class PmcPage implements OnInit {
     private modalCtr: ModalController,
     private settingsService: SettingsService,
     private favoritesService: FavoritesService,
-    private toastCtrl: ToastController) {}
+    private toastCtrl: ToastController,
+    private badge: Badge) {}
 
   ngOnInit() {
     this.setAbcGasScoreTrends();
@@ -102,6 +104,4 @@ export class PmcPage implements OnInit {
   private slidePrev = (): any => this.slides.slidePrev();
   private slideNext = (): any => this.slides.slideNext();
   private setTrendsIcon = (): string => this.trendsIcon = this.scoreCardsFavorited ? 'star' : 'star-outline';
-  private getBackground = (): string => this.settingsService.getBackground();
-  private getTextColor = (): string => this.settingsService.getTextColor();
 }
