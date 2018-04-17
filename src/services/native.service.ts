@@ -1,19 +1,45 @@
-import { ActionSheetController, AlertController, ActionSheet } from 'ionic-angular';
+import { ActionSheetController, AlertController, ActionSheet, ModalController } from 'ionic-angular';
 import { Injectable } from '@angular/core';
 import { DrilldownData } from '../app/models/pmc-trends-drilldown.model';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { CallNumber } from '@ionic-native/call-number';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { Screenshot } from '@ionic-native/screenshot';
+import { ScreenshotsPage } from '../pages/screenshots/screenshots';
 
 @Injectable()
 export class NativeService {
+
+  private screen: any;
+
   constructor(
     private actionCtrl: ActionSheetController,
     private emailComposer: EmailComposer,
     private callNumber: CallNumber,
     private alertCtrl: AlertController,
     private socialSharing: SocialSharing,
+    private screenshot: Screenshot,
+    private modalCtrl: ModalController,
   ) {}
+
+  public screenShot = async (): Promise<any> => {
+      const image = await this.screenshot.URI(100);
+      return image.URI;
+  }
+
+  public screenShotAndEmail = async () => {
+    const res = await this.screenshot.save('jpg', 100);
+    this.screen = res.filePath;
+    try {
+      await  this.emailComposer.hasPermission();
+      const emailContent = {
+        attachments: [this.screen]
+      };
+      this.emailComposer.open(emailContent);
+    } catch (err) {
+      this.emailFailed(`Doesn't have permission`);
+    }
+  }
 
   public createActionSheet(person: string, phoneNumber: string, email: string): ActionSheet {
     return this.actionCtrl.create({
@@ -55,17 +81,17 @@ export class NativeService {
     alert.present();
   }
 
-  public composeEmail(email: string): void {
-    this.emailComposer
-      .hasPermission()
-      .then(res => {
-        const emailContent = {
-          to: email,
-          isHtml: true
-        };
-        this.emailComposer.open(emailContent);
-      })
-      .catch(_ => this.emailFailed(`Doesn't have permission`));
+  public composeEmail = async (email: string): Promise<any> => {
+    try {
+      await this.emailComposer.hasPermission();
+      const emailContent = {
+        to: email,
+        isHtml: true
+      };
+      this.emailComposer.open(emailContent);
+    } catch (err) {
+      this.emailFailed(`Doesn't have permission`);
+    }
   }
 
   public emailFailed(titleText: string): void {
@@ -77,9 +103,5 @@ export class NativeService {
     alert.present();
   }
 
-  public activateWhatsapp(phoneNumber: string): void {
-    this.socialSharing
-      .shareViaWhatsAppToReceiver(phoneNumber, 'test message')
-      .then(res => console.log('whatsapp res', res));
-  }
+  public activateWhatsapp = (phoneNumber: string): Promise<any> => this.socialSharing.shareViaWhatsAppToReceiver(phoneNumber, 'test message');
 }

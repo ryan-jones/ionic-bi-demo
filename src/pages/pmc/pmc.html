@@ -1,24 +1,6 @@
 <ion-header>
-  <ion-navbar [color]="getBackground()">
-    <ion-buttons start>
-      <button menuToggle ion-button icon-only>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-    </ion-buttons>
-    <ion-title>PMC</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only>
-        <ion-icon
-        name="ios-share-outline"
-        md="md-share"></ion-icon>
-      </button>
-      <button [navPush]="alertsPage" ion-button icon-only>
-        <ion-icon name="notifications-outline"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
+  <header-nav title="PMC"></header-nav>
 </ion-header>
-
 
 <ion-content>
   <ion-card>
@@ -38,23 +20,25 @@
     <ion-card-content>
       <ion-slides pager>
         <ion-slide>
-          <chart
-            *ngIf="abcGasScoreTrends"
-            (press)="activateDrilldown('gas score')"
-            [data]="abcGasScoreTrends"
-            height="'100px'"></chart>
+         <pmc-slides
+          [scoreTrends]="abcGasScoreTrends"
+          (clickedSlideNext)="slideNext($event)"
+          (clickedSlidePrev)="slidePrev($event)"
+          (clickedDrilldown)="activateDrilldown('gas score')"></pmc-slides>
         </ion-slide>
         <ion-slide>
-          <chart
-            *ngIf="safetyScoreTrends"
-            [data]="safetyScoreTrends"
-            height="'100px'"></chart>
+          <pmc-slides
+          [scoreTrends]="abcGasScoreTrends"
+          (clickedSlideNext)="slideNext($event)"
+          (clickedSlidePrev)="slidePrev($event)"
+          ></pmc-slides>
         </ion-slide>
         <ion-slide>
-          <chart
-            *ngIf="profitabilityScoreTrends"
-            [data]="profitabilityScoreTrends"
-            height="'100px'"></chart>
+          <pmc-slides
+          [scoreTrends]="abcGasScoreTrends"
+          (clickedSlideNext)="slideNext($event)"
+          (clickedSlidePrev)="slidePrev($event)"
+          ></pmc-slides>
         </ion-slide>
       </ion-slides>
     </ion-card-content>

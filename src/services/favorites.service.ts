@@ -1,5 +1,5 @@
 import { CardList, CardKpi } from '../app/models/card-list.model';
-import { DrilldownData } from '../app/models/pmc-trends-drilldown.model';
+import { DrilldownData, PMCTrendDrilldown, TrendDrilldown } from '../app/models/pmc-trends-drilldown.model';
 import { Subject } from 'rxjs/Subject';
 import { ToastController } from 'ionic-angular';
 import { Injectable } from '@angular/core';
@@ -30,48 +30,30 @@ export class FavoritesService {
   public addToSliderCharts = (charts: SliderChart): number => this.favoriteSliderCharts.push(charts);
   public addToCardLists = (card: CardList): number => this.favoriteCardLists.push(card);
   public addToKpiList = (kpi: CardKpi): number => this.favoriteKpis.push(kpi);
-  public addToDrilldownDataList = (name: string, data: DrilldownData): void => {
-    const dataValue = { name, data };
-    this.drillDownData.push(dataValue);
-  }
+  public addToDrilldownDataList = (name: string, data: DrilldownData): number => this.drillDownData.push({ name, data });
 
-  public removeFromSliderCharts(charts: SliderChart): void {
-    this.favoriteSliderCharts = this.favoriteSliderCharts.filter(x => x !== charts);
-    this.$favSliderCharts.next(this.favoriteSliderCharts);
-  }
-
-  public removeFromCardLists(card: CardList): void {
-    this.favoriteCardLists = this.favoriteCardLists.filter(x => x !== card);
-    this.$favCardLists.next(this.favoriteCardLists);
-  }
-
-  public removeFromKpiList(kpi: CardKpi): void {
-    this.favoriteKpis = this.favoriteKpis.filter(x => x !== kpi);
-    this.$favKpis.next(this.favoriteKpis);
-  }
-
-  public removeFromFavoriteDrilldowns(value: { name: string, data: DrilldownData }): void {
-    this.drillDownData = this.drillDownData.filter(x => x.data !== value.data);
-    this.$favDrilldowns.next(this.drillDownData);
-  }
+  public removeFromSliderCharts = (charts: SliderChart): void => this.filterAndNext('favoriteSliderCharts', charts, '$favSliderCharts');
+  public removeFromCardLists = (card: CardList): void => this.filterAndNext('favoriteCardLists', card, '$favCardLists');
+  public removeFromKpiList = (kpi: CardKpi): void => this.filterAndNext('favoriteKpis', kpi, '$favKpis');
+  public removeFromFavoriteDrilldowns = (value: TrendDrilldown): void => this.filterAndNext('drillDownData', value, '$favDrilldowns', 'data');
 
   public removeCategoryFromFavoriteDrilldowns(category: string): void {
     this.drillDownData = this.drillDownData.filter(data => data.name !== category);
     this.$favDrilldowns.next(this.drillDownData);
   }
 
-  public showToast(): void {
-    const toast = this.toastCtrl.create({
-      message: 'Added to favorites!',
-      duration: 1000,
-      position: 'top'
-    });
-    toast.present();
+  public filterAndNext(valueToNext: string, valueToFilter: any, subject: string, prop?: string) {
+    this[valueToNext] = this[valueToNext].filter(value => prop ? value[prop] !== valueToFilter[prop] : value !== valueToFilter);
+    this[subject].next(this[valueToNext]);
   }
 
-  public showDeleteToast(): void {
+  public showToast = (): void => this.createToast('Added');
+
+  public showDeleteToast = (): void => this.createToast('Removed');
+
+  public createToast(status: string): void {
     const toast = this.toastCtrl.create({
-      message: 'Removed from favorites!',
+      message: `${status} from favorites!`,
       duration: 1000,
       position: 'top'
     });

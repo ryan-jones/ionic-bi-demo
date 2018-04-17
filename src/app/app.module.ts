@@ -4,11 +4,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentsModule } from '../components/components.module';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { ScreenshotsPageModule } from '../pages/screenshots/screenshots.module';
+
 
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CallNumber } from '@ionic-native/call-number';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { Badge } from '@ionic-native/badge';
+import { Screenshot } from '@ionic-native/screenshot';
 
 import { MyApp } from './app.component';
 
@@ -17,7 +21,6 @@ import { NewsApiService } from '../services/news-api.service';
 import { SettingsService } from '../services/settings.service';
 
 import { TabsPage } from '../pages/tabs/tabs';
-import { GasHomePage } from '../pages/gas-home/gas-home';
 import { MorePage } from '../pages/more/more';
 import { OrganizationPage } from '../pages/organization/organization';
 import { ProductionPage } from '../pages/production/production';
@@ -34,12 +37,12 @@ import { NativeService } from '../services/native.service';
 import { FavoritesService } from '../services/favorites.service';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { ProductionDrilldownPage } from '../pages/production/production-drilldown/production-drilldown';
+import { AlertService } from '../services/alert-service';
 
 
 @NgModule({
   declarations: [
     MyApp,
-    GasHomePage,
     FavoritesPage,
     MorePage,
     OrganizationPage,
@@ -61,12 +64,12 @@ import { ProductionDrilldownPage } from '../pages/production/production-drilldow
     ComponentsModule,
     HttpClientModule,
     NgxEchartsModule,
+    ScreenshotsPageModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    GasHomePage,
     FavoritesPage,
     MorePage,
     OrganizationPage,
@@ -88,11 +91,14 @@ import { ProductionDrilldownPage } from '../pages/production/production-drilldow
     EmailComposer,
     SocialSharing,
     SplashScreen,
+    Badge,
     CardListService,
     NewsApiService,
     SettingsService,
     NativeService,
     FavoritesService,
+    AlertService,
+    Screenshot,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

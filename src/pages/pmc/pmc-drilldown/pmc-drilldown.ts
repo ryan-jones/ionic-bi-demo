@@ -54,9 +54,7 @@ export class PMCDrilldownPage implements OnInit {
     }));
   }
 
-  private onDismiss(): void {
-    this.viewCtrl.dismiss();
-  }
+  private onDismiss = (): Promise<any> => this.viewCtrl.dismiss();
 
   private onSelectCommentor(data: DrilldownData): void {
     const { commentor, commentorPhoneNumber, commentorEmail } = data;

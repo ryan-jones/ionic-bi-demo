@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ALERTDATA } from './data';
 import { Alert } from '../../app/models/alerts.model';
 import { SettingsService } from '../../services/settings.service';
+import { AlertService } from '../../services/alert-service';
 
 @IonicPage()
 @Component({
@@ -12,10 +13,10 @@ import { SettingsService } from '../../services/settings.service';
 export class AlertsPage {
 
   private alerts: Alert[];
-  constructor(private settingsService: SettingsService) {}
+  constructor(private settingsService: SettingsService, private alertService: AlertService) {}
 
  ngOnInit() {
-   this.alerts = ALERTDATA;
+   this.alerts = this.alertService.alerts;
  }
 
  private getBackground = (): string => this.settingsService.getBackground();

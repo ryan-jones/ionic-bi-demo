@@ -13,42 +13,49 @@
         ABC Gas
       </ion-item>
       <button
-        (click)="onLoad(pmcPage)"
+        (click)="onLoad(0)"
         ion-item
         icon-left
         class="transparent">
         <ion-icon ios="ios-paper-outline" md="paper"></ion-icon>
         PMC</button>
+        <button
+        (click)="onLoad(1)"
+        ion-item
+        icon-left
+        class="transparent">
+        <ion-icon name="ios-clipboard-outline"></ion-icon>
+        Projects</button>
       <button
-        (click)="onLoad(productionPage)"
+        (click)="onLoad(2)"
         ion-item
         icon-left
         class="transparent">
         <ion-icon ios="ios-flame-outline" md="md-flame"></ion-icon>
         Production</button>
       <button
-        (click)="onLoad(organizationPage)"
+        (click)="onLoad(3)"
         ion-item
         icon-left
         class="transparent">
-        <ion-icon name="contact"></ion-icon>
+        <ion-icon name="ios-star-outline"></ion-icon>
+        Favorites</button>
+        <button
+        (click)="onLoad(6)"
+        ion-item
+        icon-left
+        class="transparent">
+        <ion-icon name="contacts"></ion-icon>
         Organization</button>
       <button
-        (click)="onLoad(financePage)"
+        (click)="onLoad(0, financePage)"
         ion-item
         icon-left
         class="transparent">
         <ion-icon ios="ios-stats-outline" md="md-stats"></ion-icon>
         Finance</button>
-      <button
-        (click)="onLoad(projectsPage)"
-        ion-item
-        icon-left
-        class="transparent">
-        <ion-icon name="ios-clipboard-outline"></ion-icon>
-        Projects</button>
         <button
-        (click)="onLoad(settingsPage)"
+        (click)="onLoad(0, settingsPage)"
         ion-item
         icon-left
         class="transparent">

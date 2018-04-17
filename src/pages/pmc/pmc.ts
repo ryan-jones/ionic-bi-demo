@@ -12,6 +12,8 @@ import { CardList, CardKpi } from '../../app/models/card-list.model';
 import { AlertsPage } from '../alerts/alerts';
 import { SettingsService } from '../../services/settings.service';
 import { FavoritesService, SliderChart } from '../../services/favorites.service';
+import { Badge } from '@ionic-native/badge';
+import { NativeService } from '../../services/native.service';
 
 @IonicPage()
 @Component({
@@ -19,6 +21,7 @@ import { FavoritesService, SliderChart } from '../../services/favorites.service'
   templateUrl: 'pmc.html'
 })
 export class PmcPage implements OnInit {
+  @ViewChild(Slides) slides: Slides;
   private abcGasScoreTrends: any;
   private safetyScoreTrends: any;
   private profitabilityScoreTrends: any;
@@ -28,12 +31,15 @@ export class PmcPage implements OnInit {
   private trendsIcon = 'star-outline';
   private toggle = false;
   private scoreCardsFavorited = false;
+  private screen: any;
 
   constructor(
     private modalCtr: ModalController,
     private settingsService: SettingsService,
     private favoritesService: FavoritesService,
-    private toastCtrl: ToastController) {}
+    private toastCtrl: ToastController,
+    private badge: Badge,
+    private nativeService: NativeService) {}
 
   ngOnInit() {
     this.setAbcGasScoreTrends();
@@ -44,7 +50,6 @@ export class PmcPage implements OnInit {
     this.subscribeToKpis();
     this.subscribeToSliderCharts();
   }
-
 
   private subscribeToKpis(): void {
     this.favoritesService.$favKpis.subscribe((kpis: CardKpi[]) => this.pmcScorecards.kpis.forEach(kpi => {
@@ -99,7 +104,7 @@ export class PmcPage implements OnInit {
     this.favoritesService.showDeleteToast();
   }
 
+  private slidePrev = (): any => this.slides.slidePrev();
+  private slideNext = (): any => this.slides.slideNext();
   private setTrendsIcon = (): string => this.trendsIcon = this.scoreCardsFavorited ? 'star' : 'star-outline';
-  private getBackground = (): string => this.settingsService.getBackground();
-  private getTextColor = (): string => this.settingsService.getTextColor();
 }

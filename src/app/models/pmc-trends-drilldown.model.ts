@@ -13,3 +13,8 @@ export interface PMCTrendDrilldown  {
   name: string;
   data: DrilldownData[];
 }
+
+export interface TrendDrilldown {
+  name: string;
+  data: DrilldownData;
+}

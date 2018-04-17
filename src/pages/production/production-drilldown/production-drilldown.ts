@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavParams, ViewController } from 'ionic-angular';
 
-
-@IonicPage()
 @Component({
   selector: 'page-production-drilldown',
   templateUrl: 'production-drilldown.html',
@@ -15,7 +13,5 @@ export class ProductionDrilldownPage {
     this.slide = this.navParams.data;
   }
 
-  private onDismiss(): void {
-    this.viewCtrl.dismiss();
-  }
+  private onDismiss = (): Promise<any> => this.viewCtrl.dismiss();
 }

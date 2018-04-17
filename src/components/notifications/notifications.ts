@@ -9,5 +9,4 @@ export class NotificationsComponent {
   @Input() alerts: Alert[];
 
   constructor() {}
-
 }

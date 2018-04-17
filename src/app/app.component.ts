@@ -29,14 +29,12 @@ export class MyApp {
     private menuCtrl: MenuController,
   ) {
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       splashScreen.hide();
     });
   }
 
-  private onLoad(page: any): void {
-    this.navEl.setRoot(page);
+  private onLoad(index: number, page: any): void {
+    page ? this.navEl.setRoot(page) : this.navEl.setRoot(this.rootPage, { tabIndex: index });
     this.menuCtrl.close();
   }
 }

@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, ModalController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import { echartsData, echartsData2, PROJECTSSUMMARY, PROJECTSHSE, CURRENTPROJECTS } from './data';
 import { CardList } from '../../app/models/card-list.model';
 import { Project } from '../../app/models/project.model';
 import { DrilldownPage } from './drilldown/drilldown';
 import { AlertsPage } from '../alerts/alerts';
 import { FavoritesService, SliderChart } from '../../services/favorites.service';
-@IonicPage()
 @Component({
   selector: 'page-projects',
   templateUrl: 'projects.html'
@@ -23,11 +22,9 @@ export class ProjectsPage implements OnInit {
   private toggle = false;
   private scoreCardsFavorited = false;
   private trendsIcon = 'star-outline';
-
+  private counter = 0;
 
   constructor(private modalCtrl: ModalController, private favoritesService: FavoritesService) {}
-
-  ionViewDidLoad() {}
 
   ngOnInit() {
     this.subscribeToSliderCharts();
@@ -44,16 +41,20 @@ export class ProjectsPage implements OnInit {
     });
   }
 
-  private setProjects() {
+  private setProjects(): void {
     this.projectsSummary = PROJECTSSUMMARY;
     this.projectsHse = PROJECTSHSE;
     this.currentProjects = CURRENTPROJECTS;
   }
 
-  private activateDrilldown({ data }): void {
+  private prepDrilldown({ data }): void {
+    !this.selectedProject ? this.counter++ : this.selectedProject.name === data.name ? this.counter++ : this.counter = 1;
     this.loadProjectByName(data.name);
-    const modal = this.modalCtrl.create(DrilldownPage, this.selectedProject);
-    modal.present();
+    if (this.counter === 2) {
+      const modal = this.modalCtrl.create(DrilldownPage, this.selectedProject);
+      this.counter = 0;
+      modal.present();
+    }
   }
 
   private loadProjectByName(name: string): void {
