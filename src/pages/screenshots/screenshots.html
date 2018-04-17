@@ -1,0 +1,46 @@
+<ion-content>
+  <ion-toolbar id="top-toolbar">
+    <ion-buttons start>
+      <button (tap)="cancel()" ion-button>
+        Cancel
+      </button>
+    </ion-buttons>
+    <ion-buttons right>
+      <button
+        *ngFor="let color of availableColors"
+        (click)="changeColor(color)"
+        [ngClass]="checkIfActiveColor(color)"
+        icon-only
+        ion-button>
+        <ion-icon [style.color]="color" name="brush"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+  <canvas #myCanvas (touchstart)="handleStart($event)" (touchmove)="handleMove($event)"></canvas>
+  <ion-toolbar id="bottom-toolbar">
+    <ion-buttons left>
+      <button (click)="clearCanvas()" color="dark" ion-button icon-only>
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons text-center>
+      <button (click)="changeSize(5)" [ngClass]="checkIfActiveSize(5)" color="dark" ion-button icon-only>
+        <ion-icon style="font-size: 0.25em;" name="radio-button-on"></ion-icon>
+      </button>
+      <button (click)="changeSize(10)" [ngClass]="checkIfActiveSize(10)" color="dark" ion-button icon-only>
+        <ion-icon style="font-size: 0.5em;" name="radio-button-on"></ion-icon>
+      </button>
+      <button (click)="changeSize(20)" [ngClass]="checkIfActiveSize(20)" color="dark" ion-button icon-only>
+        <ion-icon style="font-size: 1em;" name="radio-button-on"></ion-icon>
+      </button>
+      <button (click)="changeSize(50)" [ngClass]="checkIfActiveSize(50)" color="dark" ion-button icon-only>
+        <ion-icon style="font-size: 2em;" name="radio-button-on"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button (click)="screenShot()" class="save-btn" ion-button icon-only>
+        <ion-icon name="ios-checkbox-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-content>

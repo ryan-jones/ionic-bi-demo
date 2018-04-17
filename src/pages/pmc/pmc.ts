@@ -29,7 +29,7 @@ export class PmcPage implements OnInit {
   private trendsIcon = 'star-outline';
   private toggle = false;
   private scoreCardsFavorited = false;
-  private screen: string;
+  private screen: any;
 
   constructor(
     private modalCtr: ModalController,
@@ -103,7 +103,4 @@ export class PmcPage implements OnInit {
   }
 
   private setTrendsIcon = (): string => this.trendsIcon = this.scoreCardsFavorited ? 'star' : 'star-outline';
-  private getBackground = (): string => this.settingsService.getBackground();
-  private getTextColor = (): string => this.settingsService.getTextColor();
-  private screenShot = (): string => this.nativeService.screenShot();
 }

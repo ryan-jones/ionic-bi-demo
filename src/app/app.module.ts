@@ -35,6 +35,7 @@ import { NativeService } from '../services/native.service';
 import { FavoritesService } from '../services/favorites.service';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { ProductionDrilldownPage } from '../pages/production/production-drilldown/production-drilldown';
+import { ScreenshotsPageModule } from '../pages/screenshots/screenshots.module';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { ProductionDrilldownPage } from '../pages/production/production-drilldow
     ComponentsModule,
     HttpClientModule,
     NgxEchartsModule,
+    ScreenshotsPageModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
