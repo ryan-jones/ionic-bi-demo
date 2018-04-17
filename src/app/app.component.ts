@@ -29,6 +29,7 @@ export class MyApp {
     private menuCtrl: MenuController,
   ) {
     platform.ready().then(() => {
+      statusbar.overlaysWebView(false);
       splashScreen.hide();
     });
   }

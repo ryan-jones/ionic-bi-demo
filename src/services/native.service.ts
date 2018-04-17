@@ -22,25 +22,23 @@ export class NativeService {
     private modalCtrl: ModalController,
   ) {}
 
-  public screenShot(): Promise<any> {
-    return this.screenshot.URI(100).then(_ => {
-      return _.URI;
-    });
+  public screenShot = async (): Promise<any> => {
+      const image = await this.screenshot.URI(100);
+      return image.URI;
   }
 
-  public screenShotAndEmail() {
-    this.screenshot.save('jpg', 100).then(res => {
-      this.screen = res.filePath;
-      this.emailComposer
-      .hasPermission()
-      .then(_ => {
-        const emailContent = {
-          attachments: [this.screen]
-        };
-        this.emailComposer.open(emailContent);
-      })
-      .catch(_ => this.emailFailed(`Doesn't have permission`));
-    });
+  public screenShotAndEmail = async () => {
+    const res = await this.screenshot.save('jpg', 100);
+    this.screen = res.filePath;
+    try {
+      await  this.emailComposer.hasPermission();
+      const emailContent = {
+        attachments: [this.screen]
+      };
+      this.emailComposer.open(emailContent);
+    } catch (err) {
+      this.emailFailed(`Doesn't have permission`);
+    }
   }
 
   public createActionSheet(person: string, phoneNumber: string, email: string): ActionSheet {
@@ -83,17 +81,17 @@ export class NativeService {
     alert.present();
   }
 
-  public composeEmail(email: string): void {
-    this.emailComposer
-      .hasPermission()
-      .then(_ => {
-        const emailContent = {
-          to: email,
-          isHtml: true
-        };
-        this.emailComposer.open(emailContent);
-      })
-      .catch(_ => this.emailFailed(`Doesn't have permission`));
+  public composeEmail = async (email: string): Promise<any> => {
+    try {
+      await this.emailComposer.hasPermission();
+      const emailContent = {
+        to: email,
+        isHtml: true
+      };
+      this.emailComposer.open(emailContent);
+    } catch (err) {
+      this.emailFailed(`Doesn't have permission`);
+    }
   }
 
   public emailFailed(titleText: string): void {

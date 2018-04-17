@@ -98,8 +98,8 @@ export class ScreenshotsPage {
 
   private screenShot(): void {
     this.nativeService.screenShotAndEmail();
-    this.viewCtrl.dismiss();
+    this.returnToPreviousPage();
   }
 
-  private cancel = (): Promise<any> => this.navCtrl.pop();
+  private returnToPreviousPage = (): Promise<any> => this.navCtrl.pop();
 }

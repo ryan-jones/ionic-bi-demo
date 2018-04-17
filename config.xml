@@ -3,7 +3,7 @@
     <name>ClearPeaks Demo</name>
     <description>An awesome demo BI app.</description>
     <author email="ryan.jones@clearpeaks.com" href="http://ionicframework.com/">ClearPeaks Dev Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://169.254.180.87:8101" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -99,10 +99,11 @@
     <allow-navigation href="http://169.254.69.19:8101" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <allow-navigation href="http://169.254.174.63:8101" />
-    <engine name="ios" spec="~4.5.4" />
     <plugin name="cordova-plugin-badge" spec="^0.8.7" />
     <plugin name="com.darktalker.cordova.screenshot" spec="^0.1.6" />
     <allow-navigation href="http://169.254.247.40:8102" />
     <allow-navigation href="http://169.254.193.208:8101" />
     <allow-navigation href="http://169.254.186.29:8101" />
+    <allow-navigation href="http://169.254.180.87:8101" />
+    <engine name="ios" spec="4.5.4" />
 </widget>
