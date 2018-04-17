@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="io.ionic.clearpeaks-demo" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>ClearPeaks Demo</name>
     <description>An awesome demo BI app.</description>
     <author email="ryan.jones@clearpeaks.com" href="http://ionicframework.com/">ClearPeaks Dev Team</author>
@@ -96,10 +96,12 @@
         <variable name="CHANNEL_NAME" value="Master" />
         <variable name="UPDATE_METHOD" value="background" />
     </plugin>
-    <plugin name="com.darktalker.cordova.screenshot" spec="^0.1.6" />
     <allow-navigation href="http://169.254.69.19:8101" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <allow-navigation href="http://169.254.174.63:8101" />
     <engine name="ios" spec="~4.5.4" />
     <plugin name="cordova-plugin-badge" spec="^0.8.7" />
+    <plugin name="com.darktalker.cordova.screenshot" spec="^0.1.6" />
+    <allow-navigation href="http://169.254.247.40:8102" />
+    <allow-navigation href="http://169.254.193.208:8101" />
 </widget>

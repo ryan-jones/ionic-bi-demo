@@ -4,12 +4,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentsModule } from '../components/components.module';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { ScreenshotsPageModule } from '../pages/screenshots/screenshots.module';
+
 
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CallNumber } from '@ionic-native/call-number';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Badge } from '@ionic-native/badge';
+import { Screenshot } from '@ionic-native/screenshot';
 
 import { MyApp } from './app.component';
 
@@ -61,6 +64,7 @@ import { AlertService } from '../services/alert-service';
     ComponentsModule,
     HttpClientModule,
     NgxEchartsModule,
+    ScreenshotsPageModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -94,6 +98,7 @@ import { AlertService } from '../services/alert-service';
     NativeService,
     FavoritesService,
     AlertService,
+    Screenshot,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

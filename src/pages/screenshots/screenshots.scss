@@ -1,0 +1,22 @@
+page-screenshots {
+  .scroll-content {
+    overflow: hidden;
+  }
+  .canvas-container {
+    overflow-y: auto;
+    max-height: 100%;
+  }
+  #top-toolbar {
+    position: absolute;
+    top: 0;
+  }
+
+  #bottom-toolbar {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .active-color {
+    border: 1px solid #fff;
+  }
+}

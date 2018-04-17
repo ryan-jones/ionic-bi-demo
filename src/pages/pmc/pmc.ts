@@ -13,6 +13,7 @@ import { AlertsPage } from '../alerts/alerts';
 import { SettingsService } from '../../services/settings.service';
 import { FavoritesService, SliderChart } from '../../services/favorites.service';
 import { Badge } from '@ionic-native/badge';
+import { NativeService } from '../../services/native.service';
 
 @IonicPage()
 @Component({
@@ -30,13 +31,15 @@ export class PmcPage implements OnInit {
   private trendsIcon = 'star-outline';
   private toggle = false;
   private scoreCardsFavorited = false;
+  private screen: any;
 
   constructor(
     private modalCtr: ModalController,
     private settingsService: SettingsService,
     private favoritesService: FavoritesService,
     private toastCtrl: ToastController,
-    private badge: Badge) {}
+    private badge: Badge,
+    private nativeService: NativeService) {}
 
   ngOnInit() {
     this.setAbcGasScoreTrends();
