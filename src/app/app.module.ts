@@ -9,6 +9,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { CallNumber } from '@ionic-native/call-number';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { Screenshot } from '@ionic-native/screenshot';
 
 import { MyApp } from './app.component';
 
@@ -93,6 +94,7 @@ import { ProductionDrilldownPage } from '../pages/production/production-drilldow
     SettingsService,
     NativeService,
     FavoritesService,
+    Screenshot,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

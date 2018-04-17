@@ -12,6 +12,7 @@ import { CardList, CardKpi } from '../../app/models/card-list.model';
 import { AlertsPage } from '../alerts/alerts';
 import { SettingsService } from '../../services/settings.service';
 import { FavoritesService, SliderChart } from '../../services/favorites.service';
+import { NativeService } from '../../services/native.service';
 
 @IonicPage()
 @Component({
@@ -28,12 +29,14 @@ export class PmcPage implements OnInit {
   private trendsIcon = 'star-outline';
   private toggle = false;
   private scoreCardsFavorited = false;
+  private screen: string;
 
   constructor(
     private modalCtr: ModalController,
     private settingsService: SettingsService,
     private favoritesService: FavoritesService,
-    private toastCtrl: ToastController) {}
+    private toastCtrl: ToastController,
+    private nativeService: NativeService) {}
 
   ngOnInit() {
     this.setAbcGasScoreTrends();
@@ -102,4 +105,5 @@ export class PmcPage implements OnInit {
   private setTrendsIcon = (): string => this.trendsIcon = this.scoreCardsFavorited ? 'star' : 'star-outline';
   private getBackground = (): string => this.settingsService.getBackground();
   private getTextColor = (): string => this.settingsService.getTextColor();
+  private screenShot = (): string => this.nativeService.screenShot();
 }
