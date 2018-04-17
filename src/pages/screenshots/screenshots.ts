@@ -25,7 +25,7 @@ export class ScreenshotsPage {
     public platform: Platform,
     public renderer: Renderer2,
     private nativeService: NativeService,
-    private viewCtrl: ViewController
+    private navCtrl: NavController
   ) {
     this.image = this.navParams.get('image');
 
@@ -49,7 +49,7 @@ export class ScreenshotsPage {
     const ctx = this.canvasElement.getContext('2d');
     const img = new Image();
     img.onload = () => {
-      ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, this.canvasElement.width, this.canvasElement.height);
+      ctx.drawImage(img, 0, 30, img.width, img.height, 0, 0, this.canvasElement.width, this.canvasElement.height);
     };
     img.src = this.image;
   }
@@ -101,5 +101,5 @@ export class ScreenshotsPage {
     this.viewCtrl.dismiss();
   }
 
-  private cancel = (): Promise<any> => this.viewCtrl.dismiss();
+  private cancel = (): Promise<any> => this.navCtrl.pop();
 }
