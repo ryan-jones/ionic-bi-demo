@@ -3,6 +3,7 @@ import { SettingsService } from '../../services/settings.service';
 import { NativeService } from '../../services/native.service';
 import { ScreenshotsPage } from '../../pages/screenshots/screenshots';
 import { NavController, ModalController } from 'ionic-angular';
+import { AlertsPage } from '../../pages/alerts/alerts';
 
 @Component({
   selector: 'header-nav',
@@ -12,6 +13,7 @@ export class HeaderComponent {
   @Input() title: string;
 
   image: any;
+  alertsPage: AlertsPage;
 
   constructor(private settingsService: SettingsService,
     private nativeService: NativeService, private modalCtrl: ModalController, private navCtrl: NavController) {

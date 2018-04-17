@@ -21,9 +21,10 @@ ion-content {
   background-image: url('../assets/imgs/Sheikh-Zayed-Mosque.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position:  10% center;
+  background-position: 10% center;
 
-  button, ion-item {
+  button,
+  ion-item {
     color: #fff;
   }
 }
@@ -45,4 +46,18 @@ ion-badge {
   position: absolute;
   right: 5%;
   top: 0;
+}
+
+.ios {
+  ion-header,
+  .screenshot-body {
+    .toolbar.statusbar-padding:first-child {
+      padding-top: 24px !important;
+      min-height: 64px !important;
+    }
+  }
+}
+
+.ios ion-header .toolbar.statusbar-padding:first-child ion-title {
+  padding-top: 20px !important;
 }
