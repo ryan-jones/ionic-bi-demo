@@ -13,12 +13,12 @@ import { sortedUniq } from 'lodash';
   templateUrl: 'favorites.html',
 })
 export class FavoritesPage {
-  private alertsPage = AlertsPage;
+  public alertsPage = AlertsPage;
   private sliderCharts: SliderChart[];
   private cardLists: CardList[];
   private favoriteKpis: CardList;
   private favoriteDrilldownData: { name: string, data: DrilldownData }[];
-  private drilldownValues: string[];
+  public drilldownValues: string[];
 
   constructor(private settingsService: SettingsService, private favoritesService: FavoritesService) {}
 
@@ -43,39 +43,38 @@ export class FavoritesPage {
     this.drilldownValues = sortedUniq(this.favoriteDrilldownData.map(x => x.name));
   }
 
-  private removeFromFavoriteDrilldowns(name: string, data: DrilldownData): void {
+  public removeFromFavoriteDrilldowns(name: string, data: DrilldownData): void {
     this.favoritesService.removeFromFavoriteDrilldowns({name, data});
     this.getFavoriteDrilldownData();
   }
 
-  private removeCategoryFromFavoriteDrilldowns(name: string): void {
+  public removeCategoryFromFavoriteDrilldowns(name: string): void {
     this.favoritesService.removeCategoryFromFavoriteDrilldowns(name);
     this.getFavoriteDrilldownData();
   }
 
-  private removeFromKpis(kpi: CardKpi): void {
+  public removeFromKpis(kpi: CardKpi): void {
     this.favoritesService.removeFromKpiList(kpi);
     this.getFavoriteKpis();
   }
 
-  private removeFromSliderCharts(chart: SliderChart): void {
+  public removeFromSliderCharts(chart: SliderChart): void {
     this.favoritesService.removeFromSliderCharts(chart);
     this.getSliderCharts();
   }
 
-  private removeFromCardLists(card: CardList): void {
+  public removeFromCardLists(card: CardList): void {
     this.favoritesService.removeFromCardLists(card);
     this.getFavoriteCardLists();
   }
 
-  private onDeletedCard = (cardList: CardList[]): CardList[] => this.cardLists = cardList;
+  public onDeletedCard = (cardList: CardList[]): CardList[] => this.cardLists = cardList;
 
-  private onDeleteKpi = (kpis: CardKpi[]): CardKpi[] => this.favoriteKpis.kpis = kpis;
+  public onDeleteKpi = (kpis: CardKpi[]): CardKpi[] => this.favoriteKpis.kpis = kpis;
 
-  private getBackground = (): string => this.settingsService.getBackground();
+  public getBackground = (): string => this.settingsService.getBackground();
 
-  private getTextColor = (): string => this.settingsService.isAltBackground() ? 'dark' : 'light';
+  public getTextColor = (): string => this.settingsService.isAltBackground() ? 'dark' : 'light';
 
-  private setArrowDirection = (direction: string): string => direction === 'down' ? 'md-arrow-dropdown' : 'md-arrow-dropup';
-
+  public setArrowDirection = (direction: string): string => direction === 'down' ? 'md-arrow-dropdown' : 'md-arrow-dropup';
 }

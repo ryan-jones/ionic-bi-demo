@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ALERTDATA } from './data';
+import { IonicPage } from 'ionic-angular';
 import { Alert } from '../../app/models/alerts.model';
 import { SettingsService } from '../../services/settings.service';
 import { AlertService } from '../../services/alert-service';
@@ -12,13 +11,14 @@ import { AlertService } from '../../services/alert-service';
 })
 export class AlertsPage {
 
-  private alerts: Alert[];
+  public alerts: Alert[];
+
   constructor(private settingsService: SettingsService, private alertService: AlertService) {}
 
  ngOnInit() {
    this.alerts = this.alertService.alerts;
  }
 
- private getBackground = (): string => this.settingsService.getBackground();
- private getTextColor = (): string => this.settingsService.getTextColor();
+ public getBackground = (): string => this.settingsService.getBackground();
+ public getTextColor = (): string => this.settingsService.getTextColor();
 }

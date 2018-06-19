@@ -8,12 +8,12 @@ import { SettingsService } from '../../services/settings.service';
   templateUrl: 'newsfeed.html',
 })
 export class NewsfeedPage {
-  private articles: any;
+  public articles: any;
 
   constructor(public navParams: NavParams, private settingsService: SettingsService) {
     this.articles = this.navParams.get('articles');
   }
 
-  private getBackground = (): string => this.settingsService.getBackground();
-  private getTextColor = (): string => this.settingsService.getTextColor();
+  public getBackground = (): string => this.settingsService.getBackground();
+  public getTextColor = (): string => this.settingsService.getTextColor();
 }

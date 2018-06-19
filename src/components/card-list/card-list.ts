@@ -1,12 +1,5 @@
 import { Component, Input, OnChanges, EventEmitter, Output } from '@angular/core';
-import { CallNumber } from '@ionic-native/call-number';
-import { EmailComposer } from '@ionic-native/email-composer';
-import { SocialSharing } from '@ionic-native/social-sharing';
-import {
-  ModalController,
-  ActionSheetController,
-  AlertController
-} from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import { CardList, CardKpi } from '../../app/models/card-list.model';
 import { PmcScorecardPage } from '../../pages/pmc/pmc-scorecard/pmc-scorecard';
 import { CardListService } from '../../services/card-list.service';
@@ -25,18 +18,13 @@ export class CardListComponent implements OnChanges {
   @Output() removedKpi: EventEmitter<CardKpi[]> = new EventEmitter<CardKpi[]>();
 
   private cardIconName: string;
-  private kpiIconName = 'star-outline';
+  public kpiIconName = 'star-outline';
   private toggle = false;
   private wholeCardFavorited = false;
 
   constructor(
     private modalCtrl: ModalController,
     private cardList: CardListService,
-    private actionCtrl: ActionSheetController,
-    private callNumber: CallNumber,
-    private alertCtrl: AlertController,
-    private emailComposer: EmailComposer,
-    private socialSharing: SocialSharing,
     private nativeService: NativeService,
     private favoritesService: FavoritesService
   ) {}
@@ -59,7 +47,7 @@ export class CardListComponent implements OnChanges {
     });
   }
 
-  private loadCardOverview(kpi: CardKpi): void {
+  public loadCardOverview(kpi: CardKpi): void {
     const data = this.cardList.getKpiScoreCardData(kpi);
     if (data) {
       const modal = this.modalCtrl.create(PmcScorecardPage, data);
@@ -67,13 +55,13 @@ export class CardListComponent implements OnChanges {
     }
   }
 
-  private onSelectManagerImage(): void {
+  public onSelectManagerImage(): void {
     const { managerName, managerPhoneNumber, managerEmail } = this.card;
     const actionSheet = this.nativeService.createActionSheet(managerName, managerPhoneNumber, managerEmail);
     actionSheet.present();
   }
 
-  private onToggleCardIcon(card: CardList): void {
+  public onToggleCardIcon(card: CardList): void {
     this.toggle = !this.toggle;
     this.toggle ? this.addToCardList(card) : this.removeFromCardList(card);
   }
@@ -99,7 +87,7 @@ export class CardListComponent implements OnChanges {
     this.favoritesService.showDeleteToast();
   }
 
-  private onToggleKpi(kpi: CardKpi): void {
+  public onToggleKpi(kpi: CardKpi): void {
     kpi.clicked = !kpi.clicked;
     kpi.clicked ? this.addKpiToFavorites(kpi) : this.removeKpiFromFavorites(kpi);
   }
@@ -121,7 +109,7 @@ export class CardListComponent implements OnChanges {
   }
 
   private setCardIcon = (): string => this.cardIconName = this.setIcon(this.wholeCardFavorited);
-  private setKpiIcon = (kpi: CardKpi): string =>  this.setIcon(kpi.clicked);
+  public setKpiIcon = (kpi: CardKpi): string =>  this.setIcon(kpi.clicked);
   private setIcon = (metric: any): string => metric ? 'star' : 'star-outline';
-  private setArrowDirection = (direction: string): string => direction === 'down' ? 'md-arrow-dropdown' : 'md-arrow-dropup';
+  public setArrowDirection = (direction: string): string => direction === 'down' ? 'md-arrow-dropdown' : 'md-arrow-dropup';
 }

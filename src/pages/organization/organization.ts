@@ -10,10 +10,10 @@ import { AlertsPage } from '../alerts/alerts';
 })
 export class OrganizationPage {
 
-  private alertsPage = AlertsPage;
+  public alertsPage = AlertsPage;
   constructor(private settingsService: SettingsService) {
   }
 
-  private getBackground = (): string => this.settingsService.getBackground();
-  private getTextColor = (): string => this.settingsService.getTextColor();
+  public getBackground = (): string => this.settingsService.getBackground();
+  public getTextColor = (): string => this.settingsService.getTextColor();
 }

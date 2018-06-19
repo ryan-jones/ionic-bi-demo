@@ -16,24 +16,20 @@ import { SettingsPage } from '../pages/settings/settings';
 export class MyApp {
   @ViewChild('nav') navEl: NavController;
   private rootPage: any = TabsPage;
-  private productionPage = ProductionPage;
-  private pmcPage = PmcPage;
-  private organizationPage = OrganizationPage;
-  private financePage = FinancePage;
-  private projectsPage = ProjectsPage;
-  private settingsPage = SettingsPage;
+  public productionPage = ProductionPage;
+  public pmcPage = PmcPage;
+  public organizationPage = OrganizationPage;
+  public financePage = FinancePage;
+  public projectsPage = ProjectsPage;
+  public settingsPage = SettingsPage;
 
-  constructor(
-    platform: Platform,
-    splashScreen: SplashScreen,
-    private menuCtrl: MenuController,
-  ) {
+  constructor(platform: Platform, splashScreen: SplashScreen, private menuCtrl: MenuController) {
     platform.ready().then(() => {
       splashScreen.hide();
     });
   }
 
-  private onLoad(index: number, page: any): void {
+  public onLoad(index: number, page: any): void {
     page ? this.navEl.setRoot(page) : this.navEl.setRoot(this.rootPage, { tabIndex: index });
     this.menuCtrl.close();
   }

@@ -12,7 +12,7 @@ export class PmcSlidesComponent {
 
   constructor() {}
 
-  private slidePrevious = (): void => this.clickedSlidePrev.emit(true);
-  private slideNext = (): void => this.clickedSlideNext.emit(true);
-  private activateDrilldown = (value: string): void => this.clickedDrilldown.emit(value);
+  public slidePrevious = (): void => this.clickedSlidePrev.emit(true);
+  public slideNext = (): void => this.clickedSlideNext.emit(true);
+  public activateDrilldown = (value: string): void => this.clickedDrilldown.emit(value);
 }

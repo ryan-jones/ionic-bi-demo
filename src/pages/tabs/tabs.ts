@@ -12,19 +12,19 @@ import { NavParams } from 'ionic-angular';
 })
 export class TabsPage {
 
-  tab1Root = PmcPage;
-  tab2Root = ProjectsPage;
-  tab3Root = ProductionPage;
-  tab4Root = FavoritesPage;
-  tab5Root = MorePage;
+  public tab1Root = PmcPage;
+  public tab2Root = ProjectsPage;
+  public tab3Root = ProductionPage;
+  public tab4Root = FavoritesPage;
+  public tab5Root = MorePage;
 
-  private selectedIndex: number;
+  public selectedIndex: number;
 
   constructor(private settingsService: SettingsService, private navParams: NavParams) {
     this.selectedIndex = navParams.data.tabIndex || 0;
   }
 
-  private getBackground = (): string => this.settingsService.getBackground();
+  public getBackground = (): string => this.settingsService.getBackground();
 
-  private getTextColor = (): string => this.settingsService.isAltBackground() ? 'dark' : 'light';
+  public getTextColor = (): string => this.settingsService.isAltBackground() ? 'dark' : 'light';
 }

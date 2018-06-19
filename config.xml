@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.clearpeaks-demo" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>ClearPeaks Demo</name>
+<widget id="io.ionic.bi-demo" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>BI app Demo</name>
     <description>An awesome demo BI app.</description>
-    <author email="ryan.jones@clearpeaks.com" href="http://ionicframework.com/">ClearPeaks Dev Team</author>
+    <author email="ryanllewellynjones@gmail.com" href="http://ionicframework.com/">Ryan Jones</author>
     <content original-src="index.html" src="http://169.254.180.87:8101" />
     <access origin="*" />
     <allow-intent href="http://*/*" />

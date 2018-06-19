@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Toggle } from 'ionic-angular';
+import { IonicPage, Toggle } from 'ionic-angular';
 import { SettingsService } from '../../services/settings.service';
 
 @IonicPage()
@@ -10,11 +10,11 @@ import { SettingsService } from '../../services/settings.service';
 export class SettingsPage {
   constructor(private settingsService: SettingsService) {}
 
-  private onToggle = (toggle: Toggle): boolean => this.settingsService.setBackground(toggle.checked);
+  public onToggle = (toggle: Toggle): boolean => this.settingsService.setBackground(toggle.checked);
 
-  private checkAltBackground = (): boolean => this.settingsService.isAltBackground();
+  public checkAltBackground = (): boolean => this.settingsService.isAltBackground();
 
-  private getBackground = (): string => this.settingsService.getBackground();
+  public getBackground = (): string => this.settingsService.getBackground();
 
-  private getTextColor = (): string => this.settingsService.getTextColor();
+  public getTextColor = (): string => this.settingsService.getTextColor();
 }

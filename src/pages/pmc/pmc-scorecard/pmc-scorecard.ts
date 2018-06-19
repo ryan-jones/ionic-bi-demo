@@ -9,7 +9,7 @@ import { SettingsService } from '../../../services/settings.service';
 })
 export class PmcScorecardPage implements AfterViewInit, OnInit {
   private scorecard: any;
-  private scorecardHeaders: string[];
+  public scorecardHeaders: string[];
   constructor(
     public navParams: NavParams,
     private viewCtrl: ViewController,
@@ -28,7 +28,7 @@ export class PmcScorecardPage implements AfterViewInit, OnInit {
     this.cdr.detectChanges();
   }
 
-  private onDismiss = (): Promise<any> => this.viewCtrl.dismiss();
-  private getBackground = (): string => this.settingsService.getBackground();
-  private getTextColor = (): string => this.settingsService.getTextColor();
+  public onDismiss = (): Promise<any> => this.viewCtrl.dismiss();
+  public getBackground = (): string => this.settingsService.getBackground();
+  public getTextColor = (): string => this.settingsService.getTextColor();
 }

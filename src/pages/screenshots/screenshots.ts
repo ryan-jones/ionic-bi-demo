@@ -18,7 +18,13 @@ export class ScreenshotsPage {
   private lastY: number;
   private currentColor = '#1abc9c';
   private brushSize = 10;
-  private availableColors: string[];
+  public availableColors: string[] = [
+    '#1abc9c',
+    '#3498db',
+    '#9b59b6',
+    '#e67e22',
+    '#e74c3c'
+  ];
 
   constructor(
     public navParams: NavParams,
@@ -28,14 +34,6 @@ export class ScreenshotsPage {
     private navCtrl: NavController
   ) {
     this.image = this.navParams.get('image');
-
-    this.availableColors = [
-      '#1abc9c',
-      '#3498db',
-      '#9b59b6',
-      '#e67e22',
-      '#e74c3c'
-    ];
   }
 
   ngAfterViewInit() {
@@ -54,12 +52,12 @@ export class ScreenshotsPage {
     img.src = this.image;
   }
 
-  private handleStart(ev: any): void {
+  public handleStart(ev: any): void {
     this.lastX = ev.touches[0].pageX;
     this.lastY = ev.touches[0].pageY;
   }
 
-  private handleMove(ev: any): void {
+  public handleMove(ev: any): void {
     const ctx = this.canvasElement.getContext('2d');
     const currentX = ev.touches[0].pageX;
     const currentY = ev.touches[0].pageY;
@@ -75,28 +73,28 @@ export class ScreenshotsPage {
     this.lastY = currentY;
   }
 
-  private changeColor = (color: string): string => this.currentColor = color;
-  private changeSize = (size): void => this.brushSize = size;
+  public changeColor = (color: string): string => this.currentColor = color;
+  public changeSize = (size): void => this.brushSize = size;
 
-  private checkIfActiveColor(color: string): string {
+  public checkIfActiveColor(color: string): string {
     if (color === this.currentColor) {
       return 'active-color';
     }
   }
 
-  private checkIfActiveSize(size: number): string {
+  public checkIfActiveSize(size: number): string {
     if (size === this.brushSize) {
       return 'active-color';
     }
   }
 
-  private clearCanvas(): void {
+  public clearCanvas(): void {
     const ctx = this.canvasElement.getContext('2d');
     ctx.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
     this.drawImage();
   }
 
-  private screenShot(): void {
+  public screenShot(): void {
     this.nativeService.screenShotAndEmail();
     this.returnToPreviousPage();
   }

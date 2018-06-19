@@ -8,7 +8,7 @@ import { AlertsPage } from '../alerts/alerts';
   templateUrl: 'finance.html'
 })
 export class FinancePage {
-  private alertsPage = AlertsPage;
+  public alertsPage = AlertsPage;
 
   constructor() {}
 }

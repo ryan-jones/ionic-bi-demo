@@ -7,11 +7,11 @@ import { NavParams, ViewController } from 'ionic-angular';
 })
 export class ProductionDrilldownPage {
 
-  private slide: any;
+  public slide: any;
 
   constructor(public navParams: NavParams, private viewCtrl: ViewController) {
     this.slide = this.navParams.data;
   }
 
-  private onDismiss = (): Promise<any> => this.viewCtrl.dismiss();
+  public onDismiss = (): Promise<any> => this.viewCtrl.dismiss();
 }

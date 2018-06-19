@@ -4,7 +4,6 @@ import { echartsData, echartsData2, PROJECTSSUMMARY, PROJECTSHSE, CURRENTPROJECT
 import { CardList } from '../../app/models/card-list.model';
 import { Project } from '../../app/models/project.model';
 import { DrilldownPage } from './drilldown/drilldown';
-import { AlertsPage } from '../alerts/alerts';
 import { FavoritesService, SliderChart } from '../../services/favorites.service';
 @Component({
   selector: 'page-projects',
@@ -13,11 +12,10 @@ import { FavoritesService, SliderChart } from '../../services/favorites.service'
 export class ProjectsPage implements OnInit {
   private echartsData: any;
   private echarts2Data: any;
-  private projectsSummary: CardList;
-  private projectsHse: CardList;
+  public projectsSummary: CardList;
+  public projectsHse: CardList;
   private selectedProject: Project;
   private currentProjects: Project[];
-  private alertsPage = AlertsPage;
   private charts: SliderChart;
   private toggle = false;
   private scoreCardsFavorited = false;
@@ -47,7 +45,7 @@ export class ProjectsPage implements OnInit {
     this.currentProjects = CURRENTPROJECTS;
   }
 
-  private prepDrilldown({ data }): void {
+  public prepDrilldown({ data }): void {
     !this.selectedProject ? this.counter++ : this.selectedProject.name === data.name ? this.counter++ : this.counter = 1;
     this.loadProjectByName(data.name);
     if (this.counter === 2) {
@@ -62,7 +60,7 @@ export class ProjectsPage implements OnInit {
     this.selectedProject = this.currentProjects.find(project => exp.test(project.name));
   }
 
-  private toggleTrendsIcon(): void {
+  public toggleTrendsIcon(): void {
     this.toggle = !this.toggle;
     this.toggle ? this.addToFavorites() : this.removeFromFavorites();
   }

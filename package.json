@@ -1,7 +1,7 @@
 {
-  "name": "ionic-seed",
+  "name": "ionic-demo",
   "version": "0.0.1",
-  "author": "Ionic Framework",
+  "author": "Ryan Jones",
   "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
@@ -61,7 +61,7 @@
     "husky": "^0.14.3",
     "typescript": "2.4.2"
   },
-  "description": "An Ionic project",
+  "description": "An Ionic demo project",
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},

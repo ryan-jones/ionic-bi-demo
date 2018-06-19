@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, Slides, AlertController, ToastController } from 'ionic-angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonicPage, ModalController, Slides } from 'ionic-angular';
 import {
   SAFETYSCORETRENDS,
   PROFITABILITYSCORETRENDS,
@@ -9,11 +9,8 @@ import {
 } from './data';
 import { PMCDrilldownPage } from './pmc-drilldown/pmc-drilldown';
 import { CardList, CardKpi } from '../../app/models/card-list.model';
-import { AlertsPage } from '../alerts/alerts';
-import { SettingsService } from '../../services/settings.service';
 import { FavoritesService, SliderChart } from '../../services/favorites.service';
-import { Badge } from '@ionic-native/badge';
-import { NativeService } from '../../services/native.service';
+
 
 @IonicPage()
 @Component({
@@ -27,19 +24,11 @@ export class PmcPage implements OnInit {
   private profitabilityScoreTrends: any;
   private charts: SliderChart;
   private pmcScorecards: CardList;
-  private alertsPage = AlertsPage;
   private trendsIcon = 'star-outline';
   private toggle = false;
   private scoreCardsFavorited = false;
-  private screen: any;
 
-  constructor(
-    private modalCtr: ModalController,
-    private settingsService: SettingsService,
-    private favoritesService: FavoritesService,
-    private toastCtrl: ToastController,
-    private badge: Badge,
-    private nativeService: NativeService) {}
+  constructor(private modalCtr: ModalController, private favoritesService: FavoritesService) {}
 
   ngOnInit() {
     this.setAbcGasScoreTrends();
@@ -74,7 +63,7 @@ export class PmcPage implements OnInit {
 
   private setCharts = (): any => this.charts = { charts: [this.abcGasScoreTrends, this.safetyScoreTrends, this.profitabilityScoreTrends] };
 
-  private activateDrilldown(name: string): void {
+  public activateDrilldown(name: string): void {
     const drilldownData = { ...this.loadScore(name), name };
     const popover = this.modalCtr.create(PMCDrilldownPage, drilldownData);
     popover.present();
@@ -85,7 +74,7 @@ export class PmcPage implements OnInit {
     return TRENDSDRILLDOWN.find(kpi => exp.test(kpi.name));
   }
 
-  private toggleTrendsIcon(): any {
+  public toggleTrendsIcon(): any {
     this.toggle = !this.toggle;
     this.toggle ? this.addToFavorites() : this.removeFromFavorites();
   }
@@ -104,7 +93,7 @@ export class PmcPage implements OnInit {
     this.favoritesService.showDeleteToast();
   }
 
-  private slidePrev = (): any => this.slides.slidePrev();
-  private slideNext = (): any => this.slides.slideNext();
+  public slidePrev = (): any => this.slides.slidePrev();
+  public slideNext = (): any => this.slides.slideNext();
   private setTrendsIcon = (): string => this.trendsIcon = this.scoreCardsFavorited ? 'star' : 'star-outline';
 }

@@ -2,8 +2,7 @@ import { Component, Input } from '@angular/core';
 import { SettingsService } from '../../services/settings.service';
 import { NativeService } from '../../services/native.service';
 import { ScreenshotsPage } from '../../pages/screenshots/screenshots';
-import { NavController, ModalController } from 'ionic-angular';
-import { AlertsPage } from '../../pages/alerts/alerts';
+import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'header-nav',
@@ -12,16 +11,15 @@ import { AlertsPage } from '../../pages/alerts/alerts';
 export class HeaderComponent {
   @Input() title: string;
 
-  image: any;
-  alertsPage: AlertsPage;
-
-  constructor(private settingsService: SettingsService,
-    private nativeService: NativeService, private modalCtrl: ModalController, private navCtrl: NavController) {
+  constructor(
+    private settingsService: SettingsService,
+    private nativeService: NativeService, 
+    private navCtrl: NavController) {
   }
 
-  private getBackground = (): string => this.settingsService.getBackground();
-  private getTextColor = (): string => this.settingsService.getTextColor();
-  private takeScreenShot = (): void => {
+  public getBackground = (): string => this.settingsService.getBackground();
+  public getTextColor = (): string => this.settingsService.getTextColor();
+  public takeScreenShot = (): void => {
     this.nativeService.screenShot().then(image => this.navCtrl.push(ScreenshotsPage, { image }));
   }
 }

@@ -1,5 +1,5 @@
 import { CardList, CardKpi } from '../app/models/card-list.model';
-import { DrilldownData, PMCTrendDrilldown, TrendDrilldown } from '../app/models/pmc-trends-drilldown.model';
+import { DrilldownData, TrendDrilldown } from '../app/models/pmc-trends-drilldown.model';
 import { Subject } from 'rxjs/Subject';
 import { ToastController } from 'ionic-angular';
 import { Injectable } from '@angular/core';

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 import { FinancePage } from '../finance/finance';
-import { ProjectsPage } from '../projects/projects';
 import { SettingsPage } from '../settings/settings';
 import { SettingsService } from '../../services/settings.service';
 import { AlertsPage } from '../alerts/alerts';
@@ -14,13 +13,13 @@ import { OrganizationPage } from '../organization/organization';
 })
 export class MorePage {
 
-  private financePage = FinancePage;
-  private organizationPage = OrganizationPage;
-  private settingsPage = SettingsPage;
-  private alertsPage = AlertsPage;
+  public financePage = FinancePage;
+  public organizationPage = OrganizationPage;
+  public settingsPage = SettingsPage;
+  public alertsPage = AlertsPage;
 
-  constructor(private settingsService: SettingsService) {}
+  constructor(public settingsService: SettingsService) {}
 
-  private getBackground = (): string => this.settingsService.getBackground();
-  private getTextColor = (): string => this.settingsService.getTextColor();
+  public getBackground = (): string => this.settingsService.getBackground();
+  public getTextColor = (): string => this.settingsService.getTextColor();
 }

@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CallNumber } from '@ionic-native/call-number';
-import { EmailComposer } from '@ionic-native/email-composer';
-import { SocialSharing } from '@ionic-native/social-sharing';
 import { NewsfeedPage } from '../../newsfeed/newsfeed';
 import {
   IonicPage,
   NavParams,
   ViewController,
-  ActionSheetController,
-  AlertController,
   NavController,
   LoadingController,
 } from 'ionic-angular';
@@ -34,11 +29,6 @@ export class PMCDrilldownPage implements OnInit {
     public navCtrl: NavController,
     public navParams: NavParams,
     private viewCtrl: ViewController,
-    private actionCtrl: ActionSheetController,
-    private callNumber: CallNumber,
-    private alertCtrl: AlertController,
-    private emailComposer: EmailComposer,
-    private socialSharing: SocialSharing,
     private newsApi: NewsApiService,
     private loaderCtrl: LoadingController,
     private settingsService: SettingsService,
@@ -54,15 +44,15 @@ export class PMCDrilldownPage implements OnInit {
     }));
   }
 
-  private onDismiss = (): Promise<any> => this.viewCtrl.dismiss();
+  public onDismiss = (): Promise<any> => this.viewCtrl.dismiss();
 
-  private onSelectCommentor(data: DrilldownData): void {
+  public onSelectCommentor(data: DrilldownData): void {
     const { commentor, commentorPhoneNumber, commentorEmail } = data;
     const actionSheet = this.nativeService.createActionSheet(commentor, commentorPhoneNumber, commentorEmail);
     actionSheet.present();
   }
 
-  private openNewsFeed(date: string): void {
+  public openNewsFeed(date: string): void {
     const loader = this.loaderCtrl.create({
       content: 'Loading Newsfeed'
     });
@@ -75,7 +65,7 @@ export class PMCDrilldownPage implements OnInit {
     });
   }
 
-  private onToggleDrilldown(name: string, data: DrilldownData): void {
+  public onToggleDrilldown(name: string, data: DrilldownData): void {
     data.clicked = !data.clicked;
     data.clicked ? this.addToFavorites(name, data) : this.removeFromFavorites(name, data);
   }
@@ -90,7 +80,7 @@ export class PMCDrilldownPage implements OnInit {
     this.favoritesService.showDeleteToast();
   }
 
-  private setDrilldownIcon = (drilldown: any): string =>  drilldown.clicked ? 'star' : 'star-outline';
-  private getBackground = (): string => this.settingsService.getBackground();
-  private getTextColor = (): string => this.settingsService.getTextColor();
+  public setDrilldownIcon = (drilldown: any): string =>  drilldown.clicked ? 'star' : 'star-outline';
+  public getBackground = (): string => this.settingsService.getBackground();
+  public getTextColor = (): string => this.settingsService.getTextColor();
 }

@@ -7,11 +7,11 @@ import { IonicPage, NavParams, ViewController } from 'ionic-angular';
   templateUrl: 'drilldown.html',
 })
 export class DrilldownPage {
-  project: any;
+  public project: any;
 
   constructor(public navParams: NavParams, private viewCtrl: ViewController) {
     this.project = this.navParams.data;
   }
 
-  private onDismiss = (): Promise<any> => this.viewCtrl.dismiss();
+  public onDismiss = (): Promise<any> => this.viewCtrl.dismiss();
 }
