@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavParams, ViewController } from 'ionic-angular';
 import { SettingsService } from '../../../services/settings.service';
 
 @IonicPage()
@@ -17,11 +17,11 @@ export class PmcScorecardPage implements AfterViewInit, OnInit {
     private settingsService: SettingsService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.scorecard = this.navParams.data;
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     if (this.scorecard.tableData) {
       this.scorecardHeaders = Object.keys(this.scorecard.tableData[0]);
     }

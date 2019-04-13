@@ -38,7 +38,7 @@ export class PMCDrilldownPage implements OnInit {
     this.drilldownData = this.navParams.data;
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.favoritesService.$favDrilldowns.subscribe(drilldowns => this.drilldownData.data.forEach(kpi => {
       kpi.clicked = drilldowns.indexOf(kpi) > -1 ? true : false;
     }));
@@ -53,10 +53,9 @@ export class PMCDrilldownPage implements OnInit {
   }
 
   public openNewsFeed(date: string): void {
-    const loader = this.loaderCtrl.create({
-      content: 'Loading Newsfeed'
-    });
+    const loader = this.loaderCtrl.create({ content: 'Loading Newsfeed' });
     loader.present();
+    
     this.newsApi.getNews('2018-03-10', '2018-03-19').subscribe((res: any) => {
       loader.dismiss();
       this.navCtrl.push(this.newsFeedPage, {

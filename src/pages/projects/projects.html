@@ -13,7 +13,8 @@
             [name]="trendsIcon"
             color="blueFont"
             tappable
-            item-end></ion-icon>
+            item-end>
+          </ion-icon>
         </ion-item>
       </ion-list>
     </ion-card-header>
@@ -24,7 +25,8 @@
             *ngIf="echartsData"
             (chartClickEmit)="prepDrilldown($event)"
             [data]="echartsData"
-            height="'150px'"></chart>
+            height="'150px'">
+          </chart>
         </ion-slide>
         <ion-slide>
           <chart *ngIf="echarts2Data" [data]="echarts2Data" height="'150px'"></chart>

@@ -5,8 +5,6 @@ import {
   OnChanges,
   Output,
 } from '@angular/core';
-import {NgxEchartsService} from 'ngx-echarts';
-import 'echarts-gl';
 
 @Component({
   selector: 'chart',
@@ -31,7 +29,7 @@ export class ChartComponent implements OnChanges {
   public chartLoading = false;
   public chartOptions = {};
 
-  constructor(private es: NgxEchartsService) {}
+  constructor() {}
 
   ngOnChanges(): void {
     if (this.echartsInstance && this.data) {
@@ -52,7 +50,7 @@ export class ChartComponent implements OnChanges {
     }
   }
 
-  public onChartClick(event: any) {
+  public onChartClick(event: any): void {
     this.chartClickEmit.emit(event);
   }
 }

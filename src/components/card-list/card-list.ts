@@ -29,14 +29,14 @@ export class CardListComponent implements OnChanges {
     private favoritesService: FavoritesService
   ) {}
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     this.cardIconName = this.favorited ? 'ios-trash-outline' : this.setCardIcon();
     if (this.favorited) {
       this.kpiIconName = this.partOfKpiFavoritesList ? 'ios-trash-outline' : '';
     }
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.subscribeToFavCardLists();
   }
 

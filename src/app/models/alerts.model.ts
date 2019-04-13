@@ -1,5 +1,3 @@
-
-
 export interface Alert {
   alertType: string;
   alertMessage: string;

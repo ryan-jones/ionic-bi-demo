@@ -15,7 +15,7 @@ export class AlertsPage {
 
   constructor(private settingsService: SettingsService, private alertService: AlertService) {}
 
- ngOnInit() {
+ ngOnInit(): void {
    this.alerts = this.alertService.alerts;
  }
 

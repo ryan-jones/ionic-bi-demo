@@ -1,5 +1,5 @@
 import { Component, ViewChild, Renderer2 } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { NativeService } from '../../services/native.service';
 
@@ -36,7 +36,7 @@ export class ScreenshotsPage {
     this.image = this.navParams.get('image');
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.canvasElement = this.canvas.nativeElement;
     this.renderer.setAttribute(this.canvasElement, 'width', this.platform.width() + '');
     this.renderer.setAttribute(this.canvasElement, 'height', this.platform.height() + '');

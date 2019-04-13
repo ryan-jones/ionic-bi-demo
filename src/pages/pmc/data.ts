@@ -1,4 +1,3 @@
-import { CardList } from '../../app/models/card-list.model';
 import { PMCTrendDrilldown } from '../../app/models/pmc-trends-drilldown.model';
 import {
   SAFETYBARCHARTDATA,

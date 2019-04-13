@@ -23,14 +23,14 @@ export class ProductionPage {
     private modalCtrl: ModalController,
     private alertService: AlertService) {
     this.slideCards = SLIDECHARTS;
-    this.width = platform.width();
+    this.width = this.platform.width();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.alerts = this.alertService.alerts.length;
   }
 
-  public activateModal(slide: any) {
+  public activateModal(slide: any): void {
     const modal = this.modalCtrl.create(ProductionDrilldownPage, slide);
     modal.present();
   }

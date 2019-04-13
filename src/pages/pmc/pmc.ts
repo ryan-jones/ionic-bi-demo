@@ -30,7 +30,7 @@ export class PmcPage implements OnInit {
 
   constructor(private modalCtr: ModalController, private favoritesService: FavoritesService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.setAbcGasScoreTrends();
     this.setProfitabilityScoreTrends();
     this.setSafetyScoreTrends();

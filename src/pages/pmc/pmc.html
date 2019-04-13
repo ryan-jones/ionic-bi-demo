@@ -13,7 +13,8 @@
             (click)="toggleTrendsIcon()"
             [name]="trendsIcon"
             color="blueFont"
-            item-end></ion-icon>
+            item-end>
+          </ion-icon>
         </ion-item>
       </ion-list>
     </ion-card-header>
@@ -24,21 +25,22 @@
           [scoreTrends]="abcGasScoreTrends"
           (clickedSlideNext)="slideNext($event)"
           (clickedSlidePrev)="slidePrev($event)"
-          (clickedDrilldown)="activateDrilldown('gas score')"></pmc-slides>
+          (clickedDrilldown)="activateDrilldown('gas score')">
+        </pmc-slides>
         </ion-slide>
         <ion-slide>
           <pmc-slides
-          [scoreTrends]="abcGasScoreTrends"
-          (clickedSlideNext)="slideNext($event)"
-          (clickedSlidePrev)="slidePrev($event)"
-          ></pmc-slides>
+            [scoreTrends]="abcGasScoreTrends"
+            (clickedSlideNext)="slideNext($event)"
+            (clickedSlidePrev)="slidePrev($event)">
+          </pmc-slides>
         </ion-slide>
         <ion-slide>
           <pmc-slides
-          [scoreTrends]="abcGasScoreTrends"
-          (clickedSlideNext)="slideNext($event)"
-          (clickedSlidePrev)="slidePrev($event)"
-          ></pmc-slides>
+            [scoreTrends]="abcGasScoreTrends"
+            (clickedSlideNext)="slideNext($event)"
+            (clickedSlidePrev)="slidePrev($event)">
+          </pmc-slides>
         </ion-slide>
       </ion-slides>
     </ion-card-content>

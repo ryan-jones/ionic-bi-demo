@@ -24,7 +24,7 @@ export class ProjectsPage implements OnInit {
 
   constructor(private modalCtrl: ModalController, private favoritesService: FavoritesService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.subscribeToSliderCharts();
     this.echartsData = echartsData;
     this.echarts2Data = echartsData2;
